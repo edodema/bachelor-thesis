@@ -8,5 +8,5 @@ int main() {
 		n *= 2;
 		i++;
 	}
-	printf("Computer has a %d bit architecture.\n", i);
+	printf("%d bit architecture.\n", i);
 }
