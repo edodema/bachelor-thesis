@@ -1,7 +1,7 @@
 ## C
 Il programma accede alle locazioni di memoria fuori dai limiti dell'array.
 
-## Rust
+## Rust
 Il programma stampa i valori legali e quando esce fuori dai limiti dell'array genera il seguente errore  
 ```
 thread 'main' panicked at 'index out of bounds: the len is 4 but the index is 4', bufof.rs:6:24
