@@ -1,5 +1,5 @@
 ## C 
 Il programma termina correttamente e riesco a leggere il valore definito nello scope della funzione.
 
-## Rust 
+## Rust 
 Si può passare un puntatore con una funzione e leggerlo fuori dallo scope di questa, non è però possibile accedere al contenuto della locazione puntata. 
