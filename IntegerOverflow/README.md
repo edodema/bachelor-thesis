@@ -1,3 +1,5 @@
+I computer hanno memoria finita e la rappresentazione dei numeri avviene tramite aritmetica modulare. Questo fa si che una volta arrivati al valore massimo si ricomincia.
+
 ## C 
 Il programma termina correttamente causando un integer overflow che rivela l'architettura di un sistema
 

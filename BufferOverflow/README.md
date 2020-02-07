@@ -1,10 +1,12 @@
-## C
-Il programma accede alle locazioni di memoria fuori dai limiti dell'array.
+Si ha un buffer overflow/overrun quando si tenta di scrivere oltre i confini di un buffer, invadendo quindi memoria che potrebbe appartenere ad altro codice.
+
+## C 
+L'esecuzione non dà problemi e si riesce a scrivere fuori dall'array (anche a leggere, vedere `BufferOverrun`). 
 
 ## Rust
-Il programma stampa i valori legali e quando esce fuori dai limiti dell'array genera il seguente errore  
+In Rust non è possibile scrivere fuori dai confini della memoria assegnata e viene generato dinamicamente il seguente output
 ```
-thread 'main' panicked at 'index out of bounds: the len is 4 but the index is 4', bufof.rs:6:24
+thread 'main' panicked at 'index out of bounds: the len is 3 but the index is 3', bufof.rs:7:9
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
 ```
-il controllo viene fatto dinamicamente e si verifica che l'indice sia coerente con la lunghezza dell'array.
+Suppongo il controllo non venga fatto staticamente per alleggerire di carico il compilatore. 

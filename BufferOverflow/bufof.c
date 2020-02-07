@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 int main() {
-	int arr[] = {0, 1, 2, 3};
-	for(int i = 0; i < 5; i++) {
-		printf("%d %d\n", i, arr[i]);
-	}
+	int arr[4];
+	for(int i=0; i <= 4; i++) arr[i]=i;
+	for(int i=0; i <= 4; i++) printf("arr[%d]: %d\n", i, arr[i]);
 }
