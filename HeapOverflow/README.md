@@ -9,7 +9,7 @@ heapof_c(17745,0x1072d95c0) malloc: *** set a breakpoint in malloc_error_break t
 ```
 
 ## Rust 
-Errore statico
+Compile time
 ```
 error: literal out of range for `i32`
  --> heapof.rs:2:23
