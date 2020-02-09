@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-void f() {
-	f();
-}
+void f();
 
 int main() {
 	f();
 }
 
-
+void f() {
+	f();
+}
