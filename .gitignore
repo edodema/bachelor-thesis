@@ -14,5 +14,9 @@ tex/paper.out
 tex/paper.run.xml
 tex/paper.synctex.gz
 tex/paper.toc
-*/bin
-*/output
+*/*/bin
+*/*/*/bin
+*/*/*/*/bin
+*/*/output
+*/*/*/output
+*/*/*/*/output
