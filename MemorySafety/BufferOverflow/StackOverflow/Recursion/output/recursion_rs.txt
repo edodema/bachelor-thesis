@@ -1,0 +1,16 @@
+$ rustc segfault.rs -o bin/segfault_rs
+warning: function cannot return without recursing
+ --> segfault.rs:3:1
+  |
+3 | fn f() {
+  | ^^^^^^ cannot return without recursing
+4 |     f();
+  |     --- recursive call site
+  |
+  = note: `#[warn(unconditional_recursion)]` on by default
+  = help: a `loop` may express intention better if this is on purpose
+
+$ ./bin/segfault_rs 
+
+thread 'main' has overflowed its stack
+fatal runtime error: stack overflow

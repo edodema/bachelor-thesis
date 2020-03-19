@@ -1,8 +1,11 @@
+#include <stdio.h>
 #include <stdlib.h>
-
+ 
 int main() {
-	int * p1 = malloc(sizeof(int));
-	int * p2 = p1;
-	free(p1);
-	free(p2);
+	int *p = (int *)malloc(sizeof(int));
+    int *q = p;
+    free(p);
+    // put unsafe code here pointed by p
+    free(q);
 }
+     

@@ -1,0 +1,2 @@
+$ ./bin/segfault_c
+[1]    22217 segmentation fault  ./bin/segfault_c

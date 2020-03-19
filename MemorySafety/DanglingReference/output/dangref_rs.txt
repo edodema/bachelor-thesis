@@ -1,0 +1,14 @@
+$ rustc dangref.rs -o bin/scope_rs 
+error[E0597]: `s2` does not live long enough
+ --> dangref.rs:5:13
+  |
+5 |         s = & s2;
+  |             ^^^^ borrowed value does not live long enough
+6 |     }
+  |     - `s2` dropped here while still borrowed
+7 |     println!("{}", s);
+  |                    - borrow later used here
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0597`.
