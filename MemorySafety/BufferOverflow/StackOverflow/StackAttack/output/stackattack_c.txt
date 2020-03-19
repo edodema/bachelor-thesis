@@ -10,4 +10,5 @@ str1:TVALUE, str2:EVILINPUTVALUE, valid:0
 
 $ ./bin/stackattack_c
 warning: this program uses gets(), which is unsafe.
+BADINPUTBADINPUT
 str1:BADINPUT, str2:BADINPUTBADINPUT, valid:1

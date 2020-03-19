@@ -45,16 +45,16 @@
 \clearpage 
 
 \section{Introduzione}
-Definiamo un'entità software \emph{memory-safe} quando non accede ad indirizzi di memoria fuori dal proprio address né esegue istruzioni fuori dall'area assegnatale da compilatore e linker \cite{paper:def}, un linguaggio che garantisce la memory-safety dei suoi programmi è detto a sua volta memory-safe.
+Definiamo un'entità software \emph{memory-safe} quando non accede ad indirizzi di memoria fuori dal proprio address space né esegue istruzioni fuori dall'area assegnatale da compilatore e linker \cite{paper:def}, un linguaggio che garantisce la memory-safety dei suoi programmi è detto memory-safe.
 
 \subsection{Configurazione della memoria}
-A tempo di compilazione avviene l'allocazione statica della memoria sul \emph{call stack} che cresce verso il basso, l'allocazione dinamica invece avviene tramite l'\emph{heap}: una zona di memoria che cresce verso l'altro in cui è possibile allocare dati la cui dimensione non è nota a tempo di compilazione \cite{gollmann:computersecurity}. Questo approccio consolidato è adottato da vari sistemi operativi UNIX e UNIX-like oltre che da compilatori di linguaggi quali C, Rust, Java e C++; quali strutture dati vengano allocate in quale area della memoria dipende dal linguaggio adottato, è prassi che sullo stack si allochino le chiamate a funzione, i tipi primitivi ed eventualmente puntatori a tipi composti mentre sull'heap dati composti e, se possibile, memoria allocata dinamicamente esplicitamente (ad esempio \texttt{malloc} in C e C++).
+A tempo di compilazione avviene l'allocazione statica della memoria sul \emph{call stack} che cresce verso il basso, l'allocazione dinamica invece avviene tramite l'\emph{heap}: una zona di memoria che cresce verso l'altro in cui è possibile allocare dati la cui dimensione non è nota a tempo di compilazione \cite{gollmann:computersecurity}. Questo approccio consolidato è adottato da vari sistemi operativi UNIX e UNIX-like oltre che da compilatori di linguaggi quali C, Rust, Java e C++; quali strutture dati vengano allocate in quale area della memoria dipende dal linguaggio, è prassi che sullo stack si allochino le chiamate a funzione, i tipi primitivi e puntatori mentre sull'heap compound types.
 
 \section{Violazione della memory-safety}
-Se in un linguaggio la gestione della memoria è lasciata al programmatore il linguaggio è generalmente unsafe (come C o C++), altri linguaggi quali Java o C\# risolvono questo problema nascondendo i puntatori al programmatore ed eseguendo automaticamente la gestione della memoria, obbligando il linguaggio ad eseguire i dovuti controlli. In Rust è possibile fare riferimento esplicito alla memoria tramite puntatori ma bisogna distinguere \emph{Safe Rust} e \emph{Unsafe Rust}, nel secondo è infatti presente l'aritmetica dei puntatori del C purché sia in un blocco (\texttt{unsafe} nel quale si possono usare anche funzioni e librerie scritte in C) mentre in Safe Rust esistono i raw pointer ma non è possibile dereferenziarli.  
+Se in un linguaggio la gestione della memoria è lasciata al programmatore il linguaggio è generalmente unsafe (come C o C++), altri linguaggi quali Java o C\# risolvono questo problema nascondendo i puntatori al programmatore ed eseguendo automaticamente la gestione della memoria, obbligando il linguaggio ad eseguire i dovuti controlli. In Rust è possibile fare riferimento esplicito alla memoria tramite puntatori ma bisogna distinguere tra \emph{Safe Rust} e \emph{Unsafe Rust}, nel secondo è infatti presente l'aritmetica dei puntatori del C purché sia in un blocco \texttt{unsafe} (nel quale si possono usare anche funzioni e librerie scritte in C) mentre in Safe Rust esistono i raw pointer ma non è possibile dereferenziarli.  
 
 \subsection{Politica di sicurezza}
-È molto difficile definire la sicurezza in Rust anche solo per il fatto che non c'è una definizione precisa
+È molto difficile definire cosa sia la sicurezza in Rust anche solo per il fatto che non c'è una definizione precisa
 \begin{center}
 	\textit{"Unsafe operations are those that can potentially violate the memory-safety guarantees of Rust's static semantics."}\cite[14]{rust:reference} \\
 	\textit{"There is no formal model of Rust's semantics for what is and is not allowed in unsafe code"}\cite[14.3]{rust:reference}
@@ -63,7 +63,7 @@ La definizione più consistente è che Safe Rust non causi \emph{undefined behav
 
 \subsubsection{Buffer Overflow}
 Avviene quando in un buffer si possono inserire dati di dimensione maggiore della sua capacità sovrascrivendo così altre informazioni \cite{nist:800}. 
-Un esempio esplicativo ed interessante di buffer overflow in C è il seguente ~\cite[7.5]{stallings:os}: dato che gli array sono posizionati uno dopo l'altro (in ordine LIFO essendo dati allocati su uno stack) si riesce a leggere e scrivere su \texttt{str1} eludendo anche il controllo di uguaglianza. In Rust questa cosa non è possibile, si veda nel listato \ref{lst:bufofrs} come il linguaggio esegua dei \emph{boundary-check}, esattamente ciò che la funzione \texttt{gets} non fa.
+Un esempio esplicativo ed interessante di buffer overflow in C è il seguente ~\cite[7.5]{stallings:os}: dato che gli array sono posizionati uno dopo l'altro (in ordine LIFO essendo dati allocati su uno stack) si riesce a leggere e scrivere su \texttt{str1} eludendo anche il controllo di uguaglianza, nel terzo caso è vero perché si confrontano solo i primi 8 caratteri. In Rust questa cosa non è possibile, si veda nel listato \ref{lst:bufofrs} come il linguaggio esegua dei \emph{boundary-check}, esattamente ciò che la funzione \texttt{gets} non fa. 
 
 \lstinputlisting{../MemorySafety/BufferOverflow/StackOverflow/StackAttack/stackattack.c}
 \lstinputlisting[caption={Stack overflow in C}, label={lst:stackoverflowc}]{../MemorySafety/BufferOverflow/StackOverflow/StackAttack/output/stackattack_c.txt}
@@ -72,7 +72,7 @@ Un esempio esplicativo ed interessante di buffer overflow in C è il seguente ~\
 \lstinputlisting[caption=Buffer overflow in Rust, label={lst:bufofrs}]{../MemorySafety/BufferOverflow/output/bufof_rs.txt}
 
 \subsubsection{Stack Overflow}
-Quando si chiama una funzione si salva lo stack frame sul call stack e può capitare che chiamate ricorsive facciano entrare il programma in uno stato di non terminazione, Rust prima identifica staticamente la ricorsione infinita e poi segnala anche dinamicamente l'overflow.
+Quando si chiama una funzione si salva lo stack frame sul call stack e può capitare che chiamate ricorsive facciano entrare il programma in uno stato di non terminazione, Rust prima identifica staticamente la ricorsione infinita e poi segnala anche dinamicamente l'overflow. In C l'errore che si vede è dato dal sistema operativo (macOS Catalina 10.15.3) perché con questa ricorsione infinita si prova ad accedere ad un segmento  di memoria cui il programma non può.
 
 \lstinputlisting{../MemorySafety/BufferOverflow/StackOverflow/Recursion/recursion.c}
 \lstinputlisting[caption={Stack overflow ricorsivo in C}, label={lst:recursionc}]{../MemorySafety/BufferOverflow/StackOverflow/Recursion/output/recursion_c.txt}
@@ -81,7 +81,7 @@ Quando si chiama una funzione si salva lo stack frame sul call stack e può capi
 \lstinputlisting[caption={Stack overflow ricorsivo in Rust}, label={lst:recursionrs}]{../MemorySafety/BufferOverflow/StackOverflow/Recursion/output/recursion_rs.txt}
 
 \subsubsection{Integer Overflow}
-Dal momento che la memoria ha una dimensione limitata le operazioni vengono eseguite in aritmetica modulare e sommando oltre il limite superiore concesso dall'architettura si ha un overflow. Spesso ha causato problemi molto seri e il C non lo gestisce, lo stesso fa Rust se si compila in \texttt{release} mentre in \texttt{debug} - default - interrompe l'esecuzione, il programma qui sotto ci rivela comunque l'architettura del sistema perché si stampa ad ogni iterazione ma non si può dire sia una violazione di sicurezza perché non potrebbe fare altrimenti, inoltre l'integer overflow diventa davvero interessante quando permette di sfruttare altre vulnerabilità (i.e. buffer overflow) \cite[10.2.3]{gollmann:computersecurity}. 
+Dal momento che la memoria ha una dimensione limitata le operazioni vengono eseguite in aritmetica modulare e sommando oltre il limite superiore concesso dall'architettura si ha un overflow. Spesso ha causato problemi molto seri e il C non lo gestisce, lo stesso fa Rust se si compila in \texttt{release} mentre in \texttt{debug} interrompe l'esecuzione, il programma qui sotto ci rivela comunque l'architettura del sistema perché si stampa ad ogni iterazione ma non si può dire sia una violazione di sicurezza perché non potrebbe fare altrimenti, inoltre l'integer overflow diventa davvero interessante quando combinato ad altre vulnerabilità (i.e. buffer overflow) \cite[10.2.3]{gollmann:computersecurity}. 
 
 \lstinputlisting{../MemorySafety/IntegerOverflow/intof.c}
 \lstinputlisting[caption={Integer overflow in C}, label={lst:integeroverflowc}]{../MemorySafety/IntegerOverflow/output/intof_c.txt}
@@ -90,8 +90,8 @@ Dal momento che la memoria ha una dimensione limitata le operazioni vengono eseg
 \lstinputlisting[caption={Integer overflow in Rust}, label={lst:integeroverflowrs}]{../MemorySafety/IntegerOverflow/output/intof_rs.txt}
 
 \subsubsection{Double-Free} \label{sec:double_free}
-Si ha un \textit{double free error} \cite[10.4.4]{gollmann:computersecurity} quando si hanno due puntatori alla stessa locazione e si tenta di liberare entrambi. È una vulnerabilità perché la memoria è divisa in blocchi posizionati in double-linked list chiamate \textit{bin}, quando un blocco viene liberato lo si unisce con i suoi vicini liberi in un unico bin; a questo punto la vulnerabilità si presenta se non si pone il puntatore appena liberato a \texttt{null} e si potrà accedere ad una zona di memoria addirittura maggiore di quella liberata in precedenza (inoltre C non inizializza la memoria dopo che una variabile esce dal suo scope quindi il nuovo bin è completamente leggibile) fino a che non si deciderà di liberare il secondo puntatore. In Rust questo non è possibile grazie all'\textit{ownership} infatti una zona di memoria può avere al massimo un puntatore, se si esegue un assegnamento ad un nuovo puntatore il primo diventa invalido.
-A onor del vero in C tutto questo è possibile è possibile anche senza double free perché si può accedere a qualsiasi locazione, se un linguaggio lo vietasse però dovrebbe tener conto di questa vulnerabilità.
+Si ha un \textit{double free error} \cite[10.4.4]{gollmann:computersecurity} quando si hanno due puntatori alla stessa locazione e si tenta di liberare entrambi. È una vulnerabilità perché la memoria è divisa in blocchi posizionati in double-linked list chiamate \textit{bin}, quando un blocco viene liberato lo si unisce con i suoi vicini liberi in un unico bin; a questo punto la vulnerabilità si presenta se non si pone il puntatore appena liberato a \texttt{null} e si potrà accedere ad una zona di memoria addirittura maggiore di quella liberata in precedenza fino a che non si deciderà di liberare il secondo puntatore. In Rust questo non è possibile grazie all'\textit{ownership} infatti una zona di memoria può avere al massimo un puntatore, se si esegue un assegnamento ad un nuovo puntatore il primo diventa invalido.
+A onor del vero in C tutto questo è possibile anche senza double free perché si può accedere a qualsiasi locazione, se un linguaggio lo vietasse però dovrebbe tener conto di questa vulnerabilità.
 
 \lstinputlisting{../MemorySafety/DoubleFree/doublefree.rs}
 \lstinputlisting[caption={Ownership}, label={lst:ownership}]{../MemorySafety/DoubleFree/output/doublefree_rs.txt}
@@ -106,7 +106,7 @@ Quando un oggetto viene eliminato ma il suo puntatore no si ha un \textit{dangli
 \lstinputlisting[caption={Dangling reference in Rust}, label={lst:dangrefrs}]{../MemorySafety/DanglingReference/output/dangref_rs.txt}
 
 \subsection{Type Safety}
-La \textit{type-safety} è spesso associata alla memory-safety perché si pensa alle vulnerabilità in memoria sfruttando il sistema dei tipi come nella sezione \ref{sec:type_confusion}. Una definizione che distingue la type-safety dalla memory-safety si concentra sul fatto che nella semantica operazionale di un linguaggio type-safe ogni operazione se viene valutata allora termina \cite{typesafety}. 
+La \textit{type-safety} è spesso associata alla memory-safety perché si pensa alle violazioni in memoria sfruttando il sistema dei tipi e se ne ha un esempio nella sezione \ref{sec:type_confusion}. Una definizione che distingue la type-safety dalla memory-safety si concentra sul fatto che nella semantica operazionale di un linguaggio type-safe ogni operazione se viene valutata allora termina \cite{typesafety}. 
 
 \subsubsection{Type Confusion} \label{sec:type_confusion}
 Nel listato \ref{lst:lilliputc} si alloca un array di short ($\SI{2}{\byte} $) staticamente, andrà quindi sullo stack e considerando che il computer su cui ho eseguito il programma monta un processore Intel - little endian- si ha la seguente rappresentazione in memoria
