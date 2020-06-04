@@ -1,8 +1,8 @@
 fn main() {
-    let s: &String;
+    let s1: &String;
     {
         let s2 = String::from("Hello");
-        s = & s2;
+        s1 = &s2;
     }
-    println!("{}", s);
+    println!("{}", s1);
 }

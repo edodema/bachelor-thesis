@@ -1,2 +1,0 @@
-$ ./bin/lilliput_c
-65536    
