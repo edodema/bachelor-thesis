@@ -8,7 +8,13 @@ struct Message {
 	char text[32];
 };
 
-void send_message(char *, char *, char *);
+void send_message(char * from, char * to, char * text) {
+	struct Message * mess = malloc(sizeof(struct Message));
+	strcpy(mess->from, from);
+	strcpy(mess->to, to);
+	strcpy(mess->text, text);
+	printf("%p\n", mess);
+}
 
 int main() {
 	send_message("Guido", "Carla", "asa nisi masa");
@@ -18,12 +24,4 @@ int main() {
 	scanf("%p", &ptr);
 
 	printf("[%s, %s, %s]\n", ptr, ptr+8, ptr+16);
-}
-
-void send_message(char * from, char * to, char * text) {
-	struct Message * mess = malloc(sizeof(struct Message));
-	strcpy(mess->from, from);
-	strcpy(mess->to, to);
-	strcpy(mess->text, text);
-	printf("%p\n", mess);
 }
