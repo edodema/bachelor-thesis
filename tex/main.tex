@@ -48,6 +48,35 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
+\lstdefinelanguage{Rust}{
+  sensitive = true,
+  keywords={},
+  otherkeywords={% Operators
+    0x, 0o, 0b,
+    i8, i16, i32, i64, i32, i128, isize, 
+    u8, i16, u32, u64, u32, u128, usize, 
+    f8, f16, f32, f64, f32, f128, fsize
+  },
+  keywords = [2]{fn, if, in, for, let, match, unsafe, while},
+  keywords = [3]{as, const, move, mut},
+  keywordstyle=\color{codepurple},
+  keywordstyle=[2]\color{MidnightBlue},
+  keywordstyle=[3]\color{Rhodamine},
+  numbers=left,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=top,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{codegreen}\ttfamily,
+  stringstyle=\color{orange}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+  }
+
 \lstdefinestyle{mycode}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
@@ -123,7 +152,7 @@ Il lifetime di un dato ne limita la validità in un intervallo che inizia con la
 \begin{myDefinition}{Ownership}{ownership}
     L'ownership rappresenta il possesso di un right value da parte di un left value (rispettivamente l'insieme delle espressioni che compaiono a destra e sinistra di un assegnamento). Al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e con un assegnamento ad una seconda variabile la prima perde di validità. In ogni caso un owner viene invalidato quando si esce dal suo scope, bisogna porre particolare attenzione in questo caso perché se passiamo la nostra variabile ad una funzione questa sarà invalidata: la nuova variabile sarà nel corpo della funzione e terminato il suo scope non sarà più possibile accedere all'oggetto.
 
-    \lstinputlisting[caption={Ownership}, label={lst:ownership}]{../code/Ownership/own.rs}
+    \lstinputlisting[language=Rust,caption={Ownership}, label={lst:ownership}]{../code/Ownership/own.rs}
 \end{myDefinition}
 
 L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza garbage collector, le restrizioni però risultano eccessive quando si ha una chiamata di funzione e in generale non sempre è desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing. 
@@ -131,15 +160,15 @@ L'ownership è fondamentale per garantire una gestione automatica e sicura della
 \begin{myDefinition}{Borrowing}{borrowing}
     Tramite il borrowing non si prende possesso di un valore ed è possibile avere più riferimenti ~\cite[4.2]{rust:language} in sola lettura alla stessa variabile, tramite il modificatore \colorbox{backcolour}{\texttt{mut}} si può creare un riferimento modificabile a patto che in qualsiasi momento per ogni variabile se ne abbia al più uno. Un modulo chiamato \textbf{borrow checker} garantisce a tempo di compilazione che finché esistono dei riferimenti ad un oggetto l'oggetto stesso non possa essere distrutto. 
 
-    \lstinputlisting[caption={Borrowing}, label={lst:borrowing}]{../code/Borrowing/borr.rs}
+    \lstinputlisting[language=Rust,caption={Borrowing}, label={lst:borrowing}]{../code/Borrowing/borr.rs}
 \end{myDefinition}
 
 I lifetime sono vitali per il corretto funzionamento di ownership e borrowing: nel borrowing vietano il riferimento ad una risorsa da parte di una variabile il cui lifetime include strettamente quello della risorsa, in Rust si dice quindi che vi sopravvive (outlive), nell'ownership invece è concesso perché l'owner è sempre e solo uno (listati \ref{lst:lifetime_borrowing} e \ref{lst:lifetime_ownership}) . 
 
-\lstinputlisting{../code/Lifetime/life_bor.rs}
+\lstinputlisting[language=Rust]{../code/Lifetime/life_bor.rs}
 \lstinputlisting[caption={Lifetime e borrowing}, label={lst:lifetime_borrowing}]{../code/Lifetime/output/life_bor.txt}
 
-\lstinputlisting{../code/Lifetime/life_own.rs}
+\lstinputlisting[language=Rust]{../code/Lifetime/life_own.rs}
 \lstinputlisting[caption={Lifetime e ownership}, label={lst:lifetime_ownership}]{../code/Lifetime/output/life_own.txt}
 
 In Rust gli assegnamenti memorizzano il solo riferimento di un oggetto e si parla di \textbf{shallow copy}, è comunque possibile eseguire \textbf{deep copy} ovvero copiare il valore di un oggetto tramite il trait (simile a quello che in Java è un'interfaccia) \colorbox{backcolour}{\texttt{Clone}}.
@@ -191,7 +220,7 @@ Nella citazione riportata sono presenti fonti di confusione: nella stessa frase 
 
 È ragionevole che questo sia possibile solo in unsafe Rust ma mette in luce come la documentazione sia poco chiara. 
 
-\lstinputlisting{../code/Unsafe/raw.rs}
+\lstinputlisting[language=Rust]{../code/Unsafe/raw.rs}
 \lstinputlisting[caption={Raw pointer dereferencing in un blocco \texttt{unsafe}}, label={lst:unsafe_raw}]{../code/Unsafe/output/rawrs.txt}
 
 \begin{figure}[h!t]
@@ -219,15 +248,15 @@ Questo approccio è stato reso popolare dal C ed è oggi adottato da numerosi li
 \section{Buffer Overflow} \label{sec:buffer_overflow}
 Un \textbf{buffer} è una qualsiasi zona contigua di memoria contenente istanze dello stesso dato e ne definisce i limiti, se durante l'esecuzione si riescono a superare si parla di \textbf{buffer overflow} ed è possibile leggere o scrivere oltre il proprio address space. Un esempio di buffer overflow in C è nel listato \ref{lst:stackoverflowc} ~\cite[7.5]{stallings:os}: dato che gli array sono posizionati uno dopo l'altro (in ordine LIFO essendo dati allocati su uno stack) si riesce a leggere e scrivere su \texttt{str1} eludendo anche il controllo di uguaglianza, nel terzo caso questo controllo viene superato perché si confrontano solo i primi 8 caratteri. In Rust questo non è possibile, si veda nel listato \ref{lst:bufofrs} come il linguaggio esegua dei controlli sulle dimensioni degli array, esattamente ciò che la funzione \texttt{gets} non fa. 
 
-\lstinputlisting{../code/BufferOverflow/StackOverflow/StackAttack/stackattack.c}
+\lstinputlisting[language=C]{../code/BufferOverflow/StackOverflow/StackAttack/stackattack.c}
 \lstinputlisting[caption={Buffer overflow in C}, label={lst:stackoverflowc}]{../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_c.txt}
 
-\lstinputlisting{../code/BufferOverflow/bufof.rs}
+\lstinputlisting[language=Rust]{../code/BufferOverflow/bufof.rs}
 \lstinputlisting[caption=Buffer overflow in Rust, label={lst:bufofrs}]{../code/BufferOverflow/output/bufof_rs.txt}
 
 La pericolosità del buffer overflow è dovuta alla possibilità di eseguire codice arbitrario ovvero \textbf{code injection}, nel listato \ref{lst:injection} se ne ha un esempio molto semplice, per la stringa in input non si ha alcun tipo di bound check ed è possibile scrivere un comando che verrà eseguito da \colorbox{backcolour}{\texttt{system()}} con gli stessi permessi con cui si esegue il file. 
 
-\lstinputlisting{../code/Injection/inj.c}
+\lstinputlisting[language=C]{../code/Injection/inj.c}
 \lstinputlisting[caption={Code injection in C}, label={lst:injection}]{../code/Injection/output/inj.txt}
 
 Esistono code injection più sofisticati che sfruttando le istruzioni in assembly di un programma possono eseguire codice arbitrario sfruttando la rappresentazione in memoria di un processo ~\cite{stack_smashing_ffp}, questo è costituito da tre regioni:
@@ -243,10 +272,10 @@ Esistono code injection più sofisticati che sfruttando le istruzioni in assembl
 \section{Stack Overflow}
 Quando si chiama una funzione si salva lo \textbf{stack frame} (noto anche come \textbf{activation record} è una zona del call stack contenente dati necessari alla funzione attualmente in esecuzione) e può capitare che chiamate ricorsive facciano entrare il programma in uno stato di non terminazione, Rust individua a tempo di compilazione la ricorsione infinita e segnala l'overflow a tempo di esecuzione. In C l'errore che si vede è dato dal sistema operativo (macOS Catalina 10.15.3) perché con questa ricorsione infinita si prova ad accedere ad un frammento di memoria protetto.
 
-\lstinputlisting{../code/BufferOverflow/StackOverflow/Recursion/recursion.c}
+\lstinputlisting[language=C]{../code/BufferOverflow/StackOverflow/Recursion/recursion.c}
 \lstinputlisting[caption={Stack overflow ricorsivo in C}, label={lst:recursionc}]{../code/BufferOverflow/StackOverflow/Recursion/output/recursion_c.txt}
 
-\lstinputlisting{../code/BufferOverflow/StackOverflow/Recursion/recursion.rs}
+\lstinputlisting[language=Rust]{../code/BufferOverflow/StackOverflow/Recursion/recursion.rs}
 \lstinputlisting[caption={Stack overflow ricorsivo in Rust}, label={lst:recursionrs}]{../code/BufferOverflow/StackOverflow/Recursion/output/recursion_rs.txt}
 \end{comment}
 %%%%%%%%%%%%%
@@ -269,23 +298,23 @@ L'integer overflow ha in passato causato problemi molto seri: durante il volo in
 
 Differenti linguaggi adottano differenti approcci: se si può prevedere il valore massimo possibile in un programma allora è in generale facile evitare integer overflow; in caso contrario si possono utilizzare metodi dinamici come in Rust. 
 
-\lstinputlisting{../code/IntegerOverflow/intof.rs}
+\lstinputlisting[language=Rust]{../code/IntegerOverflow/intof.rs}
 \lstinputlisting[caption={Integer overflow in Rust}, label={lst:integeroverflowrs}]{../code/IntegerOverflow/output/intof_rs.txt}
 
 Nel listato \ref{lst:integeroverflowc} si prende un intero come primo argomento e una stringa - idealmente di lunghezza pari al primo argomento - come secondo. Il problema sorge nella conversione da integer a short, inserendo come primo argomento 65536 ($2^{16}$ che non è rappresentabile con i soli 16 bit di uno short) si causa un buffer overflow, combinandone la pericolosità con la difficoltà di rivelamento dell'integer overflow.
 
-\lstinputlisting{../code/IntegerOverflow/width1.c}
+\lstinputlisting[language=C]{../code/IntegerOverflow/width1.c}
 \lstinputlisting[caption={Integer overflow in C}, label={lst:integeroverflowc}]{../code/IntegerOverflow/output/width1_c.txt}
 
 \section{Double-Free} \label{sec:double_free}
 Si ha un double free error ~\cite[10.4.4]{gollmann:computersecurity} quando si prova a liberare più volte la stessa zona di memoria e in Rust non è possibile grazie all'ownership, nel listato \ref{lst:doublefree_rs} si può vedere come \texttt{s1} perda validità dopo aver trasferito a \texttt{s2} il possesso della stringa cui puntava.
 
-\lstinputlisting{../code/DoubleFree/doublefree.rs}
+\lstinputlisting[language=Rust]{../code/DoubleFree/doublefree.rs}
 \lstinputlisting[caption={Double free in Rust}, label={lst:doublefree_rs}]{../code/DoubleFree/output/doublefree_rs.txt}
 
 In C invece si può osservare il codice nel listato \ref{lst:doublefree_c}: si immagini di avere un servizio ad iscrizione salvando ogni utente tramite una struct \texttt{User}: Guido libera la propria memoria che, disponibile, potrà memorizzare \texttt{Luisa} che si è appena iscritta. Il puntatore \texttt{Guido} però ora punta all'account di Luisa e con \texttt{free(Guido)} proprio l'account di Luisa viene eliminato con il risultato che non solo Luisa non ha più un account ma a quello di Carla possono accedere sia Guido che Luisa.
 
-\lstinputlisting{../code/DoubleFree/doublefree.c}
+\lstinputlisting[language=C]{../code/DoubleFree/doublefree.c}
 \lstinputlisting[caption={Double free in C}, label={lst:doublefree_c}]{../code/DoubleFree/output/doublefree_c.txt}
 
 Il puntatore \texttt{Guido} è anche un \textbf{dangling pointer} (sezione \ref{sec:dangling_reference}).
@@ -295,12 +324,12 @@ Quando un oggetto viene eliminato ma il suo puntatore no si ha un dangling point
 
 Immaginiamo ora che per vendicarsi Luisa abbia scritto un semplice sistema di messaggistica per leggere la corrispondenza di Guido, la procedura \texttt{send\_message} crea un puntatore di tipo \texttt{Message} che ha scope solo ed esclusivamente dentro \texttt{send\_message} ma facendo riferimento esplicito a quella locazione Luisa riesce a leggere il messaggio di Guido anche dopo che questo non esiste più. Nel listato \ref{lst:dangrefc} l'indirizzo viene stampato a schermo e inserito dall'utente (indicato da "$>$") per semplicità.
 
-\lstinputlisting{../code/DanglingReference/dangref.c}
+\lstinputlisting[language=C]{../code/DanglingReference/dangref.c}
 \lstinputlisting[caption={Dangling pointer in C}, label={lst:dangrefc}]{../code/DanglingReference/output/dangref_c.txt}
 
 In Rust non possiamo usare i puntatori perché l'ownership ci obbliga ad avere un puntatore solo e una volta disabilitato non possiamo più accedere a quell'area di memoria né si può leggere la locazione perché non è permesso il raw dereferencing; possiamo usare però le reference, nel listato \ref{lst:dangrefrs} \colorbox{backcolour}{\texttt{s1}} è una shallow copy di \texttt{s2}, la prima però sopravvive alla seconda e il borrow checker interviene, non è possibile quindi avere dangling reference.
 
-\lstinputlisting{../code/DanglingReference/dangref.rs}
+\lstinputlisting[language=Rust]{../code/DanglingReference/dangref.rs}
 \lstinputlisting[caption={Dangling reference in Rust}, label={lst:dangrefrs}]{../code/DanglingReference/output/dangref_rs.txt}
 
 \clearpage
@@ -325,27 +354,27 @@ con programmi che "vanno male" si possono intendere programmi non sound o che ge
 \section{Type casting}
 Quando si esegue un'operazione tra oggetti di tipo differente può rivelarsi necessaria una conversione di tipo (type casting) e può essere esplicita o implicita, nel secondo caso si parla di \textbf{coercion}. Tipicamente i linguaggi con type checking forte eseguono pochi casting impliciti e quelli con type checking dinamico molti, Rust è fortemente tipato e non c'è coercion invece in C che è debolmente tipato sì.   
 
-\lstinputlisting{../code/TypeConversion/coercion.c}
+\lstinputlisting[language=C]{../code/TypeConversion/coercion.c}
 \lstinputlisting[caption={Casting implicito in C}, label={lst:coercionc}]{../code/TypeConversion/output/coercion_c}
 
-\lstinputlisting{../code/TypeConversion/coercion.rs}
+\lstinputlisting[language=Rust]{../code/TypeConversion/coercion.rs}
 \lstinputlisting[caption={Casting in Rust}, label={lst:coercionrs}]{../code/TypeConversion/output/coercion_rs}
 
 Rust non ha casting implicito perché può portare a vulnerabilità, un esempio di questa vulnerabilità è un bug del 2002 nel sistema operativo FreeBSD per cui in alcune chiamate di sistema si assumeva a priori che il valore in input fosse un intero positivo nonostante nella definizione della funzione il tipo fosse \texttt{int}. I programmatori data l'assunzione fatta non gestivano  il caso di un intero negativo tramite boundary check, questo valore veniva poi passato a \colorbox{backcolour}{\texttt{memcpy()}} che prende un \texttt{unsigned int} e a causa della coercion un valore come $-1$ veniva convertito in $2^{32}-1$, valore che non avrebbe superato il boundary check. Inserendo numeri negativi abbastanza grandi era possibile copiare una porzione di memoria riservata al kernel ~\cite{freeBSD_vulnerability}. Per chiarezza nel listato \ref{lst:freebsd} è stato riproposto del codice a grandi linee, il problema è la conversione di \colorbox{backcolour}{\texttt{maxlen}} che supera il controllo a riga 11 e viene convertita da intero a intero positivo a riga 12. 
 
-\lstinputlisting[label={lst:freebsd}]{../code/Unsafe/FreeBSD.c} 
+\lstinputlisting[language=C,label={lst:freebsd}]{../code/Unsafe/FreeBSD.c} 
 
 \section{Type initialization} \label{sec:type_initialization}
 In C quando si dichiara una variabile è buona norma inizializzarla perché il valore assegnatale è quello già presente nelle locazioni di memoria assegnate. Fortunatamente ad oggi C è un caso raro tra i linguaggi di programmazione e ad una variabile appena dichiarata viene assegnato un valore di default: $0$ per i numeri, la stringa vuota per le stringhe e un valore speciale \texttt{NULL} per gli oggetti.
 
 Il valore \texttt{NULL} fu introdotta da Tony Hoare nel 1964 e nel 2009 lui stesso lo definì il suo errore da un miliardo di dollari ~\cite{hoare:billion_dollar_mistake} perché ha portato a numerose sviste ed errori da parte dei programmatori: in C compilando con \textit{gcc} un puntatore a \texttt{NULL} punta a una locazione $0$ riservata (listato \ref{lst:nullreferencec}) e la sua dereferenza causa l'interruzione del programma. 
 
-\lstinputlisting{../code/NullPointer/null.c}
+\lstinputlisting[language=C]{../code/NullPointer/null.c}
 \lstinputlisting[caption={Null reference in C}, label={lst:nullreferencec}]{../code/NullPointer/output/null_c.txt}
 
 In Rust non esiste \texttt{NULL} come in C ma si ha il tipo polimorfo \colorbox{backcolour}{\texttt{Option<T>}} il quale può assumere i valori \colorbox{backcolour}{\texttt{Some<T>}} e \colorbox{backcolour}{\texttt{None}}. Nel listato \ref{lst:nullreferencers} si può vedere come un \colorbox{backcolour}{\texttt{Box<i32>}} (rappresenta un puntatore di un intero a $32$ byte sull'heap) senza alcun valore punti ad un \colorbox{backcolour}{\texttt{None}} di tipo \texttt{Option<Box<i32>{}>} e non ad un valore speciale \texttt{NULL} che si colloca meno coerentemente nel sistema dei tipi.
 
-\lstinputlisting{../code/NullPointer/null.rs}
+\lstinputlisting[language=Rust]{../code/NullPointer/null.rs}
 \lstinputlisting[caption={Null reference in Rust}, label={lst:nullreferencers}]{../code/NullPointer/output/null_rs.txt}
 
 \section{Immutability}
@@ -361,12 +390,12 @@ In C non c'è una vera e propria immutabilità, ramite il modificatore \colorbox
 
 L'esecuzione del programma è interrotta dal sistema operativo perché \colorbox{backcolour}{\texttt{accum}} è read-only, in C non c'è alcun controllo.
 
-\lstinputlisting{../code/Concurrency/thread.c}
+\lstinputlisting[language=C]{../code/Concurrency/thread.c}
 \lstinputlisting[caption={Costanti e thread in C}, label={lst:concurrencyc}]{../code/Concurrency/output/concurrency_c.txt}
 
 Il programma nel listato \ref{lst:concurrencyrs} funziona perfettamente, in safe Rust non c'è il pericolo che un valore immutabile venga modificato da un riferimento perché non è possibile dereferenziare un puntatore, vale la pena però notare che in tutto il programma non compaia mai il modificatore \colorbox{backcolour}{\texttt{mut}}. La funzione \colorbox{backcolour}{\texttt{thread::spawn()}} prende in input una \textbf{closure}, è come una funzione anonima in Java e all'interno delle doppie pipe \colorbox{backcolour}{\texttt{||}} si inseriscono i parametri in input, in questo caso nessuno. La parola chiave \colorbox{backcolour}{\texttt{move}} dà alla closure l'ownership delle variabili che usa evitando così che un thread (\texttt{main} compreso) modifichi una risorsa usata da un altro oggetto, solo una variabile per volta potrà avere l'ownership della risorsa in questione, si garantisce la mutua esclusione e si evitano race condition a tempo di compilazione ~\cite[5.6]{rust:language_2}. Per la sincronizzazione tra thread si utilizzano le funzioni \colorbox{backcolour}{\texttt{channel}}. 
 
-\lstinputlisting{../code/Concurrency/thread.rs}
+\lstinputlisting[language=Rust]{../code/Concurrency/thread.rs}
 \lstinputlisting[caption={Concorrenza in Rust}, label={lst:concurrencyrs}]{../code/Concurrency/output/concurrency_rs.txt}
 
 \section{Rapporto con Memory Safety}
@@ -390,11 +419,11 @@ il puntatore \texttt{p} punta al primo elemento ma essendo \texttt{int} legge $\
 \]
 che in decimale equivale a $ 2^{16} = 65536 $. È evidente che la causa di questa confusione sia la la lettura di un solo oggetto da $4$ byte anziché due oggetti da 2, questo avviene a causa della rappresentazione di due tipi differenti e del casting che C permette contrariamente a Rust.
 
-\lstinputlisting{../code/TypeSafety/Lilliput/lilliput.c}
+\lstinputlisting[language=C]{../code/TypeSafety/Lilliput/lilliput.c}
 \lstinputlisting[caption={Type confusion in C}, label={lst:lilliputc}]{../code/TypeSafety/Lilliput/output/lilliput_c.txt}
 
 %In Rust non si può proprio puntare ad una variabile con un tipo differente da quello della variabile stessa.
-%\lstinputlisting{../code/TypeSafety/Lilliput/lilliput.rs}
+%\lstinputlisting[language=Rust]{../code/TypeSafety/Lilliput/lilliput.rs}
 %\lstinputlisting[caption={Type confusion in Rust}, label={lst:lilliputrs}]{../code/TypeSafety/Lilliput/output/lilliput_rs.txt}
 
 \backmatter
