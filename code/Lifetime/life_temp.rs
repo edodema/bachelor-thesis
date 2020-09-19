@@ -1,8 +1,8 @@
 fn main() {
-    let x: &i32;
+    let x: &Box<i32>;
     {
-        let y = 12;
-        x = &y;
+        let y = &Box::new(12);
+        x = y;
         println!("inner y: {}", y);
         println!("inner x: {}", x);
     }
