@@ -7,17 +7,13 @@
 \usepackage{hyperref}
 \hypersetup{pdftitle={Proprietà di sicurezza nel linguaggio Rust},pdfauthor={Edoardo De Matteis}}
 
-\usepackage{listings, float, graphicx}
+\usepackage{listings, float, graphicx, lipsum, cleveref, parallel, verbatim, mathtools, ebproof, comment}
 \usepackage[square, sort, comma, numbers]{natbib}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[nottoc]{tocbibind}
-\usepackage{cleveref}
 \usepackage[most]{tcolorbox}
 \usepackage[binary-units=true]{siunitx}
-\usepackage{lipsum}
-\usepackage{parallel}
 \usepackage[autostyle=true]{csquotes}
-\usepackage{verbatim}
 
 % theorem box
 \newtcbtheorem[number within=chapter]{Definizione}{}{
@@ -40,6 +36,11 @@
     } 
 }{def}
 
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
 \newenvironment{myDefinition}[2]{ \begin{Definizione}[adjusted title=#1]{}{#2}
     \textbf{Definizione \thetcbcounter.} }{\end{Definizione}}
 
@@ -49,7 +50,6 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinelanguage{Rust}{
-  sensitive = true,
   keywords={},
   otherkeywords={% Operators
     0x, 0o, 0b,
@@ -57,32 +57,24 @@
     u8, i16, u32, u64, u32, u128, usize, 
     f8, f16, f32, f64, f32, f128, fsize
   },
-  keywords = [2]{fn, if, in, for, let, match, unsafe, while},
+  keywords = [2]{fn, if, in, for, let, match, struct, unsafe, while},
   keywords = [3]{as, const, move, mut},
   keywordstyle=\color{codepurple},
   keywordstyle=[2]\color{MidnightBlue},
   keywordstyle=[3]\color{Rhodamine},
-  numbers=left,
-  numberstyle=\scriptsize,
-  stepnumber=1,
-  numbersep=8pt,
-  showstringspaces=false,
-  breaklines=true,
-  frame=top,
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
   commentstyle=\color{codegreen}\ttfamily,
   stringstyle=\color{orange}\ttfamily,
-  morestring=[b]',
   morestring=[b]"
   }
 
 \lstdefinestyle{mycode}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
+    keywordstyle=\color{MidnightBlue},
     numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
+    stringstyle=\color{orange},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
     breaklines=true,                 
@@ -97,6 +89,9 @@
 }
 
 \lstset{style=mycode}
+
+% command for inline code
+\newcommand{\textcode}[1]{\colorbox{backcolour}{\texttt{#1}}}
 
 % Commands for the titlepage
 \title{Proprietà di sicurezza nel linguaggio Rust}
@@ -138,44 +133,105 @@
 \mainmatter
 
 \chapter{Introduzione} \label{sec:politica_di_sicurezza}
-Il linguaggio di programmazione C è stato sviluppato nel 1978 e ad oggi è ancora uno dei più popolari ~\cite{tiobe:index} ~\cite{pypl:index}, ciò è dovuto al fatto che circa il 98\% ~\cite{real_men_program_in_c} dei sistemi informatici sul mercato sono sistemi integrati che richiedono un basso overhead e C viene incontro questa esigenza tramite la gestione manuale della memoria. 
+Il linguaggio di programmazione C è stato sviluppato nel 1978 e ad oggi è ancora uno dei più popolari ~\cite{tiobe:index} ~\cite{pypl:index}, ciò è dovuto al fatto che circa il 98\% ~\cite{real_men_program_in_c} dei sistemi informatici sul mercato sono sistemi integrati che richiedono un basso overhead e C risponde a questa esigenza tramite una gestione manuale della memoria. 
 Allo stesso tempo C permette di scrivere programmi non sicuri proprio a causa della gestione esplicita della memoria, esistono linguaggi considerati sicuri quali Java che gestiscono automaticamente la memoria tramite \textbf{garbage collection} (definizione \ref{def:garbage_collection}) al prezzo di un maggiore overhead e sono quindi poco adatti alla scrittura di codice per embedded systems.
 
 \begin{myDefinition}{Garbage collection}{garbage_collection}
-    È una delle tecniche di gestione automatica della memoria più usate nei linguaggi di programmazione: utilizzando un modulo apposito noto come \textbf{garbage collector} si tiene traccia di ogni allocazione e periodicamente le zone di memoria non più utilizzate vengono liberate rendendole nuovamente disponibili. La garbage collection ha il vantaggio che il programmatore è esonerato dal compito tedioso di gestire la memoria così da potersi concentrare sulla logica del programma e la sua leggibilità, si evitano inoltre vulnerabilità quali double free o dangling pointer (rispettivamente sezioni \ref{sec:double_free} e \ref{sec:dangling_reference}). Questi vantaggi portano con loro un'esecuzione più lenta dei programmi.
+    È una delle tecniche di gestione automatica della memoria più usate nei linguaggi di programmazione: tramite un modulo noto come \textbf{garbage collector} si tiene traccia di ogni allocazione e le zone di memoria non più necessarie vengono periodicamente liberate, rendendole nuovamente disponibili. La garbage collection ha il vantaggio di esonerare il programmatore dal dover gestire la memoria così da potersi concentrare sulla logica del programma e la sua leggibilità, si evitano inoltre vulnerabilità quali double free o dangling pointer (rispettivamente sezioni \ref{sec:double_free} e \ref{sec:dangling_reference}). Con la garbage collection l'esecuzione dei programmi è però più lenta data la presenza del garbace collector.
 \end{myDefinition}
 
-Nel breve futuro ci si aspetta sempre un numero crescente di oggetti d'uso comune connessi tra loro (i.e. internet of things) e si sente la necessità di metodi sicuri per programmare sistemi integrati. Nella ricerca di un linguaggio sicuro con gestione esplicita della memoria Rust sembra il miglior candidato: il sistema dei tipi di Rust è detto lineare ed è basato appunto sulla logica lineare, si garantisce che ogni oggetto venga usato esattamente una volta così da poter essere deallocato in sicurezza, questo concetto viene implementetato tramite i \textbf{lifetime}, \textbf{ownership} (definizione \ref{def:ownership}) e \textbf{borrowing} (definizione \ref{def:borrowing}). 
+Nel breve futuro ci si aspetta sempre un numero crescente di oggetti d'uso comune connessi tra loro (i.e. internet of things) e si sente la necessità di metodi sicuri per programmare sistemi integrati. Nella ricerca di un linguaggio sicuro con gestione esplicita della memoria Rust sembra essere il miglior candidato: il sistema dei tipi di Rust è detto lineare, questa scelta di sviluppo prende forma nei meccanismi di \textbf{ownership} e \textbf{borrowing} (definizioni \ref{def:ownership} e \ref{def:borrowing}) e \textbf{lifetime}. 
 
-Il lifetime di un dato ne limita la validità in un intervallo che inizia con la creazione del dato in questione e termina con la sua distruzione, quando possibile il compilatore inferisce i lifetime altrimenti è necessario gestirli manualmente. Il lifetime di una variabile è paragonabile al suo scope, concettualmente non sono esattamente la stessa cosa perché lo scope ne rappresenta la visibilità e il lifetime l'esistenza.
+Nella sintassi e nella semantica di un sistema tipato (capitolo \ref{chap:type_safety}) è presente il contesto $\Gamma$ ovvero un insieme composto da coppie nella forma $x:T$ con $x$ variabile e $T$ tipo ed un operatore "$,$" che concatena due o più contesti tra loro in un nuovo contesto. Non sono ammesse ripetizioni di variabili e si assume che venga loro applicata automaticamente una ridenominazione, l'$\alpha$-regola garantisce che il contesto manterrà la sua consistenza. Consideriamo le tre seguenti proprietà base dette \textit{strutturali}:
+
+\begin{lemma}[Exchange] \label{lemma:exchange}
+  All'interno di un contesto l'ordine delle coppie è irrilevante.
+  \begin{equation*}
+      \Gamma_{1},x_{1}:T_{1},x_{2}:T_{2},\Gamma_{2} \vdash t:T \longrightarrow \Gamma_{1},x_{2}:T_{2},x_{1}:T_{1},\Gamma_{2} \vdash t:T
+  \end{equation*}
+\end{lemma}
+
+\begin{lemma}[Weakening] \label{lemma:weakening}
+  L'aggiunta nel contesto di coppie non necessarie è irrilevante ai fini del calcolo dei sequenti.
+  \begin{equation*}
+      \Gamma_{1},\Gamma_{2} \vdash t:T \longrightarrow \Gamma_{1},x_{1}:T_{1},\Gamma_{2} \vdash t:T
+  \end{equation*}
+\end{lemma}
+
+\begin{lemma}[Contraction] \label{lemma:contraction}
+  Se abbiamo una derivazione con due assunzioni identiche allora possiamo avere lo stesso risultato usandone una sola.
+  \begin{equation*}
+      \Gamma_{1},x_{2}:T_{1},x_{3}:T_{1},\Gamma_{2} \vdash t:T_{2} \longrightarrow \Gamma_{1},x_{1}:T_{1},\Gamma_{2} \vdash \sigma(t):T
+  \end{equation*}
+  Sia $\sigma$ la sostituzione $\{ x_{2} \mapsto x_{1}, x_{3} \mapsto x_{1} \}$.
+\end{lemma}
+
+Una logica è detta \textit{substrutturale} quando almeno una delle seguenti proprietà è omessa e se ad essere omesse sono sia weakening che contraction si parla di logica lineare ~\cite{girard:linear_logic} e, contrariamente alle logiche tradizionali nelle quali si ha a che fare con la verità di proposizioni, le logiche lineari trattano la disponibilità di risorse. Tony Hoare nel 1987 pose questo esempio: supponiamo di rappresentare in logica del primo ordine con la proposizione \textit{candy} il fatto di avere una caramella e con la proposizione \textit{\$1} il possesso di un dollaro, per esprimere l'atto di compravendita di una caramella possiamo scrivere $ \textit{\$1} \rightarrow \textit{candy} $.
+
+\begin{equation*}
+  \begin{prooftree}
+    \hypo{\textit{\$1} \rightarrow \textit{candy}}
+    \hypo{\textit{\$1}}
+    \infer2[modus ponens]{\textit{candy}}
+  \end{prooftree}
+\end{equation*}
+
+Se ne deduce $ \textit{\$1} \land \textit{candy} $ e si ha una caramella senza aver pagato, si può evitare questo problema con modellazioni differenti della base di conoscenza ma si incorre nel \textit{frame problem} \footnote{In intelligenza artificiale è il problema di dover rappresentare una conoscenza in logica senza ricorrere a numerosi assiomi i quali indicano solo che l'ambiente non cambia arbitrariamente.}. 
+
+Un sistema lineare ~\cite{walker:linear_logic}, basato quindi su logica lineare, permettendo exchange ma non weakening né contraction garantisce che ogni variabile venga usata al più una volta, a tal fine nella sintassi di una logica lineare sono presenti dei qualificatori che indicano se la variabile marcata possa essere usata solo una volta o meno, in Rust ad esempio sui tipi primitivi non è posta alcuna restrizione. 
+
+Per garantire la non riusabilità di una variabile vengono imposte due invarianti:
+
+\begin{enumerate}
+    \item Le variabili lineari sono usate esattamente una volta per ogni cammino nel diagramma di flusso.
+    \item Espressioni unrestricted non possono contenere espressioni lineari; in generale espressioni meno restrittive non possono contenere espressioni più restrittive. 
+\end{enumerate}
+
+Il perché la prima invariante sia fondamentale è chiaro, per la seconda supponiamo di avere un oggetto \texttt{X} unrestricted con un attributo \texttt{X.y} lineare, sarebbe possibile sfruttare la permissività di \texttt{X} per usare più volte \texttt{X.y}, si avrebbe in questo una violazione della linearità.
 
 \begin{myDefinition}{Ownership}{ownership}
-    L'ownership rappresenta il possesso di un right value da parte di un left value (rispettivamente l'insieme delle espressioni che compaiono a destra e sinistra di un assegnamento). Al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e con un assegnamento ad una seconda variabile la prima perde di validità. In ogni caso un owner viene invalidato quando si esce dal suo scope, bisogna porre particolare attenzione in questo caso perché se passiamo la nostra variabile ad una funzione questa sarà invalidata: la nuova variabile sarà nel corpo della funzione e terminato il suo scope non sarà più possibile accedere all'oggetto.
+    L'ownership rappresenta il possesso di un right value da parte di un left value (rispettivamente l'insieme delle espressioni che compaiono a destra e sinistra di un assegnamento). Al momento dell'inizializzazione di un oggetto di tipo non primitivo la sua variabile, se presente, è l'unico owner e con un assegnamento ad una seconda variabile la prima perde di validità. Un owner viene invalidato quando il suo scope termina, bisogna porre particolare attenzione in questo caso dato che le chiamate di funzioni possono invalidare una variabile passatavi come argomento: l'ownership è passata alla nuova variabile nel corpo della funzione e una volta terminato il suo scope non sarà più possibile accedere all'oggetto. 
 
     \lstinputlisting[language=Rust,caption={Ownership}, label={lst:ownership}]{../code/Ownership/own.rs}
 \end{myDefinition}
 
-L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza garbage collector, le restrizioni però risultano eccessive quando si ha una chiamata di funzione e in generale non sempre è desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing. 
-
 \begin{myDefinition}{Borrowing}{borrowing}
-    Tramite il borrowing non si prende possesso di un valore ed è possibile avere più riferimenti ~\cite[4.2]{rust:language} in sola lettura alla stessa variabile, tramite il modificatore \colorbox{backcolour}{\texttt{mut}} si può creare un riferimento modificabile a patto che in qualsiasi momento per ogni variabile se ne abbia al più uno. Un modulo chiamato \textbf{borrow checker} garantisce a tempo di compilazione che finché esistono dei riferimenti ad un oggetto l'oggetto stesso non possa essere distrutto. 
+  L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza garbage collector ma non è sempre desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing tramite il quale si possono creare molteplici  riferimenti ~\cite[4.2]{rust:language} ad un dato purché in sola lettura, tramite il modificatore \textcode{mut} si può creare un riferimento modificabile a patto che in qualsiasi momento per ogni variabile se ne abbia al più uno. Un modulo chiamato \textbf{borrow checker} garantisce a tempo di compilazione che finché esistono dei riferimenti ad un oggetto l'oggetto stesso non possa essere distrutto. 
 
     \lstinputlisting[language=Rust,caption={Borrowing}, label={lst:borrowing}]{../code/Borrowing/borr.rs}
 \end{myDefinition}
 
-I lifetime sono vitali per il corretto funzionamento di ownership e borrowing: nel borrowing vietano il riferimento ad una risorsa da parte di una variabile il cui lifetime include strettamente quello della risorsa, in Rust si dice quindi che vi sopravvive (outlive), nell'ownership invece è concesso perché l'owner è sempre e solo uno (listati \ref{lst:lifetime_borrowing} e \ref{lst:lifetime_ownership}) . 
+Un lifetime è un costrutto che il borrow checker usa per garantire che ogni riferimento sia valido, il lifetime di una variabile inizia quando viene creata e termina quando viene distrutta, quando possibile il compilatore inferisce i lifetime e in caso contrario è necessario gestirli manualmente. È paragonabile allo scope di una variabile ma non sono esattamente la stessa cosa, nel listato \ref{lst:lifetime} si può notare come le variabili \textcode{x} e \textcode{y} abbiano due scope differenti ma lo stesso lifetime \textcode{\textquotesingle a}.
+  
+\lstinputlisting[language=Rust]{../code/Lifetime/life.rs}
+\lstinputlisting[caption={Lifetime e scope}, label={lst:lifetime}]{../code/Lifetime/output/life.txt}
 
-\lstinputlisting[language=Rust]{../code/Lifetime/life_bor.rs}
-\lstinputlisting[caption={Lifetime e borrowing}, label={lst:lifetime_borrowing}]{../code/Lifetime/output/life_bor.txt}
+Si parla di \textbf{outliving} quando per una variabile è possibile mantenere il riferimento ad un'altra variabile fuori dal suo scope. Nell'ownership (listato \ref{lst:lifetime_ownership}) chiaramente non ci sono problemi perché il possesso viene semplicemente trasferito, nel borrowing invece interviene il borrow checker (listato \ref{lst:lifetime_borrowing})
 
 \lstinputlisting[language=Rust]{../code/Lifetime/life_own.rs}
 \lstinputlisting[caption={Lifetime e ownership}, label={lst:lifetime_ownership}]{../code/Lifetime/output/life_own.txt}
 
-In Rust gli assegnamenti memorizzano il solo riferimento di un oggetto e si parla di \textbf{shallow copy}, è comunque possibile eseguire \textbf{deep copy} ovvero copiare il valore di un oggetto tramite il trait (simile a quello che in Java è un'interfaccia) \colorbox{backcolour}{\texttt{Clone}}.
+\lstinputlisting[language=Rust]{../code/Lifetime/life_bor.rs}
+\lstinputlisting[caption={Outliving, il borrow checker interviene.}, label={lst:lifetime_borrowing}]{../code/Lifetime/output/life_bor.txt}
 
-I controlli su ownership e borrowing sono eseguiti a tempo di compilazione rendendo l'esecuzione molto più rapida e sicura, questi vantaggi si ottengono al prezzo di un linguaggio più verboso e che richiede maggior impegno cognitivo da parte dei programmatori. 
+Si può eludere il controllo dell'outliving del borrow checker cambiando il tipo di \textcode{y} da \textcode{i32} a \textcode{\&i32} (listato \ref{lst:lifetime_borrowing_allowed}) purché il dato in questione sia di tipo primitivo e non composto (listato \ref{lst:lifetime_borrowing_temporary}). 
 
-\clearpage
+Una \textbf{temporary} è una variabile anonima inizializzata con il risultato di un'espressione, verrà usata per le successive valutazioni e perderà validità solo al termine del suo scope come qualsiasi variabile. A \textcode{Box::new(12)} corrisponde una temporary e quando si tenta di leggerne il valore fuori dal suo scope il compilatore segnala l'errore. Questo problema non si presenta con i tipi primitivi perché evidentemente Rust esegue delle \textbf{deep copy}, si ha infatti un comportamento simile più all'ownership che al borrowing. 
+
+\lstinputlisting[language=Rust]{../code/Lifetime/life_bor_allowed.rs}
+\lstinputlisting[caption={Lifetime e borrowing tipi primitivi.}, label={lst:lifetime_borrowing_allowed}]{../code/Lifetime/output/life_bor_allowed.txt}
+
+\lstinputlisting[language=Rust]{../code/Lifetime/life_temp.rs}
+\lstinputlisting[caption={Lifetime e borrowing tipi composti.}, label={lst:lifetime_borrowing_temporary}]{../code/Lifetime/output/life_temp.txt}
+
+Quando a seguito di un assegnamento la variabile memorizza un riferimento ad un oggetto si parla di \textbf{shallow copy}, se invece si memorizza il dato per intero si ha una una \textbf{deep copy}. 
+In Rust per i dati di tipo primitivo si eseguono sempre deep copy mentre per gli oggetti composti si eseguono di default shallow copy, è comunque possibile copiare l'oggetto nella sua interezza tramite il \textbf{trait} (simile a quello che in Java è un'interfaccia) \textcode{Clone}; questo avviene poiché di un dato di tipo primitivo la dimensione è nota a tempo di compilazione e non si può dire lo stesso degli oggetti composti. Nel listato \ref{lst:ownership_primitive} \textcode{x} e \textcode{y} puntano a due locazioni differenti.
+
+\lstinputlisting[language=Rust, caption={Ownership con tipi primitivi.}, label={lst:ownership_primitive}]{../code/Ownership/own_prim.rs}
+
+I controlli su ownership e borrowing sono eseguiti a tempo di compilazione rendendo l'esecuzione molto più rapida e sicura, questi vantaggi si ottengono al prezzo di un linguaggio più verboso e che richiede maggior impegno cognitivo da parte del programmatore. 
+
+
 \chapter{Security policy}
 
 Risulta molto difficile parlare di sicurezza in generale dato che non ne esiste una definizione assoluta ma è un concetto relativo che varia in base a cosa ci interessa proteggere e garantire. La sicurezza di un'organizzazione - che essa sia una multinazionale o un singolo individuo - è definita da una \textbf{security policy}  ovvero un documento contenente regole, principi e pratiche che determinano come garantire che il sistema si trovi in uno stato sicuro ~\cite{milner:type_polymorphism}. 
@@ -230,7 +286,7 @@ Nella citazione riportata sono presenti fonti di confusione: nella stessa frase 
     \label{fig:warning}
 \end{figure}
 
-\clearpage
+
 \chapter{Memory Safety} \label{chap:memory_safety}
 
 Durante l'esecuzione di un programma ogni oggetto ha associato un insieme finito di locazioni di memoria cui accedere noto come \textbf{address space}, se in un programma nessun oggetto accede mai ad indirizzi fuori dal proprio address space allora è \textbf{memory safe} e un linguaggio che garantisce la memory safety dei suoi programmi è detto a sua volta memory safe.
@@ -332,7 +388,7 @@ In Rust non possiamo usare i puntatori perché l'ownership ci obbliga ad avere u
 \lstinputlisting[language=Rust]{../code/DanglingReference/dangref.rs}
 \lstinputlisting[caption={Dangling reference in Rust}, label={lst:dangrefrs}]{../code/DanglingReference/output/dangref_rs.txt}
 
-\clearpage
+
 \chapter{Type Safety} \label{chap:type_safety}
 Ogni oggetto in matematica ha un \textbf{tipo}, basti pensare al fatto che non è possibile eseguire un'operazione come $ \{13\} \land 10 $ dato che $\{13\}$ è un insieme, $10$ è un numero e $\land$ è un connettivo logico. 
 In informatica un tipo è un vincolo che definisce un insieme definito di valori validi per una risorsa di un programma, in un linguaggio tipato l'insieme delle regole che assegna un tipo ad ogni espressione è detto semantica statica o \textbf{sistema dei tipi} ed è composto da quattro aspetti: \textbf{type safety}, \textbf{type casting}, \textbf{type initialization} e \textbf{immutability} ~\cite{security_framework}.
