@@ -1,0 +1,16 @@
+\BOOKMARK [0][-]{chapter.1}{Introduzione}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Rust}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Sistemi di tipi substrutturali}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Linearit\340 in Rust}{chapter.2}% 4
+\BOOKMARK [0][-]{chapter.3}{Security policy}{}% 5
+\BOOKMARK [0][-]{chapter.4}{Memory Safety}{}% 6
+\BOOKMARK [1][-]{section.4.1}{Buffer Overflow}{chapter.4}% 7
+\BOOKMARK [1][-]{section.4.2}{Integer Overflow}{chapter.4}% 8
+\BOOKMARK [1][-]{section.4.3}{Double-Free}{chapter.4}% 9
+\BOOKMARK [1][-]{section.4.4}{Dangling References}{chapter.4}% 10
+\BOOKMARK [0][-]{chapter.5}{Type Safety}{}% 11
+\BOOKMARK [1][-]{section.5.1}{Type casting}{chapter.5}% 12
+\BOOKMARK [1][-]{section.5.2}{Type initialization}{chapter.5}% 13
+\BOOKMARK [1][-]{section.5.3}{Immutability}{chapter.5}% 14
+\BOOKMARK [1][-]{section.5.4}{Rapporto con Memory Safety}{chapter.5}% 15
+\BOOKMARK [0][-]{chapter*.6}{Bibliografia}{}% 16

@@ -1,0 +1,3 @@
+warning: this program uses gets(), which is unsafe.
+START
+str1:START, str2:START, valid:1

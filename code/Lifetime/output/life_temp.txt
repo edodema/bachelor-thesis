@@ -1,0 +1,17 @@
+$ rustc life_temp.rs -o ./bin/life_temp__rs
+error[E0716]: temporary value dropped while borrowed
+ --> life_temp.rs:4:18
+  |
+4 |         let y = &Box::new(12);
+  |                  ^^^^^^^^^^^^ creates a temporary which is freed while still in use
+...
+8 |     }
+  |     - temporary value is freed at the end of this statement
+9 |     println!("outer x: {}", x);
+  |                             - borrow later used here
+  |
+  = note: consider using a `let` binding to create a longer lived value
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0716`.

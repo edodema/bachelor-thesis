@@ -1,0 +1,7 @@
+2 bit architecture.
+3 bit architecture.
+        ...
+30 bit architecture.
+31 bit architecture.
+thread 'main' panicked at 'attempt to multiply with overflow', intof.rs:6:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.

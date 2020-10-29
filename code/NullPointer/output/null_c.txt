@@ -1,0 +1,2 @@
+0x0
+[1]    89833 segmentation fault  ./bin/null_c

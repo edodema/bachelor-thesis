@@ -145,11 +145,11 @@ Rimettendo totalmente al programmatore la gestione della memoria C permette di s
 \begin{myDefinition}{Garbage collection}{garbage_collection}
     È una delle tecniche di gestione automatica della memoria più usate nei linguaggi di programmazione: tramite un modulo noto come \textbf{garbage collector} si tiene traccia di ogni allocazione e le zone di memoria non più necessarie vengono periodicamente liberate, rendendole nuovamente disponibili. 
     La garbage collection ha il vantaggio di esonerare il programmatore dal dover gestire la memoria per potersi concentrare sulla logica del programma e la sua leggibilità, si evitano inoltre vulnerabilità quali double free o dangling pointer (rispettivamente sezioni \ref{sec:double_free} e \ref{sec:dangling_reference}). 
-    Con la garbage collection l'esecuzione dei programmi è più lenta data la presenza del garbace collector.
+    Con la garbage collection l'esecuzione dei programmi è più lenta data la presenza del garbage collector.
 \end{myDefinition}
 
 Nel breve futuro ci si aspetta sempre un numero crescente di oggetti d'uso comune connessi tra loro (i.e. internet of things) e si sente la necessità di metodi sicuri per programmare sistemi integrati. 
-Nella ricerca di un linguaggio sicuro con gestione esplicita della memoria Rust sembra essere il miglior candidato grazie ai \textbf{lifetime}, questi descrivono lo scope nel quale una variabile è valida e sono fondamentali al corretto funzionamento dei meccanismi di \textbf{ownership} e \textbf{borrowing}, dal momento che la loro verifica avviene a tempo di compilazione l'esecuzione dei programmi ne guadagna in velocità. 
+Nella ricerca di un linguaggio sicuro con gestione esplicita della memoria Rust sembra essere il miglior candidato grazie ai \textbf{lifetime}, questi descrivono lo scope nel quale una variabile è valida e sono fondamentali per il corretto funzionamento dei meccanismi di \textbf{ownership} e \textbf{borrowing}, dal momento che la loro verifica avviene a tempo di compilazione l'esecuzione dei programmi ne guadagna in velocità. 
 I due obiettivi di Rust sono infatti sicurezza e velocità d'esecuzione dei suoi programmi: la prima è garantita dall'ownership che impedisce il manifestarsi di \textbf{side effect} (definizione \ref{def:side_effect}), la seconda sia tramite il maggior numero possibile di controlli statici che tramite borrowing il quale simula una call by reference - in Rust come in C c'è solo call by value. 
 
 \begin{myDefinition}{Side effect}{side_effect}
@@ -161,7 +161,7 @@ I due obiettivi di Rust sono infatti sicurezza e velocità d'esecuzione dei suoi
 
 \section{Sistemi di tipi substrutturali}
 
-I sistemi di tipi \textbf{substrutturali} sono una famiglia di sistemi di tipi (capitolo \ref{chap:type_safety}) dove almeno una delle seguenti proprietà - dette \textbf{strutturali} - non è presente o lo è sotto determinate condizioni, analogamente si parla di logiche substrutturali.
+I sistemi di tipi \textbf{substrutturali} sono una famiglia di sistemi di tipi (capitolo \ref{chap:type_safety}) dove almeno una delle seguenti proprietà - dette \textbf{strutturali} - non è presente o lo è sotto determinate condizioni, allo stesso modo si parlerà anche di logiche substrutturali.
 
 \begin{lemma}[Exchange] \label{lemma:exchange}
     L'ordine degli elementi all'interno di un'ipotesi o conclusione è irrilevante.
@@ -203,10 +203,10 @@ Se ne deduce $ \textit{\$1} \land \textit{candy} $ e si ha una caramella senza a
     \end{tabular}
 \end{table}
 
-Nella tabella \ref{tab:substructural_type_systems} è presentata una corrispondenza tra alcuni sistemi substrutturali e le regole in esso valide: in un sistema di tipi rilevante dal momento che non vale la weakening non è possibile avere risorse superflue e ognuna dovrà essere usata almeno una volta. 
-La definizione del verbo "usare" è ambigua e dipende dall'implementazione del linguaggio, si può definire un insieme di azioni e quando si afferma di usare una risorsa ci si riferisce all'esecuzione su questa di una delle azioni possibili, in Rust sono definite dalle regole di ownership.
+Nella tabella \ref{tab:substructural_type_systems} è presentata una corrispondenza tra alcuni sistemi substrutturali e le regole in esso valide: in un sistema di tipi rilevante dal momento che non vale la regola di weakening non è possibile avere risorse superflue e ognuna dovrà essere usata almeno una volta. 
+La definizione del verbo "usare" è ambigua e dipende dall'implementazione del linguaggio, si può definire un insieme di azioni e quando si afferma di usare una risorsa ci si riferisce all'esecuzione su questa di una delle azioni possibili, in Rust ad esempio sono specificate dalle regole di ownership.
 
-In un sistema affine non è valida la contraction, questo implica che due usi differenti della stessa risorsa non passono essere unificati in uno solo, in un programma si può tradurre con l'impossibilità di liberare due volte la stessa zona di memoria (\ref{sec:double_free}); un sistema o una logica lineare ~\cite{girard:linear_logic} è sintesi di uno rilevante e un affine quindi vale solo exchange, ogni risorsa deve essere usata esattamente una volta.
+In un sistema affine non è valida la contraction, questo implica che due usi differenti della stessa risorsa non possano essere unificati in uno solo e in un programma si può tradurre con l'impossibilità di liberare due volte la stessa zona di memoria (\ref{sec:double_free}); un sistema o una logica lineare ~\cite{girard:linear_logic} è sintesi di uno rilevante e un affine quindi vale solo exchange, ogni risorsa deve essere usata esattamente una volta.
 Nella sintassi di una logica lineare sono presenti dei qualificatori che marcano una variabile come lineare indicando che debba essere usata una volta.
 
 In un sistema lineare per garantire la non riusabilità di una variabile vengono imposte due invarianti ~\cite{walker:linear_logic}:
@@ -223,12 +223,12 @@ Il perché la prima invariante sia fondamentale è chiaro, dopotutto è proprio 
 Rust presenta un sistema dei tipi lineare e tutte le variabili sono marcate come lineari tranne quelle di tipo primitivo, le invarianti sulla linearità vengono rispettate tramite ownership e borrowing.
 
 L'ownership rappresenta il possesso di un right value da parte di un left value (definizione \ref{def:left_right_value}), in Rust gli oggetti di tipo composto sono lineari e solo a questi si applica ownership, al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e un assegnamento ad una seconda variabile fa passare il possesso dalla prima alla seconda: in qualsiasi momento quindi può esserci solo un possessore per ogni oggetto. 
-Un owner viene invalidato con la sua distruzione quando esce dal suo scope, bisogna porre particolare attenzione in questo caso dato che le chiamate di funzioni possono invalidare una variabile passata come argomento: il possesso passa alla nuova variabile nel corpo della funzione e una volta terminato il suo scope non sarà più possibile accedere all'oggetto con la variabile vecchia, in quanto si può avere massimo un owner per volta, né con la nuova poiché fuori dal suo scope (listato \ref{lst:ownership}). 
+Un owner viene invalidato con la sua distruzione quando esce dal suo scope, bisogna porre particolare attenzione in questo caso dato che le chiamate di funzioni possono invalidare una variabile passata come argomento: il possesso passa alla nuova variabile nel corpo della funzione e una volta terminato il suo scope non sarà più possibile accedere all'oggetto con la variabile vecchia, in quanto si può avere massimo un owner per volta, né con la nuova poiché ormai si è fuori dal suo scope (listato \ref{lst:ownership}). 
 
 \lstinputlisting[language=Rust,caption={Ownership}, label={lst:ownership}]{../code/Ownership/own.rs}
 
 \begin{myDefinition}{Left e Right value}{left_right_value}
-    Dato un assegnamento un left value punta ad un'area di memoria contenente un right value, il nome è dovuto alla posizione dei due valori rispetto all'operatore di assegnamento. 
+    Dato un assegnamento un left value punta ad un'area di memoria contenente un right value, il nome è dovuto alla posizione dei due valori rispetto all'operatore di assegnamento: in \textcode{x = y} il left value è \textcode{x} e il right \textcode{y}.
 \end{myDefinition}
 
 L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza garbage collector ma non è sempre desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing.
@@ -268,7 +268,7 @@ Per quanto concerne i lifetime in Rust valgono tre regole assiomatiche ~\cite{me
 e ne deriva una quarta regola:
 
 \begin{lemma}[Struct reference] \label{lemma:struct_reference}
-    Data una struct \textnormal{\textcode{struct S<'a>\{x:\&'a T\}}} il lifetime associato ad un riferimento di una struct è sottoinsieme del lifetime del membro della struct.
+    Data una struct \textnormal{\textcode{struct S<'a>\{x:\&'a T\}}} il lifetime associato ad un riferimento di una struct è sottoinsieme del lifetime del membro della struct\footnote{Nel caso in cui dovessero esserci più elementi con lifetime differenti si può considerare il maggiore.}.
     \begin{equation*}
         \textnormal{\textcode{s:\&'b S<'a>}} \longrightarrow \ 'b \subseteq \ 'a
     \end{equation*}

@@ -1,0 +1,11 @@
+.DS_Store
+.vscode
+#.gitignore
+#bin
+#file.txt
+#main*
+#!main.pdf
+#!main.tex
+#!main.bib
+#output
+#resources

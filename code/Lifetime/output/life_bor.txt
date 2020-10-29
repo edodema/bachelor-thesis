@@ -1,0 +1,15 @@
+$ rustc life_bor.rs -o ./bin/life_bor_rs
+error[E0597]: `y` does not live long enough
+ --> life_bor.rs:5:13
+  |
+5 |         x = &y;
+  |             ^^ borrowed value does not live long enough
+...
+8 |     }
+  |     - `y` dropped here while still borrowed
+9 |     println!("outer x: {}", x);
+  |                             - borrow later used here
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0597`.

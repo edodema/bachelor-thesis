@@ -1,0 +1,2 @@
+s = 0
+[1]    20475 illegal hardware instruction  ./bin/width1 65536 hello
