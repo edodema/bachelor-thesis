@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1603979211 "main.aux" "main.bbl" "main" 1603979246
+["bibtex main"] 1603979211 "main.aux" "main.bbl" "main" 1603979337
   "/usr/local/texlive/2020/texmf-dist/bibtex/bst/urlbst/plainurl.bst" 1562101090 33034 6f80d55ce824a32ed5562a5220ff287a ""
   "main.aux" 1603979215 18182 bebd04a4c48b8445bfbe16a690e2d440 "pdflatex"
   "main.bib" 1603979082 6786 dbd25f9a6a2656fba1b12920461b097c ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1603979211 "/Users/edodema/Desktop/RustSafeness/tex/main.tex" "/Users/edodema/Desktop/RustSafeness/tex/main.pdf" "main" 1603979246
+["pdflatex"] 1603979211 "/Users/edodema/Desktop/RustSafeness/tex/main.tex" "/Users/edodema/Desktop/RustSafeness/tex/main.pdf" "main" 1603979337
   "../code/Borrowing/borr.rs" 1594813531 253 5893a788853ad001242f6f8204ef26d9 ""
   "../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_1_c.txt" 1600879773 89 585060aae9a04361c149898da695d663 ""
   "../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_2_c.txt" 1600879743 108 e969ce02b70263744753cc5418c3e817 ""
@@ -362,10 +362,10 @@
   "main.tex" 1603979245 50525 92bce5425cebdf5fc0ac2c5c365210bd ""
   "main.toc" 1603979215 1317 b8522addeb027552f3fbc49e7fe99469 "pdflatex"
   (generated)
-  "main.pdf"
-  "main.log"
   "main.out"
-  "/Users/edodema/Desktop/RustSafeness/tex/main.log"
   "main.toc"
-  "/Users/edodema/Desktop/RustSafeness/tex/main.pdf"
+  "main.log"
+  "main.pdf"
+  "/Users/edodema/Desktop/RustSafeness/tex/main.log"
   "main.aux"
+  "/Users/edodema/Desktop/RustSafeness/tex/main.pdf"
