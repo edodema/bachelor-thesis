@@ -469,7 +469,7 @@ Il problema sorge nella conversione da integer a short, inserendo come primo arg
 
 \section{Double-Free} \label{sec:double_free}
 Si ha un double free error ~\cite[10.4.4]{gollmann:computersecurity} quando si prova a liberare più volte la stessa zona di memoria e in Rust non è possibile grazie all'ownership.
-In C invece si può osservare il codice nel listato \ref{lst:doublefree_c}: si immagini di avere un servizio ad iscrizione salvando ogni utente tramite una struct \textcode{User}: Guido libera la propria memoria che, disponibile, potrà memorizzare \textcode{Luisa} che si è appena iscritta. Il puntatore \textcode{Guido} però ora punta all'account di Luisa e con \textcode{free(Guido)} proprio l'account di Luisa viene eliminato, il risultato è che Luisa non ha più un account e a quello di Carla possono accedere sia Guido che Luisa.
+In C invece si può osservare il codice nel listato \ref{lst:doublefree_c}: si immagini di avere un servizio ad iscrizione salvando ogni utente tramite una struct \textcode{User}: \textcode{Guido} libera la propria memoria che, disponibile, potrà memorizzare \textcode{Luisa} che si è appena iscritta. Il puntatore \textcode{Guido} però ora punta all'account di Luisa e con \textcode{free(Guido)} proprio l'account di Luisa viene eliminato, il risultato è che Luisa non ha più un account e a quello di Carla possono accedere sia Guido che Luisa.
 
 \lstinputlisting[language=C]{../code/DoubleFree/doublefree.c}
 \lstinputlisting[caption={Double free in C}, label={lst:doublefree_c}, numbers=none]{../code/DoubleFree/output/doublefree_c.txt}
@@ -586,7 +586,7 @@ il puntatore \texttt{p} punta al primo elemento ma essendo \textcode{int} legge 
 \[
 \texttt{00000000000000001000000000000000} \\
 \]
-che in decimale equivale a $ 2^{16} = 65536 $. La causa di questa confusione sia la la lettura di un solo oggetto da $\SI{4}{\byte} $ anziché due oggetti da 2, questo avviene a causa della rappresentazione di due tipi differenti e del casting che C permette contrariamente a Rust.
+che in decimale equivale a $ 2^{16} = 65536 $. La causa di questa confusione sia la lettura di un solo oggetto da $\SI{4}{\byte} $ anziché due oggetti da 2, questo avviene a causa della rappresentazione di due tipi differenti e del casting che C permette contrariamente a Rust.
 
 \lstinputlisting[language=C]{../code/TypeSafety/Lilliput/lilliput.c}
 \lstinputlisting[caption={Type confusion in C}, label={lst:lilliputc}, numbers=none]{../code/TypeSafety/Lilliput/output/lilliput_c.txt}
