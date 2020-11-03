@@ -1,26 +1,31 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.24)  30 OCT 2020 23:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.3)  3 NOV 2020 23:37
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/edodema/Desktop/Projects/RustSafeness/tex/main.tex
-(/Users/edodema/Desktop/Projects/RustSafeness/tex/main.tex
+**main.tex
+(./main.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex/sapthesis/sapthesis.cls
+L3 programming layer <2020-03-06>
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/sapthesis/sapthesis.cls
 Document Class: sapthesis 2018/08/07 Sapienza - University of Rome thesis class
-(/usr/local/texlive/2020/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks15
 \XKV@tempa@toks=\toks16
- (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/keyval.tex))
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/xkeyval/keyval.tex))
 \XKV@depth=\count167
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 \SAP@binding=\skip47
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/book.cls
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/bk11.clo
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/bk11.clo
 File: bk11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count168
@@ -35,11 +40,14 @@ File: bk11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen134
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
 \Gm@cnth=\count177
@@ -54,13 +62,17 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen141
 \Gm@layoutvoffset=\dimen142
 \Gm@dimlist=\toks17
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifxetex.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/lmodern.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -94,9 +106,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/caption.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/01/03 v3.4h Customizing captions (AR)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/caption3.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen143
@@ -110,28 +124,36 @@ Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count180
 \c@continuedfloat=\count181
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen150
 \Gin@req@width=\dimen151
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/color.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/booktabs/booktabs.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen152
 \lightrulewidth=\dimen153
@@ -150,21 +172,25 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count184
 \@lastruleclass=\count185
 \@thisrulewidth=\dimen164
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen165
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen166
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count186
@@ -204,11 +230,14 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count198
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
 \f@nch@headwidth=\skip53
 \f@nch@O@elh=\skip54
 \f@nch@O@erh=\skip55
@@ -233,7 +262,8 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \SAP@tutorcoordtoks=\toks28
 \SAP@examinercount=\count271
 \SAP@examinertoks=\toks29
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/microtype.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
 \MT@toks=\toks30
 \MT@count=\count272
@@ -241,59 +271,71 @@ LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen174
 LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
 \MT@listname@count=\count273
- (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/microtype/microtype-pdftex.d
+ef
 File: microtype-pdftex.def 2019/11/18 v2.7d Definitions specific to pdftex (RS)
+
 LaTeX Info: Redefining \lsstyle on input line 914.
 LaTeX Info: Redefining \lslig on input line 914.
 \MT@outer@space=\skip62
 )
 Package microtype Info: Loading configuration file microtype.cfg.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/microtype.cfg
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+)) (/usr/local/texlive/2020basic/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2020/03/22 3.42 The Babel package
- (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/switch.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/babel/switch.def
 File: switch.def 2020/03/22 3.42 Babel switching mechanism
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel-english/english.ldf
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
- (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2020/03/22 3.42 Babel common definitions
 \babel@savecnt=\count274
 \U@D=\dimen175
- (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count275
 )
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
 Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language21) on input line 105.
+(babel)             (\language7) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language21) on input line 108.
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel-italian/italian.ldf
+(babel)             (\language7) on input line 108.
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/babel-italian/italian.ldf
 Language: italian 2019/11/16 v.1.4.03 Italian support for the babel system
 \it@lettering=\count276
 \it@doublequoteactive=\count277
 \it@ISOcompliance=\count278
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/inputenx/inputenx.sty
+)) (/usr/local/texlive/2020basic/texmf-dist/tex/latex/inputenx/inputenx.sty
 Package: inputenx 2019/11/29 v1.12 Enhanced input encoding handling (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/inputenx/ix-alias.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/inputenx/ix-alias.def
 File: ix-alias.def 2019/11/29 v1.12 Alias list (inputenx)
 )
 Package inputenx Info: Encoding name: utf8
 (inputenx)             Encoding file: utf8.def
 (inputenx)              on input line 175.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks31
 \inpenc@posthook=\toks32
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/utf8.def
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2019/11/14 v1.2k UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/omsenc.dfu
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -304,7 +346,8 @@ File: omsenc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ot1enc.dfu
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -352,7 +395,8 @@ File: ot1enc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
 )
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1enc.dfu
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -603,7 +647,8 @@ File: t1enc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
 )
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ts1enc.dfu
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/base/ts1enc.dfu
 File: ts1enc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
@@ -693,43 +738,58 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
    defining Unicode char U+FEFF (decimal 65279)
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
- (/usr/local/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
+sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (/usr/local/texlive/2020basic/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen176
 \Hy@linkcounter=\count279
 \Hy@pagecounter=\count280
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count281
@@ -741,16 +801,20 @@ Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4800.
 \c@Hy@tempcnt=\count282
- (/usr/local/texlive/2020/texmf-dist/tex/latex/url/url.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
 \XeTeXLinkMargin=\dimen177
- (/usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
 \Fld@menulength=\count283
 \Field@Width=\dimen178
@@ -764,7 +828,7 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6455.
 Package hyperref Info: PDF/A mode OFF on input line 6460.
 LaTeX Info: Redefining \ref on input line 6500.
 LaTeX Info: Redefining \pageref on input line 6504.
- (/usr/local/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+ (/usr/local/texlive/2020basic/texmf-dist/tex/generic/atbegshi/atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 \Hy@abspage=\count284
@@ -772,22 +836,30 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 \c@Hfootnote=\count286
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hpdftex.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
- (/usr/local/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/atveryend/atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 )
 \Fld@listcount=\count287
 \c@bookmark@seq@number=\count288
- (/usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
+r.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
 )
 \Hy@SectionHShift=\skip63
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count289
 \lst@gtempboxa=\box47
 \lst@token=\toks33
@@ -800,29 +872,37 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \lst@newlines=\count293
 \lst@lineno=\count294
 \lst@maxwidth=\dimen183
- (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count295
 \lst@skipnumbers=\count296
 \lst@framebox=\box48
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/float/float.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count297
 \float@exts=\toks34
 \float@box=\box49
 \@float@everytoks=\toks35
 \@floatcapt=\box50
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lipsum/lipsum.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2020-03-06 L3 programming layer (loader) 
- (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.
+def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count298
 \l__pdf_internal_box=\box51
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2020-03-06 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count299
 \g__xparse_grabber_int=\count300
@@ -830,9 +910,10 @@ Package: xparse 2020-03-06 L3 Experimental document command parser
 \l__xparse_v_nesting_int=\count302
 )
 Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
 File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/cleveref/cleveref.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2370.
 LaTeX Info: Redefining \cref on input line 2370.
@@ -846,9 +927,11 @@ LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `listings' support loaded on input line 3131.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/parallel/parallel.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/parallel/parallel.sty
 Package: parallel 2003/04/13, setting two texts parallel (me)
- `parallel': setting two texts parallel, (beta 4) 2003/04/13.
+
+`parallel': setting two texts parallel, (beta 4) 2003/04/13.
 \ParallelLWidth=\dimen184
 \ParallelRWidth=\dimen185
 \ParallelTextWidth=\dimen186
@@ -869,14 +952,17 @@ Package: parallel 2003/04/13, setting two texts parallel (me)
 \ParallelRFNCounter=\count309
 \ParallelMaxFN=\count310
 \ParallelFNNumMode=\count311
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/verbatim.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks36
 \verbatim@line=\toks37
 \verbatim@in@stream=\read3
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mathtools.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
- (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count312
 \calc@Bcount=\count313
@@ -888,7 +974,8 @@ LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count314
 \calc@Cskip=\skip66
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
@@ -906,52 +993,66 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
 \l_MT_below_shortintertext_sep=\dimen198
 \xmathstrut@box=\box57
 \xmathstrut@dim=\dimen199
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/ebproof/ebproof.sty
-Package: ebproof 2017/05/17 v2.0 EB's proof trees
-\l_ebproof_separation_dim=\dimen256
-\l_ebproof_rule_margin_dim=\dimen257
-\l_ebproof_rule_thickness_dim=\dimen258
-\l_ebproof_rule_separation_dim=\dimen259
-\l_ebproof_rule_dash_length_dim=\dimen260
-\l_ebproof_rule_dash_space_dim=\dimen261
-\l_ebproof_label_separation_dim=\dimen262
-\l_ebproof_label_axis_dim=\dimen263
-\l_ebproof_transit_dim=\dimen264
-\g_ebproof_level_int=\count316
-\g_ebproof_stack_box=\box58
-\l_ebproof_a_box=\box59
-\l_ebproof_b_box=\box60
-\l_ebproof_c_box=\box61
-\l_ebproof_d_box=\box62
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/comment/comment.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/ebproof/ebproof.sty
+Package: ebproof 2020/08/19 v2.1 EB's proof trees
+\l__ebproof_separation_dim=\dimen256
+\l__ebproof_rule_margin_dim=\dimen257
+\l__ebproof_rule_thickness_dim=\dimen258
+\l__ebproof_rule_separation_dim=\dimen259
+\l__ebproof_rule_dash_length_dim=\dimen260
+\l__ebproof_rule_dash_space_dim=\dimen261
+\l__ebproof_label_separation_dim=\dimen262
+\l__ebproof_label_axis_dim=\dimen263
+\g__ebproof_register_int=\count316
+\l__ebproof_transit_dim=\dimen264
+\g__ebproof_level_int=\count317
+\g__ebproof_stack_box=\box58
+\g__ebproof_box_1=\box59
+\g__ebproof_box_2=\box60
+\g__ebproof_box_3=\box61
+\g__ebproof_box_4=\box62
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
- Excluding comment 'comment') (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
+
+Excluding comment 'comment')
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/pifont.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/upzd.fd
+
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/upsy.fd
+
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/natbib/natbib.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip68
 \bibsep=\skip69
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count317
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+\c@NAT@ctr=\count318
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -965,35 +1066,54 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/dvipsnam.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tocbibind/tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has chapter divisions on input line 50.
 
 
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2019/11/15 version 4.22 text color boxes
- (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+) (/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2020/10/09 version 4.42 text color boxes
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-comm
+on.tex
 \pgfutil@everybye=\toks38
 \pgfutil@tempdima=\dimen265
 \pgfutil@tempdimb=\dimen266
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-comm
+on-lists.tex))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-late
+x.def
 \pgfutil@abb=\box63
- (/usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.
+tex (/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
 ))
 Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty 
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.cod
+e.tex
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code
+.tex
 \pgfkeys@pathtoks=\toks39
 \pgfkeys@temptoks=\toks40
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgfkeysfilte
+red.code.tex
 \pgfkeys@tmptoks=\toks41
 ))
 \pgf@x=\dimen267
@@ -1008,40 +1128,81 @@ Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@yd=\dimen276
 \w@pgf@writea=\write4
 \r@pgf@reada=\read4
-\c@pgf@counta=\count318
-\c@pgf@countb=\count319
-\c@pgf@countc=\count320
-\c@pgf@countd=\count321
+\c@pgf@counta=\count319
+\c@pgf@countb=\count320
+\c@pgf@countc=\count321
+\c@pgf@countd=\count322
 \t@pgf@toka=\toks42
 \t@pgf@tokb=\toks43
 \t@pgf@tokc=\toks44
-\pgf@sys@id@count=\count322
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+\pgf@sys@id@count=\count323
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
 )
 Driver file for pgf: pgfsys-pdftex.def
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdf
+tex.def
 File: pgfsys-pdftex.def 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-com
+mon-pdf.def
 File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
-))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+)))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoft
+path.code.tex
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count323
-\pgfsyssoftpath@bigbuffer@items=\count324
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+\pgfsyssoftpath@smallbuffer@items=\count324
+\pgfsyssoftpath@bigbuffer@items=\count325
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprot
+ocol.code.tex
 File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.cod
+e.tex
 Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.
+tex
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.
+tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathparser.cod
+e.tex
 \pgfmath@dimen=\dimen277
-\pgfmath@count=\count325
+\pgfmath@count=\count326
 \pgfmath@box=\box64
 \pgfmath@toks=\toks45
 \pgfmath@stack@operand=\toks46
 \pgfmath@stack@operation=\toks47
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count326
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+code.tex
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+basic.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+trigonometric.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+random.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+comparison.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+base.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+round.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+misc.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.
+integerarithmetics.code.tex)))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code
+.tex
+\c@pgfmathroundto@lastzeros=\count327
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoin
+ts.code.tex
 File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@picminx=\dimen278
 \pgf@picmaxx=\dimen279
@@ -1057,103 +1218,160 @@ File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@yy=\dimen289
 \pgf@zx=\dimen290
 \pgf@zy=\dimen291
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepath
+construct.code.tex
 File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@path@lastx=\dimen292
 \pgf@path@lasty=\dimen293
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepath
+usage.code.tex
 File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@shorten@end@additional=\dimen294
 \pgf@shorten@start@additional=\dimen295
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescop
+es.code.tex
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfpic=\box65
 \pgf@hbox=\box66
 \pgf@layerbox@main=\box67
-\pgf@picture@serial@count=\count327
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+\pgf@picture@serial@count=\count328
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregrap
+hicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgflinewidth=\dimen296
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretran
+sformations.code.tex
 File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@pt@x=\dimen297
 \pgf@pt@y=\dimen298
 \pgf@pt@temp=\dimen299
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequic
+k.code.tex
 File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobje
+cts.code.tex
 File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepath
+processing.code.tex
 File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearro
+ws.code.tex
 File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfarrowsep=\dimen300
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshad
+e.code.tex
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@max=\dimen301
-\pgf@sys@shading@range@num=\count328
-\pgf@shadingcount=\count329
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+\pgf@sys@shading@range@num=\count329
+\pgf@shadingcount=\count330
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimag
+e.code.tex
 File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexte
+rnal.code.tex
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfexternal@startupbox=\box68
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelaye
+rs.code.tex
 File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretran
+sparency.code.tex
 File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatt
+erns.code.tex
 File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.
+code.tex
 File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+)))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/modules/pgfmoduleshape
+s.code.tex
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfnodeparttextbox=\box69
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.
+code.tex
 File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-ve
+rsion-0-65.sty
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@nodesepstart=\dimen302
 \pgf@nodesepend=\dimen303
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-ve
+rsion-1-18.sty
 Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/environ/environ.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
- (/usr/local/texlive/2020/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 \tcb@titlebox=\box70
 \tcb@upperbox=\box71
 \tcb@lowerbox=\box72
 \tcb@phantombox=\box73
-\c@tcbbreakpart=\count330
-\c@tcblayer=\count331
-\tcolorbox@number=\count332
+\c@tcbbreakpart=\count331
+\c@tcblayer=\count332
+\c@tcolorbox@number=\count333
 \tcb@temp=\box74
 \tcb@temp=\box75
 \tcb@temp=\box76
 \tcb@temp=\box77
 \tcb@out=\write5
 \tcb@record@out=\write6
- (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
-Library (tcolorbox): 'tcbraster.code.tex' version '4.22'
-\c@tcbrastercolumn=\count333
-\c@tcbrasterrow=\count334
-\c@tcbraster=\count335
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
-Library (tcolorbox): 'tcbskins.code.tex' version '4.22'
-(/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '4.42'
+\c@tcbrastercolumn=\count334
+\c@tcbrasterrow=\count335
+\c@tcbraster=\count336
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '4.42'
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code
+.tex)) (/usr/local/texlive/2020basic/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/utilities/pgffor.code.
+tex
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen304
 \pgffor@skip=\dimen305
 \pgffor@stack=\toks48
 \pgffor@toks=\toks49
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tik
+z.code.tex
 Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/libraries/pgflibrarypl
+othandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count336
+\pgf@plot@mark@count=\count337
 \pgfplotmarksize=\dimen306
 )
 \tikz@lastx=\dimen307
@@ -1168,72 +1386,113 @@ File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@figbox@bg=\box79
 \tikz@tempbox=\box80
 \tikz@tempbox@bg=\box81
-\tikztreelevel=\count337
-\tikznumberofchildren=\count338
-\tikznumberofcurrentchild=\count339
-\tikz@fig@count=\count340
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+\tikztreelevel=\count338
+\tikznumberofchildren=\count339
+\tikznumberofcurrentchild=\count340
+\tikz@fig@count=\count341
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/modules/pgfmodulematri
+x.code.tex
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count341
-\pgfmatrixcurrentcolumn=\count342
-\pgf@matrix@numberofcolumns=\count343
+\pgfmatrixcurrentrow=\count342
+\pgfmatrixcurrentcolumn=\count343
+\pgf@matrix@numberofcolumns=\count344
 )
-\tikz@expandcount=\count344
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+\tikz@expandcount=\count345
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/lib
+raries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
 \tcb@waterbox=\box82
- (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
-Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '4.22'
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '4.22'
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.cod
+e.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '4.42'
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.
+tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '4.42'
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/oberdiek/pdfcol.sty
+Package: pdfcol 2019/12/29 v1.6 Handle new color stacks for pdfTeX (HO)
+)
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@testbox=\box83
 \tcb@totalupperbox=\box84
 \tcb@totallowerbox=\box85
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
-Library (tcolorbox): 'tcbhooks.code.tex' version '4.22'
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
-Library (tcolorbox): 'tcbtheorems.code.tex' version '4.22'
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
-Library (tcolorbox): 'tcbfitting.code.tex' version '4.22'
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '4.42'
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.t
+ex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '4.42'
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.te
+x
+Library (tcolorbox): 'tcbfitting.code.tex' version '4.42'
 \tcbfitdim=\dimen315
 \tcb@lowerfitdim=\dimen316
 \tcb@upperfitdim=\dimen317
-\tcb@cur@hbadness=\count345
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
-Library (tcolorbox): 'tcbxparse.code.tex' version '4.22'
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
-Library (tcolorbox): 'tcblistingsutf8.code.tex' version '4.22'
-(/usr/local/texlive/2020/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
-Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
-Library (tcolorbox): 'tcblistings.code.tex' version '4.22'
-(/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcblistingscore.code.tex
-Library (tcolorbox): 'tcblistingscore.code.tex' version '4.22'
-(/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
-Library (tcolorbox): 'tcbprocessing.code.tex' version '4.22'
-(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/shellesc.sty
+\tcb@cur@hbadness=\count346
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbxparse.code.tex
+Library (tcolorbox): 'tcbxparse.code.tex' version '4.42'
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.co
+de.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '4.42'
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcblistings.code.t
+ex
+Library (tcolorbox): 'tcblistings.code.tex' version '4.42'
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcblistingscore.co
+de.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '4.42'
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code
+.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '4.42'
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
 ))
-\c@tcblisting=\count346
-))) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.tex
-Library (tcolorbox): 'tcbexternal.code.tex' version '4.22'
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.tex
-Library (tcolorbox): 'tcbmagazine.code.tex' version '4.22'
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.tex
-Library (tcolorbox): 'tcbvignette.code.tex' version '4.22'
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+\c@tcblisting=\count347
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/listingsutf8/listingsutf8.st
+y
+Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
+ (/usr/local/texlive/2020basic/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbexternal.code.t
+ex
+Library (tcolorbox): 'tcbexternal.code.tex' version '4.42'
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbmagazine.code.t
+ex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '4.42'
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbvignette.code.t
+ex
+Library (tcolorbox): 'tcbvignette.code.tex' version '4.42'
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/lib
+raries/tikzlibraryfadings.code.tex
 File: tikzlibraryfadings.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryfa
+dings.code.tex
 File: pgflibraryfadings.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))) (/usr/local/texlive/2020/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
-Library (tcolorbox): 'tcbposter.code.tex' version '4.22'
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/siunitx/siunitx.sty
+)))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '4.42'
+)) (/usr/local/texlive/2020basic/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
- (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen318
 \ar@mcellbox=\box86
@@ -1242,32 +1501,34 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \extratabsurround=\skip70
 \backup@length=\skip71
 \ar@cellbox=\box87
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e
+.sty
 Package: l3keys2e 2020-03-06 LaTeX2e option processing using LaTeX3 keys
 )
 \l__siunitx_tmp_box=\box88
 \l__siunitx_tmp_dim=\dimen320
-\l__siunitx_tmp_int=\count347
-\l__siunitx_number_mantissa_length_int=\count348
-\l__siunitx_number_uncert_length_int=\count349
-\l__siunitx_round_int=\count350
-\l__siunitx_process_decimal_int=\count351
-\l__siunitx_process_uncertainty_int=\count352
-\l__siunitx_process_fixed_int=\count353
-\l__siunitx_process_integer_min_int=\count354
-\l__siunitx_process_precision_int=\count355
-\l__siunitx_group_min_int=\count356
+\l__siunitx_tmp_int=\count348
+\l__siunitx_number_mantissa_length_int=\count349
+\l__siunitx_number_uncert_length_int=\count350
+\l__siunitx_round_int=\count351
+\l__siunitx_process_decimal_int=\count352
+\l__siunitx_process_uncertainty_int=\count353
+\l__siunitx_process_fixed_int=\count354
+\l__siunitx_process_integer_min_int=\count355
+\l__siunitx_process_precision_int=\count356
+\l__siunitx_group_min_int=\count357
 \l__siunitx_angle_marker_box=\box89
 \l__siunitx_angle_unit_box=\box90
 \l__siunitx_angle_marker_dim=\dimen321
 \l__siunitx_angle_unit_dim=\dimen322
-\l__siunitx_unit_int=\count357
-\l__siunitx_unit_denominator_int=\count358
-\l__siunitx_unit_numerator_int=\count359
-\l__siunitx_unit_prefix_int=\count360
-\l__siunitx_unit_prefix_base_int=\count361
-\l__siunitx_unit_prefix_gram_int=\count362
-\l__siunitx_number_product_int=\count363
+\l__siunitx_unit_int=\count358
+\l__siunitx_unit_denominator_int=\count359
+\l__siunitx_unit_numerator_int=\count360
+\l__siunitx_unit_prefix_int=\count361
+\l__siunitx_unit_prefix_base_int=\count362
+\l__siunitx_unit_prefix_gram_int=\count363
+\l__siunitx_number_product_int=\count364
 \c__siunitx_one_fill_skip=\skip72
 \l__siunitx_table_unit_align_skip=\skip73
 \l__siunitx_table_exponent_dim=\dimen323
@@ -1285,33 +1546,38 @@ Package: l3keys2e 2020-03-06 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_table_result_box=\box94
 \l__siunitx_table_number_align_skip=\skip74
 \l__siunitx_table_text_align_skip=\skip75
- (/usr/local/texlive/2020/texmf-dist/tex/latex/translator/translator.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.sty
+))
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
-\csq@reset=\count364
-\csq@gtype=\count365
-\csq@glevel=\count366
-\csq@qlevel=\count367
-\csq@maxlvl=\count368
-\csq@tshold=\count369
+\csq@reset=\count365
+\csq@gtype=\count366
+\csq@glevel=\count367
+\csq@qlevel=\count368
+\csq@maxlvl=\count369
+\csq@tshold=\count370
 \csq@ltx@everypar=\toks51
- (/usr/local/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.def
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2019-12-06 v5.2j csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.cfg
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
 )
 Package csquotes Info: Enabling multilingual quotes.
 )
-\c@tcb@cnt@Definizione=\count370
-\c@theorem=\count371
-\c@corollary=\count372
+\c@tcb@cnt@Definizione=\count371
+\c@theorem=\count372
+\c@corollary=\count373
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
- (/Users/edodema/Desktop/Projects/RustSafeness/tex/main.aux)
+
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
@@ -1330,8 +1596,9 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
 LaTeX Font Info:    ... okay on input line 120.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
 LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
+0.
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -1376,30 +1643,36 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-(/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2020basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count373
+\scratchcounter=\count374
 \scratchdimen=\dimen332
 \scratchbox=\box95
-\nofMPsegments=\count374
-\nofMParguments=\count375
+\nofMPsegments=\count375
+\nofMParguments=\count376
 \everyMPshowfont=\toks52
-\MPscratchCnt=\count376
+\MPscratchCnt=\count377
 \MPscratchDim=\dimen333
-\MPnumerator=\count377
-\makeMPintoPDFobject=\count378
+\MPnumerator=\count378
+\makeMPintoPDFobject=\count379
 \everyMPtoPDFconversion=\toks53
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
+ty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (/usr/local/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/grfext/grfext.sty
 Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 504.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
 LaTeX Info: Redefining \textsubscript on input line 120.
 LaTeX Info: Redefining \microtypecontext on input line 120.
@@ -1413,51 +1686,69 @@ LaTeX Info: Redefining \showhyphens on input line 120.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
 )
 LaTeX Info: Redefining \it@ocap on input line 120.
 LaTeX Info: Redefining \it@ccap on input line 120.
 \AtBeginShipoutBox=\box96
 Package hyperref Info: Link coloring OFF on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
- (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
+ing.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count379
+\c@section@level=\count380
 )
 LaTeX Info: Redefining \ref on input line 120.
 LaTeX Info: Redefining \pageref on input line 120.
 LaTeX Info: Redefining \nameref on input line 120.
- (/Users/edodema/Desktop/Projects/RustSafeness/tex/main.out) (/Users/edodema/Desktop/Projects/RustSafeness/tex/main.out)
+ (./main.out) (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
-\c@lstlisting=\count380
- ABD: EveryShipout initializing macros (/usr/local/texlive/2020/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+\c@lstlisting=\count381
+ ABD: EveryShipout initializing macros
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/translator/translator-basic-
+dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/siunitx/siunitx-abbreviation
+s.cfg
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/siunitx/siunitx-binary.cfg
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/siunitx/siunitx-binary.cfg
 File: siunitx-binary.cfg 2017/11/26 v2.7k siunitx: Binary units
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ot1lmr.fd
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+20.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omllmm.fd
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+20.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omslmsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+120.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omxlmex.fd
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+120.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1466,36 +1757,48 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 120.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 120.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120
+.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/mt-msa.cfg
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120
+.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/mt-msb.cfg
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ot1lmss.fd
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
+120.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 120.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ot1lmtt.fd
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
+120.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 125.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmss.fd
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
+25.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1511,9 +1814,13 @@ Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 125.
 
 
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2020/texmf-dist/tex/latex/sapthesis/sapienza-MLred-pos.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 125.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmr.fd
+{/usr/local/texlive/2020basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </u
+sr/local/texlive/2020basic/texmf-dist/tex/latex/sapthesis/sapienza-MLred-pos.pd
+f>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+25.
+
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Underfull \hbox (badness 10000) in paragraph at lines 125--125
@@ -1533,7 +1840,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--125
 
 [2
 
-] (/Users/edodema/Desktop/Projects/RustSafeness/tex/main.toc)
+] (./main.toc)
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -1553,58 +1860,107 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 219.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+19.
+ (/usr/local/texlive/2020basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 228.
- (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Ownership/own.rs [4]) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Borrowing/borr.rs) [5] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/life_1.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/output/life_1.txt [6]) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/life_1_1.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/output/life_1_1.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/life_1_2.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/output/life_1_2.txt [7]) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/life_longest.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Lifetime/output/life_longest.txt) [8] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Ownership/own_prim.rs) [9] [10
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 228.
+
+(../code/Ownership/own.rs [4]) (../code/Borrowing/borr.rs) [5]
+(../code/Lifetime/life_1.rs) (../code/Lifetime/output/life_1.txt [6])
+(../code/Lifetime/life_1_1.rs) (../code/Lifetime/output/life_1_1.txt)
+(../code/Lifetime/life_1_2.rs) (../code/Lifetime/output/life_1_2.txt [7])
+(../code/Lifetime/life_longest.rs) (../code/Lifetime/output/life_longest.txt)
+[8] (../code/Ownership/own_prim.rs) [9] [10
 
 ]
 Capitolo 3.
-[11] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Unsafe/raw.rs) [12] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Unsafe/output/rawrs.txt)
+[11] (../code/Unsafe/raw.rs) [12] (../code/Unsafe/output/rawrs.txt)
 <images/warning_undefined_behavior.png, id=416, 757.83125pt x 198.7425pt>
 File: images/warning_undefined_behavior.png Graphic file (type png)
 <use images/warning_undefined_behavior.png>
-Package pdftex.def Info: images/warning_undefined_behavior.png  used on input line 377.
+Package pdftex.def Info: images/warning_undefined_behavior.png  used on input l
+ine 377.
 (pdftex.def)             Requested size: 394.07452pt x 103.34668pt.
- [13 </Users/edodema/Desktop/Projects/RustSafeness/tex/images/warning_undefined_behavior.png>] [14
+ [13 <./images/warning_undefined_behavior.png>] [14
 
 ]
 Capitolo 4.
-[15] (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+[15] (/usr/local/texlive/2020basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+)
+(/usr/local/texlive/2020basic/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/BufferOverflow/StackOverflow/StackAttack/stackattack.c) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_1_c.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_2_c.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_3_c.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/BufferOverflow/bufof.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/BufferOverflow/output/bufof_rs.txt) [16] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Injection/inj.c) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Injection/output/inj.txt) Excluding 'comment' comment. [17] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/IntegerOverflow/intof.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/IntegerOverflow/output/intof_rs.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/IntegerOverflow/width1.c [18]) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/IntegerOverflow/output/width1_c.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/DoubleFree/doublefree.c [19]) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/DoubleFree/output/doublefree_c.txt) [20] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/DanglingReference/dangref.c) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/DanglingReference/output/dangref_c.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/DanglingReference/dangref.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/DanglingReference/output/dangref_rs.txt) [21] [22
+)
+(../code/BufferOverflow/StackOverflow/StackAttack/stackattack.c)
+(../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_1_c.txt)
+(../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_2_c.txt)
+(../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_3_c.txt)
+(../code/BufferOverflow/bufof.rs) (../code/BufferOverflow/output/bufof_rs.txt)
+[16] (../code/Injection/inj.c) (../code/Injection/output/inj.txt)
+Excluding 'comment' comment. [17] (../code/IntegerOverflow/intof.rs)
+(../code/IntegerOverflow/output/intof_rs.txt) (../code/IntegerOverflow/width1.c
+[18]) (../code/IntegerOverflow/output/width1_c.txt)
+(../code/DoubleFree/doublefree.c [19])
+(../code/DoubleFree/output/doublefree_c.txt) [20]
+(../code/DanglingReference/dangref.c)
+(../code/DanglingReference/output/dangref_c.txt)
+(../code/DanglingReference/dangref.rs)
+(../code/DanglingReference/output/dangref_rs.txt) [21] [22
 
 ]
 Capitolo 5.
 
-Underfull \vbox (badness 2486) has occurred while \output is active []
+Underfull \vbox (badness 2762) has occurred while \output is active []
 
- [23] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/TypeConversion/coercion.c) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/TypeConversion/output/coercion_c) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/TypeConversion/coercion.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/TypeConversion/output/coercion_rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Unsafe/FreeBSD.c) [24] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/NullPointer/null.c) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/NullPointer/output/null_c.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/NullPointer/null.rs) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/NullPointer/output/null_rs.txt) [25] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Concurrency/thread.c [26]) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Concurrency/output/concurrency_c.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Concurrency/thread.rs) [27] (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/Concurrency/output/concurrency_rs.txt) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/TypeSafety/Lilliput/lilliput.c) (/Users/edodema/Desktop/Projects/RustSafeness/tex/../code/TypeSafety/Lilliput/output/lilliput_c.txt) [28] (/Users/edodema/Desktop/Projects/RustSafeness/tex/main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 34--39
-[]\T1/lmr/m/n/10.95 (+20) Tony Hoa-re.  Null re-fe-ren-ces: The bil-lion dol-lar mi-sta-
+ [23]
+(../code/TypeConversion/coercion.c) (../code/TypeConversion/output/coercion_c)
+(../code/TypeConversion/coercion.rs) (../code/TypeConversion/output/coercion_rs
+) (../code/Unsafe/FreeBSD.c) [24] (../code/NullPointer/null.c)
+(../code/NullPointer/output/null_c.txt) (../code/NullPointer/null.rs)
+(../code/NullPointer/output/null_rs.txt) [25] (../code/Concurrency/thread.c
+[26]) (../code/Concurrency/output/concurrency_c.txt)
+(../code/Concurrency/thread.rs) [27]
+(../code/Concurrency/output/concurrency_rs.txt)
+(../code/TypeSafety/Lilliput/lilliput.c)
+(../code/TypeSafety/Lilliput/output/lilliput_c.txt) [28] (./main.bbl
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--42
+[]\T1/lmr/m/sc/10.95 (+20) Hoare, T.  \T1/lmr/m/n/10.95 (+20) Null re-fe-ren-ce
+s: The bil-lion dol-lar mi-sta-ke
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--39
-\T1/lmr/m/n/10.95 (+20) ke.  2009.  URL: []$\T1/lmtt/m/n/10.95 https : / / www . infoq . com / presentations /
+Underfull \hbox (badness 10000) in paragraph at lines 38--42
+\T1/lmr/m/n/10.95 (+20) (2009).  Avai-la-ble from: []$\T1/lmtt/m/n/10.95 https 
+: / / www . infoq . com / presentations /
  []
 
 
-Underfull \hbox (badness 7486) in paragraph at lines 73--77
-[]\T1/lmr/m/n/10.95 (+20) Security Ad-vi-so-ry The Free-B-SD Pro-ject.  Freebsd-sa-02:38.signed-
+Underfull \hbox (badness 1708) in paragraph at lines 55--59
+[]\T1/lmr/m/sc/10.95 (+20) Mechpen\T1/lmr/m/n/10.95 (+20) .  Mis-understanding 
+ru-st li-fe-ti-me (2019).  Avai-la-ble from:
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 73--77
-\T1/lmr/m/n/10.95 (+20) error, 2002.  URL: []$\T1/lmtt/m/n/10.95 https : / / www . freebsd . org / security / advisories /
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
+[]$\T1/lmtt/m/n/10.95 https : / / mechpen . github . io / posts / 2019-[]09-[]2
+8-[]rust-[]lifetime / index .
+ []
+
+
+Underfull \hbox (badness 2951) in paragraph at lines 76--80
+\T1/lmr/m/n/10.95 (+20) from: []$\T1/lmtt/m/n/10.95 https : / / www . freebsd .
+ org / security / advisories / FreeBSD-[]SA-[]02 :
  []
 
 [29
@@ -1612,27 +1968,49 @@ Underfull \hbox (badness 3302) in paragraph at lines 73--77
 
 
 ]) [30]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 610.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 610.
- (/Users/edodema/Desktop/Projects/RustSafeness/tex/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 610.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 610.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 608.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 608.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 608.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 608.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: F9940E2D1A4BDC5319DFF45A95A43E3F;925.
  ) 
 Here is how much of TeX's memory you used:
- 36504 strings out of 480608
- 743645 string characters out of 5903630
- 1427235 words of memory out of 5000000
- 50762 multiletter control sequences out of 15000+600000
- 656258 words of font info for 180 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 64i,12n,103p,938b,2628s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on /Users/edodema/Desktop/Projects/RustSafeness/tex/main.pdf (34 pages, 474971 bytes).
+ 36595 strings out of 482056
+ 741909 string characters out of 5937675
+ 1426212 words of memory out of 5000000
+ 50655 multiletter control sequences out of 15000+600000
+ 659558 words of font info for 186 fonts, out of 8000000 for 9000
+ 319 hyphenation exceptions out of 8191
+ 64i,12n,103p,889b,2628s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/l
+ocal/texlive/2020basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texl
+ive/2020basic/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2
+020basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020ba
+sic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020basic/t
+exmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2020basic/texmf-dis
+t/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020basic/texmf-dist/fon
+ts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/ty
+pe1/public/lm/lmcsc10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/
+public/lm/lmex10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/publi
+c/lm/lmmi10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/lm/
+lmr10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/lm/lmr6.p
+fb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/lm/lmr7.pfb></us
+r/local/texlive/2020basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local
+/texlive/2020basic/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texliv
+e/2020basic/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/202
+0basic/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2020basi
+c/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2020basic/tex
+mf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2020basic/texmf-di
+st/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2020basic/texmf-dist/fon
+ts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/ty
+pe1/public/lm/lmtt9.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/ur
+w/zapfding/uzdr.pfb>
+Output written on main.pdf (34 pages, 502207 bytes).
 PDF statistics:
- 1123 PDF objects out of 1200 (max. 8388607)
- 1031 compressed objects within 11 object streams
+ 1128 PDF objects out of 1200 (max. 8388607)
+ 1035 compressed objects within 11 object streams
  587 named destinations out of 1000 (max. 500000)
- 41767 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 43815 words of extra memory for PDF output out of 51595 (max. 10000000)
 

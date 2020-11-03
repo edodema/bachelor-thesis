@@ -1,51 +1,51 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-The style file: plainurl.bst
+The style file: sapthesis.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: main.bib
 Warning--to sort, need author or key in git:outliving_static
 Warning--to sort, need author or key in rust:language_2
-Warning--empty publisher in girard:linear_logic
+Warning--missing publisher in girard:linear_logic
 Warning--empty booktitle in hoare:billion_dollar_mistake
 Warning--empty year in nino:security_programming_language
 You've used 20 entries,
-            2882 wiz_defined-function locations,
-            716 strings with 7487 characters,
-and the built_in function-call counts, 6840 in all, are:
-= -- 685
-> -- 147
+            3472 wiz_defined-function locations,
+            789 strings with 8007 characters,
+and the built_in function-call counts, 7718 in all, are:
+= -- 688
+> -- 130
 < -- 3
-+ -- 60
++ -- 66
 - -- 35
-* -- 253
-:= -- 871
+* -- 311
+:= -- 931
 add.period$ -- 59
 call.type$ -- 20
-change.case$ -- 82
+change.case$ -- 86
 chr.to.int$ -- 0
 cite$ -- 25
-duplicate$ -- 220
-empty$ -- 833
-format.name$ -- 35
-if$ -- 1944
+duplicate$ -- 531
+empty$ -- 878
+format.name$ -- 37
+if$ -- 1973
 int.to.chr$ -- 0
 int.to.str$ -- 20
-missing$ -- 9
-newline$ -- 100
-num.names$ -- 30
-pop$ -- 249
+missing$ -- 106
+newline$ -- 101
+num.names$ -- 29
+pop$ -- 351
 preamble$ -- 1
 purify$ -- 61
 quote$ -- 0
-skip$ -- 570
+skip$ -- 522
 stack$ -- 0
-substring$ -- 159
-swap$ -- 30
+substring$ -- 148
+swap$ -- 265
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
@@ -53,5 +53,5 @@ type$ -- 76
 warning$ -- 5
 while$ -- 34
 width$ -- 22
-write$ -- 199
+write$ -- 201
 (There were 5 warnings)

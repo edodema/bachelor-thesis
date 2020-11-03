@@ -568,7 +568,7 @@ Per la sincronizzazione tra thread si utilizzano le funzioni \colorbox{backcolou
 \lstinputlisting[caption={Concorrenza in Rust}, label={lst:concurrencyrs}, numbers=none]{../code/Concurrency/output/concurrency_rs.txt}
 
 \section{Rapporto con Memory Safety}
-Type safety e memory safety sono strettamente collegate tanto che a volte risulta davvero difficile distinguere tra le due e alcune vulnerabilità violano entrambe, ad esempio nel listato \ref{lst:lilliputc} si alloca un array di \textcode{short} ($ \SI{2}{\byte} $) sullo stack, considerando che il computer su cui ho eseguito il programma monta un processore \textit{Intel} (little endian quindi la cifra più a destra è la meno significativa) si ha la seguente rappresentazione in memoria
+Type safety e memory safety sono strettamente collegate tanto che a volte risulta davvero difficile distinguere tra le due e alcune vulnerabilità violano entrambe, ad esempio nel listato \ref{lst:lilliputc} si alloca un array di \textcode{short} ($ \SI{2}{\byte} $) sullo stack, considerando che il computer su cui ho eseguito il programma monta un processore \textit{Intel} (little endian quindi la cifra più a destra è la meno significativa) si ha la seguente rappresentazione in memoria.
 
 \begin{table}[H]
 	\label{fig:mem_type_stack}
@@ -601,10 +601,8 @@ che in decimale equivale a $ 2^{16} = 65536 $. La causa di questa confusione sia
 \cleardoublepage
 \phantomsection
 %\addcontentsline{toc}{chapter}{\bibname}
-%\bibliographystyle{sapthesis} % BibTeX style
+\bibliographystyle{sapthesis} % BibTeX style
 %\bibliography{bibliography} % BibTeX database without .bib extension
-
-\bibliographystyle{plainurl}
 \bibliography{main}{}
 
 \end{document}
