@@ -45,6 +45,8 @@ The rust programming language.
 \newblock A security feature framework for programming languages to minimize
   application layer vulnerabilities.
 \newblock \emph{Security and Privacy},  (2020).
+\newblock Available from:
+  \url{https://onlinelibrary.wiley.com/doi/pdf/10.1002/spy2.95}.
 
 \bibitem{rust:language}
 \textsc{Klabnik, S. and Nichols, C.}

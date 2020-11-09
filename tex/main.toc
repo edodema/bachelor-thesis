@@ -15,8 +15,9 @@
 \contentsline {section}{\numberline {4.3}Double-Free}{19}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Dangling References}{20}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Type Safety}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Type casting}{24}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Type initialization}{25}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Immutability}{25}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Rapporto con Memory Safety}{28}{section.5.4}%
+\contentsline {section}{\numberline {5.1}Type safety}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Type casting}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Type initialization}{25}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Immutability}{26}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Rapporto con Memory Safety}{28}{section.5.5}%
 \contentsline {chapter}{Bibliografia}{29}{chapter*.6}%
