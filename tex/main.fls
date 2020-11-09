@@ -596,12 +596,6 @@ INPUT ../code/TypeConversion/output/coercion_rs
 INPUT ../code/Unsafe/FreeBSD.c
 INPUT ../code/Unsafe/FreeBSD.c
 INPUT ../code/Unsafe/FreeBSD.c
-INPUT ../code/TypeInizialization/typeinit.c
-INPUT ../code/TypeInizialization/typeinit.c
-INPUT ../code/TypeInizialization/typeinit.c
-INPUT ../code/TypeInizialization/output/typeintc.txt
-INPUT ../code/TypeInizialization/output/typeintc.txt
-INPUT ../code/TypeInizialization/output/typeintc.txt
 INPUT ../code/NullPointer/null.c
 INPUT ../code/NullPointer/null.c
 INPUT ../code/NullPointer/null.c

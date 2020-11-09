@@ -534,10 +534,7 @@ Per chiarezza nel listato \ref{lst:freebsd} è stato riproposto del codice a gra
 \lstinputlisting[language=C,label={lst:freebsd}]{../code/Unsafe/FreeBSD.c} 
 
 \section{Type initialization} \label{sec:type_initialization}
-La dichiarazione di una variabile in C le assegna un address space ma non c'è inizializzazione, il valore della variabile sarà spesso privo di significato o addirttura illegibile poiché corrisponde al dato inserito in quella stessa locazione da un altro processo, spesso passato, opportunamente riconvertito al tipo della nuova variabile, se ne può vedere un esempio nel listato 
-
-\lstinputlisting[language=C]{../code/TypeInizialization/typeinit.c}
-\lstinputlisting[caption={Type inizializiation in C}, label={lst:typeinizializationc}, numbers=none]{../code/TypeInizialization/output/typeintc.txt}
+La dichiarazione di una variabile in C le assegna un address space ma non c'è inizializzazione, il valore della variabile sarà spesso privo di significato o addirttura illegibile poiché corrisponde al dato inserito in quella stessa locazione da un altro processo, spesso passato, opportunamente riconvertito al tipo della nuova variabile.
 
 Ad oggi un comportamento del genere è un caso raro e di norma ad una variabile appena dichiarata viene assegnato un valore di defaul, ad esempio $ 0 $ per i numeri, la stringa vuota per le stringhe e \textcode{NULL} per gli oggetti.
 

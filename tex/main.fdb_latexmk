@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1604957013 "main.aux" "main.bbl" "main" 1604957269
+["bibtex main"] 1604959558 "main.aux" "main.bbl" "main" 1604959560
   "/home/edo/.local/share/texmf/bibtex/bst/sapthesis/sapthesis.bst" 1315955765 40331 937a3ace47501f8a85703000fa77293f ""
-  "main.aux" 1604957148 18731 8066007e7e1b397766d16f56826f1ad5 "pdflatex"
+  "main.aux" 1604959559 18302 dfc55354a23ba6640df1d8db4bfd4a21 "pdflatex"
   "main.bib" 1604943251 6858 2bcd85cfc2c718ca29bffdf302eea6ff ""
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1604957269 "main.tex" "main.pdf" "main" 1604957269
+  "main.bbl"
+["pdflatex"] 1604959558 "main.tex" "main.pdf" "main" 1604959560
   "../code/Borrowing/borr.rs" 1604943251 253 5893a788853ad001242f6f8204ef26d9 ""
   "../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_1_c.txt" 1604943251 89 585060aae9a04361c149898da695d663 ""
   "../code/BufferOverflow/StackOverflow/StackAttack/output/stackattack_2_c.txt" 1604943251 108 e969ce02b70263744753cc5418c3e817 ""
@@ -48,8 +48,6 @@
   "../code/TypeConversion/coercion.rs" 1604943251 110 98749414a3c1d92932ccae123e9d711f ""
   "../code/TypeConversion/output/coercion_c" 1604943251 8 7e5857eab9668d007172c1a9d11f95e8 ""
   "../code/TypeConversion/output/coercion_rs" 1604943251 1 1679091c5a880faf6fb5e6087eb1b2dc ""
-  "../code/TypeInizialization/output/typeintc.txt" 1604956016 8 74d9b9b02f2f458f28747d6bd25229c6 ""
-  "../code/TypeInizialization/typeinit.c" 1604957269 119 453918ecb29ce1166c0e5dac1825916e ""
   "../code/TypeSafety/Lilliput/lilliput.c" 1604943251 95 f336125fa4f7e753ee22917270d80943 ""
   "../code/TypeSafety/Lilliput/output/lilliput_c.txt" 1604943251 9 e5b3d8593cd2a4a9c088aaa4b1978b04 ""
   "../code/Unsafe/FreeBSD.c" 1604943251 293 0da2f3d4661c4c81b1dc38d3b14628c2 ""
@@ -357,14 +355,14 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1604943970 4727905 1b81189106e2406a827797a37162c1c0 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1604943961 2514051 1a3a3dd99c9cd84831f3cf7c3f2e2e79 ""
   "images/warning_undefined_behavior.png" 1604943251 49770 254b5a2d9777ec1089dc2b6b77c5519e ""
-  "main.aux" 1604957148 18731 8066007e7e1b397766d16f56826f1ad5 "pdflatex"
-  "main.bbl" 1604957013 3977 8f59a5b766c19356e3391f0d070ba3a5 "bibtex main"
-  "main.out" 1604957148 983 cd8611d21fa17e5588e6aa5c980f58c3 "pdflatex"
-  "main.tex" 1604956307 51209 f3cf8b5c8d77deb509f990d706253547 ""
-  "main.toc" 1604957148 1389 3d2d9ee8c1cd2cc999f0a1f5ac9abe5e "pdflatex"
+  "main.aux" 1604959559 18302 dfc55354a23ba6640df1d8db4bfd4a21 "pdflatex"
+  "main.bbl" 1604959558 3977 8f59a5b766c19356e3391f0d070ba3a5 "bibtex main"
+  "main.out" 1604959559 983 cd8611d21fa17e5588e6aa5c980f58c3 "pdflatex"
+  "main.tex" 1604959554 50949 c0de0125b7ae84f40f0c98e77b1e40a6 ""
+  "main.toc" 1604959559 1389 b07856ec7f54e53bea3f25c4b84a428d "pdflatex"
   (generated)
-  "main.out"
   "main.toc"
   "main.pdf"
-  "main.log"
   "main.aux"
+  "main.log"
+  "main.out"
