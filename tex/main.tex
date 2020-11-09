@@ -491,9 +491,10 @@ In Rust non è possibile ricreare l'esempio in C perché come già visto il borr
 
 \chapter{Type Safety} \label{chap:type_safety}
 Ogni oggetto in matematica ha un \textbf{tipo}, basti pensare al fatto che non è possibile eseguire un'operazione come $ \{13\} \land 10 $ dato che $\{13\}$ è un insieme, $10$ è un numero e $\land$ è un connettivo logico. 
-In informatica un tipo è un vincolo che definisce un insieme ben definito di valori validi per una risorsa di un programma.
-Durante l'esecuzione di un programma si può incorrere in due tipi di errore: \textbf{trapped} e \textbf{untrapped}, i primi sono facilmente riconoscibili dato che interrompono l'esecuzione del programma, i secondi no e per questo sono molto più difficili da individuare.
-Un programma che supera il controllo dei tipi (definizione \ref{def:type_checking}) è ben tipato e un linguaggio in cui nessun programma ben tipato genera errori trapped né untrapped si dice \textbf{sound} e in un linguaggio \textbf{safe} nessun programma genera errori untrapped, un linguaggio sound è necessariamente type safe ~\cite{cencia:dispense}.
+In informatica un tipo è un vincolo che definisce un insieme ben definito di valori che la risorsa di un programma può assumere.
+Gli errori riscontrabili in fase di esecuzione possono essere \textbf{trapped} o \textbf{untrapped}, i primi contrariamente ai secondi sono facilmente riconoscibili dato che interrompono l'esecuzione del programma, gli untrapped si rivelano più insidiosi dal momento che potrebbero eseguire codice non voluto.
+Un programma che supera il controllo dei tipi (definizione \ref{def:type_checking}) è ben tipato e un linguaggio in cui nessun programma ben tipato genera errori durante l'esecuzione si dice \textbf{sound}.
+In un linguaggio \textbf{safe} nessun programma genera errori untrapped e un linguaggio sound è necessariamente type safe ~\cite{cencia:dispense}.
 Una definizione analoga ma meno formale di Milner spesso adottata è la seguente:
 
 \begin{center}
@@ -502,21 +503,22 @@ Una definizione analoga ma meno formale di Milner spesso adottata è la seguente
 
 con programmi che "vanno male" si possono intendere programmi non sound o che generano undefined behavior (capitolo \ref{chap:security_policy}).
 
-
-
-In un linguaggio tipato l'insieme delle regole che assegna un tipo ad ogni espressione è detto semantica statica o \textbf{sistema dei tipi}, in ~\cite{security_framework} vengono identificate 4 componenti che permettono di definire un linguaggio più sicuro, queste sono \textbf{type safety}, \textbf{type casting}, \textbf{type initialization} e \textbf{immutability}.
-
 \begin{myDefinition}{Type checking}{type_checking}
-    È la verifica dei vincoli imposti dai tipi, può avvenire sia a tempo di compilazione che a tempo di esecuzione e si parla rispettivamente di type checking statico/forte e dinamico/debole.
+    È la verifica dei vincoli imposti dal sistema dei tipi di un linguaggio.
+    Il type checking può avvenire sia a tempo di compilazione che a tempo di esecuzione e si parla rispettivamente di type checking statico/forte e dinamico/debole.
     Un controllo statico è desiderabile per l'ottimizzazione che ne consegue ma non sempre è possibile verificare la correttezza di un programma a tempo di compilazione, di norma sono utilizzati sia static che dynamic type checker, in Java ad esempio i controlli sui metodi sono eseguiti dinamicamente.
 
     Un programma che supera la fase di type checking è ben tipato.     
 \end{myDefinition}
 
+In un linguaggio tipato l'insieme delle regole che assegna un tipo ad ogni espressione è detto semantica statica o \textbf{sistema dei tipi}, in ~\cite{security_framework} vengono identificate 4 componenti che permettono di definire un linguaggio più sicuro, queste sono \textbf{type safety}, \textbf{type casting}, \textbf{type initialization} e \textbf{immutability}.
+
 \section{Type safety}
  
 \section{Type casting}
-Quando si esegue un'operazione tra oggetti di tipo differente può rivelarsi necessaria una conversione di tipo (type casting) e può essere esplicita o implicita, nel secondo caso si parla di \textbf{coercion}. Tipicamente i linguaggi con type checking forte eseguono pochi casting impliciti e quelli con type checking dinamico molti, Rust è fortemente tipato e non c'è coercion contrariamente a C che è debolmente tipato.   
+Quando si esegue un'operazione tra oggetti di tipo differente può rivelarsi necessaria una conversione di tipo (type casting) che può essere esplicita o implicita, nel secondo caso si parla di \textbf{coercion}.
+Tipicamente i linguaggi con type checking forte eseguono pochi casting impliciti e quelli con type checking dinamico molti.
+Rust è fortemente tipato e non c'è coercion, C è debolmente tipato e presenta conversione implicita.   
 
 \lstinputlisting[language=C]{../code/TypeConversion/coercion.c}
 \lstinputlisting[caption={Casting implicito in C}, label={lst:coercionc}, numbers=none]{../code/TypeConversion/output/coercion_c}
@@ -532,8 +534,12 @@ Per chiarezza nel listato \ref{lst:freebsd} è stato riproposto del codice a gra
 \lstinputlisting[language=C,label={lst:freebsd}]{../code/Unsafe/FreeBSD.c} 
 
 \section{Type initialization} \label{sec:type_initialization}
-In C quando si dichiara una variabile è buona norma inizializzarla perché il valore assegnatale è quello già presente nelle locazioni di memoria assegnate.
-Fortunatamente ad oggi C è un caso raro tra i linguaggi di programmazione e ad una variabile appena dichiarata viene assegnato un valore di default: $ 0 $ per i numeri, la stringa vuota per le stringhe e \textcode{NULL} per gli oggetti.
+La dichiarazione di una variabile in C le assegna un address space ma non c'è inizializzazione, il valore della variabile sarà spesso privo di significato o addirttura illegibile poiché corrisponde al dato inserito in quella stessa locazione da un altro processo, spesso passato, opportunamente riconvertito al tipo della nuova variabile, se ne può vedere un esempio nel listato 
+
+\lstinputlisting[language=C]{../code/TypeInizialization/typeinit.c}
+\lstinputlisting[caption={Type inizializiation in C}, label={lst:typeinizializationc}, numbers=none]{../code/TypeInizialization/output/typeintc.txt}
+
+Ad oggi un comportamento del genere è un caso raro e di norma ad una variabile appena dichiarata viene assegnato un valore di defaul, ad esempio $ 0 $ per i numeri, la stringa vuota per le stringhe e \textcode{NULL} per gli oggetti.
 
 Il valore \textcode{NULL} fu introdotta da Tony Hoare nel 1964 e nel 2009 lui stesso lo definì il suo errore da un miliardo di dollari ~\cite{hoare:billion_dollar_mistake} perché ha portato a numerose sviste ed errori da parte dei programmatori: in C compilando con \textit{gcc} un puntatore a \textcode{NULL} punta a una locazione $ 0 $ riservata (listato \ref{lst:nullreferencec}) e la sua dereferenza causa l'interruzione del programma. 
 
