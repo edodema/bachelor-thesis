@@ -534,11 +534,11 @@ Per chiarezza nel listato \ref{lst:freebsd} è stato riproposto del codice a gra
 \lstinputlisting[language=C,label={lst:freebsd}]{../code/Unsafe/FreeBSD.c} 
 
 \section{Type initialization} \label{sec:type_initialization}
-La dichiarazione di una variabile in C le assegna un address space ma non c'è inizializzazione, il valore della variabile sarà spesso privo di significato o addirttura illegibile poiché corrisponde al dato inserito in quella stessa locazione da un altro processo, spesso passato, opportunamente riconvertito al tipo della nuova variabile.
+La dichiarazione di una variabile in C le assegna un address space ma non c'è inizializzazione, il valore della variabile sarà spesso privo di significato o addirttura illegibile poiché corrisponde al dato inserito in quella stessa locazione da un processo passato e riconvertito nel tipo della nuova variabile.
 
-Ad oggi un comportamento del genere è un caso raro e di norma ad una variabile appena dichiarata viene assegnato un valore di defaul, ad esempio $ 0 $ per i numeri, la stringa vuota per le stringhe e \textcode{NULL} per gli oggetti.
+Ad oggi un comportamento del genere è un caso raro e di norma ad una variabile appena dichiarata viene assegnato un valore di default, ad esempio $ 0 $ per i numeri, la stringa vuota per le stringhe e \textcode{NULL} per gli oggetti.
 
-Il valore \textcode{NULL} fu introdotta da Tony Hoare nel 1964 e nel 2009 lui stesso lo definì il suo errore da un miliardo di dollari ~\cite{hoare:billion_dollar_mistake} perché ha portato a numerose sviste ed errori da parte dei programmatori: in C compilando con \textit{gcc} un puntatore a \textcode{NULL} punta a una locazione $ 0 $ riservata (listato \ref{lst:nullreferencec}) e la sua dereferenza causa l'interruzione del programma. 
+Il valore \textcode{NULL} fu introdotto da Tony Hoare nel 1964 e nel 2009 lui stesso lo definì il suo errore da un miliardo di dollari ~\cite{hoare:billion_dollar_mistake} perché ha portato a numerose sviste ed errori da parte dei programmatori: in C compilando con \textit{gcc} un puntatore a \textcode{NULL} punta a una locazione $ 0 $ riservata (listato \ref{lst:nullreferencec}) e la sua dereferenza causa l'interruzione del programma. 
 
 \lstinputlisting[language=C]{../code/NullPointer/null.c}
 \lstinputlisting[caption={Null reference in C}, label={lst:nullreferencec}, numbers=none]{../code/NullPointer/output/null_c.txt}
@@ -550,9 +550,11 @@ Nel listato \ref{lst:nullreferencers} si può vedere come un \texttt{Box<i32>} s
 \lstinputlisting[caption={Null reference in Rust}, label={lst:nullreferencers}, numbers=none]{../code/NullPointer/output/null_rs.txt}
 
 \section{Immutability}
-Un oggetto è immutabile quando durante l'esecuzione di un programma non può essere modificato, in Rust ogni oggetto è di default immutabile e lo si rende modificabile tramite la parola chiave \textcode{mut} coerentemente con il principio di least privilege.
+Un oggetto è immutabile quando durante l'esecuzione di un programma non può essere modificato, in Rust ogni oggetto è di default immutabile ma si possono definire esplicitamente oggetti il cui valore è modificabile tramite la parola chiave \textcode{mut}, questa scelta è coerente con il principio di least privilege.
+Le costanti invece sono definite tramite la parola chiave \textcode{const} al posto del \textcode{let}, una costante deve essere nota a tempo di compilazione quindi è necessario indicarne esplicitamente il tipo e il valore, quest'ultimo deve essere un'espressione costante e non il risultato di una valutazione di qualche espressione eseguita a runtime.
+È possibile definire una costante in qualsiasi parte del codice ma il lifetime sarà sempre \textcode{'static}, non è possibile definire una costante \textcode{mut} ~\cite[3.1]{rust:language}.
 
-In C non c'è una vera e propria immutabilità, tramite il modificatore \texttt{const} è possibile definire delle costanti che dovrebbero essere non modificabili, rimane comunque possibile dereferenziarle e tramite un puntatore modificarne il valore, l'immodificabilità assume particolare rilievo in programmi concorrenti. 
+In C non c'è una vera e propria immutabilità, tramite il modificatore \textcode{const} è possibile definire delle costanti che dovrebbero essere non modificabili, rimane comunque possibile dereferenziarle e tramite un puntatore modificarne il valore, l'immodificabilità assume particolare rilievo in programmi concorrenti. 
 Nel listato \ref{lst:concurrencyc} abbiamo:
 \begin{enumerate}
     \item \textcode{Misc}. Una struct composta da un intero, il cui valore non è rilevante, e un puntatore a un intero nel quale verrà salvato l'indirizzo di \textcode{accum}. 
@@ -598,6 +600,8 @@ che in decimale equivale a $ 2^{16} = 65536 $. La causa di questa confusione sia
 
 \lstinputlisting[language=C]{../code/TypeSafety/Lilliput/lilliput.c}
 \lstinputlisting[caption={Type confusion in C}, label={lst:lilliputc}, numbers=none]{../code/TypeSafety/Lilliput/output/lilliput_c.txt}
+
+\chapter{Conclusioni}
 
 %In Rust non si può proprio puntare ad una variabile con un tipo differente da quello della variabile stessa.
 %\lstinputlisting[language=Rust]{../code/TypeSafety/Lilliput/lilliput.rs}

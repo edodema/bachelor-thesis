@@ -1,4 +1,17 @@
 
+@article{girard:linear_logic,
+	title = "Linear logic",
+	journal = "Theoretical Computer Science",
+	volume = "50",
+	number = "1",
+	pages = "1 - 101",
+	year = "1987",
+	issn = "0304-3975",
+	doi = "https://doi.org/10.1016/0304-3975(87)90045-4",
+	url = "http://www.sciencedirect.com/science/article/pii/0304397587900454",
+	author = "Jean-Yves Girard",
+}
+
 @article{girard:linear_logic_syntax_semantics,
   author          = {Jean{-}Yves Girard},
   title           = {Linear Logic: its Syntax and Semantics},
@@ -6,21 +19,42 @@
 }
 
 @article{milner:type_polymorphism,
-	author          = {Robin Milner},
-	title           = {A Theory of Type Polimorphism in Programming}, 
-	journal         = {Journal of Computer and Sciences},
-	volume          = {7},
-	pages           = {348-375},
-	month           = {4},
-	year            = {1978},
+	title={A theory of type polymorphism in programming},
+  	author={Milner, Robin},
+  	journal={Journal of computer and system sciences},
+  	volume={17},
+  	number={3},
+  	pages={348--375},
+  	year={1978},
+  	publisher={Elsevier}
 }
 
 @article{security_framework,
-  author          = {Amir A. Khwaja and Muniba Murtaza and Hafiz F. Ahmed},
-  title           = {A security feature framework for programming languages to minimize application layer vulnerabilities},
-  journal         = {Security and Privacy},
-  year            = {2020},
-  url 		  = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/spy2.95},
+	author 	= {Khwaja, Amir and Murtaza, Muniba and Ahmad, Hafiz},
+	year 	= {2019},
+	month 	= {11},
+	pages 	= {},
+	title 	= {A security feature framework for programming languages to minimize application layer vulnerabilities},
+	volume 	= {3},
+	journal = {Security and Privacy},
+	doi 	= {10.1002/spy2.95},
+	url 	= {https://onlinelibrary.wiley.com/doi/pdf/10.1002/spy2.95},
+}
+
+@article{stack_smashing_ffp,
+	title={Smashing the stack for fun and profit},
+  	author={{Aleph One}},
+  	journal={http://www. shmoo. com/phrack/Phrack49/p49-14},
+  	year={1996}
+}
+
+@article{walker:linear_logic,
+	title={Substructural type systems},
+	author={Walker, David},
+	journal={Advanced topics in types and programming languages},
+	pages={3--44},
+	year={2005},
+	publisher={The MIT Press},
 }
 
 @article{wright_felleisen:typesafety,
@@ -34,21 +68,21 @@
 }
 
 @book{gollmann:computersecurity,
-	author          = {Dietere Gollmann},
-	title           = {Computer Security},
-	publisher       = {John Wiley \& Sons Ltd},
-	year            = {2011},
-	edition	        = {3},
-	isbn            = {978-0-470-74115-3},
+	author = {Gollmann, Dieter},
+	title = {Computer Security},
+	year = {1999},
+	isbn = {0471978442},
+	publisher = {John Wiley \& Sons, Inc.},
+	address = {USA}
 }
 
 @book{stallings:os,
-	author          = {William Stallings},
-	title           = {Operating Systems: Internals and Design Principles},
-	publisher       = {Pearson Education},
-	year            = {2012},
 	edition	        = {7},
 	isbn            = {978-0-13-230998},
+	title={Operating systems: internals and design principles},
+	author={Stallings, William},
+	year={2012},
+	publisher={Boston: Prentice Hall,},
 }
 
 @conference{paper:def, 
@@ -56,35 +90,6 @@
 	title           = {Memory Safety Without Runtime Checks or Garbage Collection},
 	booktitle       = {Proceedings of the 2003 ACM SIGPLAN Conference on Language, Compiler, and Tool for Embedded Systems},
 	year            = {2003},
-}
-
-@conference{hoare:billion_dollar_mistake,
-  author          = {Tony Hoare},
-  title           = {Null References: The Billion Dollar Mistake},
-  editor          = {InfoQ},
-  year            = {2009},
-  url             = {https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/},
-}
-
-@incollection{girard:linear_logic,
-  author         = {Jean{-}Yves Girard},
-  title          = {Linear Logic},
-  booktitle      = {Theoretical Computer Science},
-  volume         = {50},
-  pages          = {1-102},
-  year           = {1987},
-  url            = {http://girard.perso.math.cnrs.fr/linear.pdf},
-}
-
-@incollection{walker:linear_logic,
-  author         = {David Walker},
-  title          = {Substructural Type Systems},
-  booktitle      = {Advanced Topics in Types and Programming Languages},
-  pages          = {3-43},
-  editor         = {Benjamin C. Pierce},
-  publisher      = {MIT Press},
-  year           = {2002},
-  url            = {https://mitpress-request.mit.edu/sites/default/files/titles/content/9780262162289_sch_0001.pdf},
 }
 
 @misc{cencia:dispense,
@@ -97,60 +102,77 @@
 
 @misc{freeBSD_vulnerability,
   title         = {FreeBSD-SA-02:38.signed-error},
-  author        = {Security Advisory The FreeBSD Project},
+  author        = {{The FreeBSD Project}},
   year          = {2002},
   url           = {https://www.freebsd.org/security/advisories/FreeBSD-SA-02:38.signed-error.asc},
 }
 
 @misc{git:outliving_static,
   title = {rust-lang/rfcs},
-  url = {https://github.com/rust-lang/rfcs/blob/master/text/1414-rvalue_static_promotion.md},
+  url 	= {https://github.com/rust-lang/rfcs/blob/master/text/1414-rvalue_static_promotion.md},
+  key 	= {git:outliving_static},
+}
+
+@misc{hoare:billion_dollar_mistake,
+  author          = {Tony Hoare},
+  title           = {Null References: {T}he Billion Dollar Mistake},
+  editor          = {InfoQ},
+  year            = {2009},
+  url             = {https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/},
 }
 
 @misc{mechpen:misundestand,
   author       = {Mechpen},
-  title        = {Mis-Understanding Rust lifetime},
+  title        = {Mis-Understanding {R}ust lifetime},
   year         = {2019},
   url          = {https://mechpen.github.io/posts/2019-09-28-rust-lifetime/index.html#example-3},
 }
 
+@misc{nino:security_programming_language,
+	title	={Implementing Security Via Modern Programming Languages},
+  	author	={Ni{\~n}o, Jaime},
+  	year	={2009},
+  	url 	= {http://www.cs.uno.edu/~jaime/plSecurity.pdf},
+}
+
 @misc{null:pointer_dereference,
   author        = {Common Weakness Enumeration},
-  title         = {CWE-476: NULL Pointer Dereference},
+  title         = {CWE-476: {NULL} Pointer Dereference},
   url           = {https://cwe.mitre.org/data/definitions/476.html},
 }
 
 
 @misc{rust:language,
 	author	        = {Steve Klabnik and Carol  Nichols},
-	title           = {The Rust Programming Language},
+	title           = {The {R}ust Programming Language},
 	year            = {2020},
 	url             = {https://doc.rust-lang.org/book/title-page.html},
 }
 
 @misc{rust:language_2,
-  title           = {The Rust Programming Language},
+  title           = {The {R}ust Programming Language},
   url             = {https://doc.rust-lang.org/1.9.0/book/README.html},
+  key 		  = {rust:language_2},
 }
 
 @misc{rust:reference,
-	title           = {The Rust Reference},
+	title           = {The {R}ust Reference},
 	year            = {2020},
-	url	            = {https://doc.rust-lang.org/reference/introduction.html},
-	key	            = {The Rust Reference},
+	url	        = {https://doc.rust-lang.org/reference/introduction.html},
+	key	        = {The Rust Reference},
 }
 
 @misc{rust:rustonomicon,
 	title           = {Rustonomicon},
 	year            = {2020},
-	url	            = {https://doc.rust-lang.org/nomicon/index.html},
+	url	        = {https://doc.rust-lang.org/nomicon/index.html},
 	key             = {Rustonomicon},
 }
 
 @misc{rust:unstable,
-	title         = {The Rust Unstable Book},
+	title         = {The {R}ust Unstable Book},
 	year          = {2020},
-	url	          = {https://doc.rust-lang.org/nightly/unstable-book/compiler-flags.html},
+	url	      = {https://doc.rust-lang.org/nightly/unstable-book/compiler-flags.html},
 	key           = {The Rust Unstable Book},
 }
 
@@ -163,17 +185,10 @@
 
 @misc{real_men_program_in_c,
   author        = {Michael Barr},
-  title         = {Real Men Program in C},
+  title         = {Real Men Program in {C}},
   year          = {2009}, 
   url           = {https://www.embedded.com/real-men-program-in-c/},
   key           = {Real Men Program in C}, 
-}
-
-@misc{stack_smashing_ffp,
-  author        = {Aleph One},
-  title         = {Smashing The Stack For Fun And Profit},
-  url           = {https://insecure.org/stf/smashstack.html},
-  key           = {STSFFAP},
 }
 
 @misc{tiobe:index,
@@ -190,12 +205,6 @@
   year          = {1996},
 }
 
-@techreport{nino:security_programming_language,
-  author        = {Jaime Ni{\~n}o},
-  title         = {Implementing Security Via Modern Programming Languages},
-  institution   = {University of New Orleans},
-  year          = {},
-}
 
 @techreport{nist:800,
 	author        = {Wayne, Jansen and Theodore Winograd and Karen Scarfone},

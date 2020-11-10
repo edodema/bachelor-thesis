@@ -1,18 +1,13 @@
 \begin{thebibliography}{10}
 
-\bibitem{git:outliving_static}
-rust-lang/rfcs.
-\newblock Available from:
-  \url{https://github.com/rust-lang/rfcs/blob/master/text/1414-rvalue_static_promotion.md}.
-
-\bibitem{rust:language_2}
-The rust programming language.
-\newblock Available from:
-  \url{https://doc.rust-lang.org/1.9.0/book/README.html}.
+\bibitem{stack_smashing_ffp}
+\textsc{{Aleph One}}.
+\newblock Smashing the stack for fun and profit.
+\newblock \emph{http://www. shmoo. com/phrack/Phrack49/p49-14},  (1996).
 
 \bibitem{real_men_program_in_c}
 \textsc{Barr, M.}
-\newblock Real men program in c (2009).
+\newblock Real men program in {C} (2009).
 \newblock Available from:
   \url{https://www.embedded.com/real-men-program-in-c/}.
 
@@ -23,66 +18,70 @@ The rust programming language.
   \url{http://wwwusers.di.uniroma1.it/~lpara/DISPENSE/note.pdf}.
 
 \bibitem{girard:linear_logic}
-\textsc{Girard, J.}
+\textsc{Girard, J.-Y.}
 \newblock Linear logic.
-\newblock In \emph{Theoretical Computer Science}, vol.~50, pp. 1--102 (1987).
-\newblock Available from: \url{http://girard.perso.math.cnrs.fr/linear.pdf}.
+\newblock \emph{Theoretical Computer Science}, \textbf{50} (1987), 1 .
+\newblock Available from:
+  \url{http://www.sciencedirect.com/science/article/pii/0304397587900454},
+  \href {http://dx.doi.org/https://doi.org/10.1016/0304-3975(87)90045-4}
+  {\path{doi:https://doi.org/10.1016/0304-3975(87)90045-4}}.
+
+\bibitem{git:outliving_static}
+rust-lang/rfcs.
+\newblock Available from:
+  \url{https://github.com/rust-lang/rfcs/blob/master/text/1414-rvalue_static_promotion.md}.
 
 \bibitem{gollmann:computersecurity}
 \textsc{Gollmann, D.}
 \newblock \emph{Computer Security}.
-\newblock John Wiley \& Sons Ltd, 3 edn. (2011).
-\newblock ISBN 978-0-470-74115-3.
+\newblock John Wiley \& Sons, Inc., USA (1999).
+\newblock ISBN 0471978442.
 
 \bibitem{hoare:billion_dollar_mistake}
 \textsc{Hoare, T.}
-\newblock Null references: The billion dollar mistake (2009).
+\newblock Null references: {T}he billion dollar mistake (2009).
 \newblock Available from:
   \url{https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/}.
 
 \bibitem{security_framework}
-\textsc{Khwaja, A.~A., Murtaza, M., and Ahmed, H.~F.}
+\textsc{Khwaja, A., Murtaza, M., and Ahmad, H.}
 \newblock A security feature framework for programming languages to minimize
   application layer vulnerabilities.
-\newblock \emph{Security and Privacy},  (2020).
+\newblock \emph{Security and Privacy}, \textbf{3} (2019).
 \newblock Available from:
-  \url{https://onlinelibrary.wiley.com/doi/pdf/10.1002/spy2.95}.
+  \url{https://onlinelibrary.wiley.com/doi/pdf/10.1002/spy2.95}, \href
+  {http://dx.doi.org/10.1002/spy2.95} {\path{doi:10.1002/spy2.95}}.
 
 \bibitem{rust:language}
 \textsc{Klabnik, S. and Nichols, C.}
-\newblock The rust programming language (2020).
+\newblock The {R}ust programming language (2020).
 \newblock Available from: \url{https://doc.rust-lang.org/book/title-page.html}.
 
 \bibitem{mechpen:misundestand}
 \textsc{Mechpen}.
-\newblock Mis-understanding rust lifetime (2019).
+\newblock Mis-understanding {R}ust lifetime (2019).
 \newblock Available from:
   \url{https://mechpen.github.io/posts/2019-09-28-rust-lifetime/index.html#example-3}.
 
 \bibitem{milner:type_polymorphism}
 \textsc{Milner, R.}
-\newblock A theory of type polimorphism in programming.
-\newblock \emph{Journal of Computer and Sciences}, \textbf{7} (1978), 348.
+\newblock A theory of type polymorphism in programming.
+\newblock \emph{Journal of computer and system sciences}, \textbf{17} (1978),
+  348.
 
 \bibitem{nino:security_programming_language}
 \textsc{Ni{\~n}o, J.}
-\newblock Implementing security via modern programming languages.
-\newblock Tech. rep., University of New Orleans.
-
-\bibitem{stack_smashing_ffp}
-\textsc{One, A.}
-\newblock Smashing the stack for fun and profit.
-\newblock Available from: \url{https://insecure.org/stf/smashstack.html}.
-
-\bibitem{freeBSD_vulnerability}
-\textsc{Project, S. A. T.~F.}
-\newblock Freebsd-sa-02:38.signed-error (2002).
-\newblock Available from:
-  \url{https://www.freebsd.org/security/advisories/FreeBSD-SA-02:38.signed-error.asc}.
+\newblock Implementing security via modern programming languages (2009).
+\newblock Available from: \url{http://www.cs.uno.edu/~jaime/plSecurity.pdf}.
 
 \bibitem{pypl:index}
 Pypl popularity of programming language (2020).
 \newblock Available from: \url{http://pypl.github.io/PYPL.html}.
+
+\bibitem{rust:language_2}
+The {R}ust programming language.
+\newblock Available from:
+  \url{https://doc.rust-lang.org/1.9.0/book/README.html}.
 
 \bibitem{rust:rustonomicon}
 Rustonomicon (2020).
@@ -90,12 +89,18 @@ Rustonomicon (2020).
 
 \bibitem{stallings:os}
 \textsc{Stallings, W.}
-\newblock \emph{Operating Systems: Internals and Design Principles}.
-\newblock Pearson Education, 7 edn. (2012).
+\newblock \emph{Operating systems: internals and design principles}.
+\newblock Boston: Prentice Hall,, 7 edn. (2012).
 \newblock ISBN 978-0-13-230998.
 
+\bibitem{freeBSD_vulnerability}
+\textsc{{The FreeBSD Project}}.
+\newblock Freebsd-sa-02:38.signed-error (2002).
+\newblock Available from:
+  \url{https://www.freebsd.org/security/advisories/FreeBSD-SA-02:38.signed-error.asc}.
+
 \bibitem{rust:reference}
-The rust reference (2020).
+The {R}ust reference (2020).
 \newblock Available from:
   \url{https://doc.rust-lang.org/reference/introduction.html}.
 
@@ -106,9 +111,7 @@ Tiobe programming community index (2020).
 \bibitem{walker:linear_logic}
 \textsc{Walker, D.}
 \newblock Substructural type systems.
-\newblock In \emph{Advanced Topics in Types and Programming Languages} (edited
-  by B.~C. Pierce), pp. 3--43. MIT Press (2002).
-\newblock Available from:
-  \url{https://mitpress-request.mit.edu/sites/default/files/titles/content/9780262162289_sch_0001.pdf}.
+\newblock \emph{Advanced topics in types and programming languages},  (2005),
+  3.
 
 \end{thebibliography}
