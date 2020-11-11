@@ -4,6 +4,11 @@
 Redox.
 \newblock Available from: \url{https://www.redox-os.org/}.
 
+\bibitem{tor}
+Rust in {T}or.
+\newblock Available from:
+  \url{https://trac.torproject.org/projects/tor/wiki/RustInTor}.
+
 \bibitem{stack_smashing_ffp}
 \textsc{{Aleph One}}.
 \newblock Smashing the stack for fun and profit.

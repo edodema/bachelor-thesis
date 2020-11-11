@@ -1,54 +1,55 @@
-This is BibTeX, Version 0.99d (TeX Live 2020/Arch Linux)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: sapthesis.bst
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=8) to 20 items from 10.
-Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: main.bib
 Warning--I didn't find a database entry for "libra"
 Warning--to sort, need author or key in redox
-You've used 25 entries,
+Warning--to sort, need author or key in tor
+You've used 26 entries,
             3472 wiz_defined-function locations,
-            817 strings with 8603 characters,
-and the built_in function-call counts, 8901 in all, are:
-= -- 790
-> -- 156
+            820 strings with 8674 characters,
+and the built_in function-call counts, 9174 in all, are:
+= -- 813
+> -- 157
 < -- 0
-+ -- 78
++ -- 79
 - -- 42
-* -- 355
-:= -- 1079
-add.period$ -- 72
-call.type$ -- 25
-change.case$ -- 101
+* -- 364
+:= -- 1102
+add.period$ -- 74
+call.type$ -- 26
+change.case$ -- 104
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 579
-empty$ -- 1026
+cite$ -- 28
+duplicate$ -- 597
+empty$ -- 1064
 format.name$ -- 44
-if$ -- 2286
+if$ -- 2362
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 115
-newline$ -- 125
+int.to.str$ -- 26
+missing$ -- 118
+newline$ -- 129
 num.names$ -- 36
-pop$ -- 403
+pop$ -- 420
 preamble$ -- 1
-purify$ -- 77
+purify$ -- 79
 quote$ -- 0
-skip$ -- 619
+skip$ -- 644
 stack$ -- 0
-substring$ -- 151
-swap$ -- 285
+substring$ -- 156
+swap$ -- 291
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
-warning$ -- 1
+type$ -- 100
+warning$ -- 2
 while$ -- 39
-width$ -- 27
-write$ -- 242
-(There were 2 warnings)
+width$ -- 28
+write$ -- 249
+(There were 3 warnings)

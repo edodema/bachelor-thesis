@@ -58,8 +58,8 @@
     u8, i16, u32, u64, u32, u128, usize, 
     f8, f16, f32, f64, f32, f128, fsize
   },
-  keywords = [2]{fn, if, in, for, let, match, struct, unsafe, while},
-  keywords = [3]{as, const, move, mut},
+  keywords = [2]{fn, if, in, for, let, match, struct, unsafe, while, union},
+  keywords = [3]{as, const, move, mut, true, false},
   keywordstyle=\color{codepurple},
   keywordstyle=[2]\color{MidnightBlue},
   keywordstyle=[3]\color{Rhodamine},
@@ -138,29 +138,32 @@
 \mainmatter
 
 \chapter{Introduzione}
-Rust è un linguaggio di programmazione che si focalizza sulla velocità e sulla sicurezza dei suoi programmi.
-La semantica stessa del linguaggio definisce delle regole che impediscono l'insorgere di programmi non sicuri, tendenzialmente un bug nasce dalla distrazione del programmatore e Rust adottando dei semplici accorgimenti riduce notevolmente la possibilità che accadano questi errori, ad esempio anche il solo fatto che le variabili siano modificabili solo quando esplicitamente richiesto è in accordo con il \textbf{principle of least privilege}.
+Rust è un linguaggio di programmazione focalizzato sulla velocità e sulla sicurezza dei suoi programmi.
+L'interesse per Rust è in costante crescita e sempre più sviluppatori hanno intenzione di adottarlo per la creazione di nuovo software, come nel caso del sistema operativo Redox ~\cite{redox}, o per il porting di quello già esistente, come nel caso del browser Tor ~\cite{tor}.
+La semantica del linguaggio definisce delle regole che impediscono la scrittura di programmi non sicuri, tendenzialmente un bug nasce dalla distrazione del programmatore e Rust tramite dei semplici accorgimenti riduce notevolmente la possibilità che si presentino, ad esempio le variabili sono modificabili solo quando esplicitamente richiesto.
+Tale scelta rispetta il \textbf{principle of least privilege}.
 
-\section{Principi di sicurezza}
-Nello sviluppo di sistemi sicuri ci si attiene a dei principi, non è sempre possibile rispettarli tutti e alle volte vanno in contrasto tra loro né è sempre banale individuare come un sistema si ponga rispetto ad uno dei principi ~\cite{gollmann:computersecurity}.
+
+Si definisce \textbf{soggetto} una qualsiasi entità attiva in un sistema e i soggetti accedono agli \textbf{oggetti}, nello sviluppo di sistemi sicuri ci si attiene a dei principi ma non è sempre possibile rispettarli tutti, alle volte vanno in contrasto tra loro e non è sempre facile individuare come un sistema si ponga rispetto ad alcuni di essi ~\cite{gollmann:computersecurity}:
 
 \begin{itemize}
-	\item \textbf{Least privilege.} Ad un soggetto è garantito l'insieme minimale di privilegi necessari per completare la sua task.
-	\item \textbf{Fail-safe default.} Ad un soggetto è consentito l'accesso ad una risorsa solo se dichiarato esplicitamente.
+	\item \textbf{Least privilege.} Ad un soggetto è garantito l'insieme minimale di privilegi necessari per un dato compito.
+	\item \textbf{Fail-safe default.} Ad un soggetto è consentito l'accesso ad una risorsa solo se esplicitamente autorizzato.
 	\item \textbf{Economy of mechanisms.} I meccanismi di sicurezza devono essere semplici, quando si hanno poche righe di codice è più facile fare manutenzione \footnote{Equivale al più generale K.I.S.S. \textit{Keep it simple, stupid}.}.
-	\item \textbf{Complete mediation.} Ogni accesso ad un oggetto deve essere verificato, solitamente una volta e prima dell'effettivo accesso.
-	\item \textbf{Open design.} La sicurezza di un meccanismo non dipende dalla sua segretezza, il codice non deve essere necessariamente pubblico ma la \textit{security by obscurity} non è abbastanza. 
-		Ad esempio il funzionamento di sistemi di cifratura a chiave asimmetrica è di pubblico dominio, il sistema è sviluppato per essere sicuro (\textit{security by design}). 
-		Il principio di open design non si applica ad informazioni che devono essere segrete quali chiavi crittografiche o d'accesso.
-	\item \textbf{Separation of privilege.} Un sistema non deve garantire i permessi basandosi su una singola condizione.
+	\item \textbf{Complete mediation.} Ogni accesso ad un oggetto deve essere verificato, solitamente una volta e prima dell'accesso effettivo.
+	\item \textbf{Open design.} La sicurezza di un meccanismo non dipende dalla sua segretezza, il codice non deve essere necessariamente pubblico ma la \textit{security by obscurity} non dà alcuna garanzia.
+		Il principio di open design non si applica ad informazioni che devono essere segrete quali chiavi crittografiche o d'accesso, alla security by obscurity si oppone la \textbf{security by design}.
+	\item \textbf{Separation of privilege.} Un sistema non deve garantire i permessi basandosi solo su una singola condizione.
 	\item \textbf{Least common mechanism.} I meccanismi usati per accedere alle risorse non dovrebbero essere condivisi, più una risorsa è condivisa in un insieme di soggetti più è facile che venga sfruttata per fini non sicuri.
 	\item \textbf{Psychological acceptability.} I meccanismi di sicurezza non devono rendere l'accesso alle risorse più difficile di quanto non sarebbe senza.
 \end{itemize}
 
-Rust regola l'accesso in conformità a questi principi tramite \textbf{ownership} e \textbf{borrowing}, sono regole molto semplici ed eleganti che però richiedono maggiore impegno da parte del programmatore.
-I principali problemi di Rust sono la sua difficoltà e la curva d'apprendimento, la stragrande maggioranza di programmatori ha più familiarità con linguaggi imperativi e Rust per quanto condivida una sintassi simile al C prende a piene mani da linguaggi funzioanli come ML e Haskell. 
-Rust eredita il \textcode{let} dai linguaggi funzionali e quasi ogni parte di una funzione è un'espressione ~\cite[1309-1573]{rust:syntax}, nel listato \ref{lst:funrs_if} si può vedere come una condizionale sia anche un'espressione, non c'è necessità dell'operatore ternario \textcode{?}.
-Anche il \textcode{match} è preso direttamente dai linguaggi funzionali, nel listato \ref{lst:funrs_match} si nota anche come non sia necessario specificare un valore di ritorno, omettendo il tipico \textcode{;} si ha un return automatico come in LISP.
+Con \textbf{Trusted computing base (TCB)} si intende la totalità delle componenti che vanno a definire la sicurezza di un sistema, in concordanza con i principio di economy of mechanisms è desiderabile che la TCB sia il più contenuta possibile.
+Rust regola l'accesso in conformità a questi principi tramite \textbf{ownership} e \textbf{borrowing}, sono meccanismi semplici che però richiedono un maggiore impegno da parte del programmatore, come si può vedere rispettare un principio ne viola un altro.
+
+Il principale problema di Rust è la sua curva d'apprendimento, la stragrande maggioranza dei programmatori ha più familiarità con i linguaggi imperativi e Rust per quanto condivida una sintassi simile al C è molto influenzato da linguaggi funzionali come ML e Haskell. 
+Rust ne eredita il \textcode{let} e quasi ogni parte di una funzione è un'espressione ~\cite[1309-1573]{rust:syntax}, nel listato \ref{lst:funrs_if} si può vedere come una condizionale sia un'espressione, così facendo si elimina la necessità dell'operatore ternario \textcode{a ? b : c}.
+Anche il costrutto \textcode{match} deriva dai linguaggi funzionali, si può vedere nel listato \ref{lst:funrs_match} e si può notare anche come non sia necessario specificare un valore di ritorno, omettendo il tipico \textcode{;} si ha un return automatico come in LISP.
 
 \lstinputlisting[language=Rust]{../code/Functional/if.rs}
 \lstinputlisting[caption={In Rust anche l'\textcode{if} è un'espressione.}, label={lst:funrs_if}, numbers=none]{../code/Functional/output/ifrs.txt}
@@ -168,66 +171,65 @@ Anche il \textcode{match} è preso direttamente dai linguaggi funzionali, nel li
 \lstinputlisting[language=Rust]{../code/Functional/match.rs}
 \lstinputlisting[caption={Match in Rust.}, label={lst:funrs_match}, numbers=none]{../code/Functional/output/matchrs.txt}
 
-L'ownership rappresenta il possesso di un \textit{right value} da parte di un \textit{left value}, in Rust gli oggetti di tipo composto sono lineari e solo a questi si applica ownership, al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e un assegnamento ad una seconda variabile fa passare il possesso dalla prima alla seconda: in qualsiasi momento quindi può esserci solo un possessore per ogni oggetto. 
-Un owner viene invalidato con la sua distruzione quando esce dal suo scope, bisogna porre particolare attenzione in questo caso dato che le chiamate di funzioni possono invalidare una variabile passata come argomento: il possesso passa alla nuova variabile nel corpo della funzione e una volta terminato il suo scope non sarà più possibile accedere all'oggetto con la variabile vecchia, in quanto si può avere massimo un owner per volta, né con la nuova poiché ormai si è fuori dal suo scope (listato \ref{lst:ownership}). 
+L'ownership rappresenta il possesso di un \textbf{right value} da parte di un \textbf{left value} e al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e un assegnamento ad una seconda variabile fa passare il possesso dalla prima alla seconda: in qualsiasi momento quindi può esserci solo un possessore per ogni oggetto. 
+Un owner viene invalidato con la sua distruzione quando esce dal proprio scope, bisogna porre particolare attenzione in questo caso dato che le chiamate di funzioni possono invalidare le variabili passate come argomento: il possesso passa alla nuova variabile nel corpo della funzione e una volta terminato il suo scope non sarà più possibile accedere all'oggetto con la variabile precedente - si può avere massimo un owner per volta - né con la nuova poiché ormai si è fuori dal suo scope (listato \ref{lst:ownership}). 
 
 \lstinputlisting[language=Rust,caption={Ownership}, label={lst:ownership}]{../code/Ownership/own.rs}
 
-L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza garbage collector ma non è sempre desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing.
+L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza \textbf{garbage collector} ma non è sempre desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing.
 
-Tramite il borrowing si possono creare molteplici  riferimenti ~\cite[4.2]{rust:language} ad un dato purché in sola lettura, con il modificatore \textcode{mut} è possibile rendere il riferimento modificabile a patto che in qualsiasi momento per qualsiasi variabile ve ne sia al più uno. 
-Un modulo chiamato \textbf{borrow checker} garantisce a tempo di compilazione che finché esistono dei riferimenti ad un oggetto non sia possibile distruggere l'oggetto in questione. 
+Tramite il borrowing infatti si possono creare molteplici  riferimenti ~\cite[4.2]{rust:language} ad un dato purché in sola lettura, con il modificatore \textcode{mut} è possibile rendere il riferimento modificabile a patto che in qualsiasi momento per qualsiasi variabile ve ne sia al più uno. 
+Un modulo chiamato \textbf{borrow checker} garantisce a tempo di compilazione che finché esistono dei riferimenti ad un oggetto non sarà possibile distruggere l'oggetto in questione.
+Per eseguire questa verifica si fa uso dei \textbf{lifetime} i quali garantiscono che ogni riferimento sia valido, il lifetime di una variabile inizia quando questa viene creata e termina quando viene distrutta.
+Il borrowing simula una \textbf{call by reference}, come in C infatti Rust presenta solo \textbf{call by value}.
+Quando possibile il compilatore inferisce i lifetime automaticamente, in caso contrario è necessario gestirli manualmente.
+
+I lifetime sono delle regioni di codice nella quale ogni riferimento deve essere valido ~\cite[3.3]{rust:rustonomicon} ma è facile confondere scope e lifetime, negli esempi più semplici coincidono ma i secondi esprimono relazioni tra scope: un lifetime può essere associato a più scope e uno scope può avere associati più lifetime. 
 
 \lstinputlisting[language=Rust,caption={Borrowing}, label={lst:borrowing}]{../code/Borrowing/borr.rs}
+
+Questi controlli evitano la presenza di \textbf{side effect}, un programma ne presenta quando contiene almeno un'operazione che modifica lo stato di una o più variabili non presenti nel suo ambiente locale. 
+Non sono necessariamente negativi, variabili globali e processi concorrenti acquistano la loro forza proprio da questi effetti collaterali.
+
+I controlli di ownership e borrowing sono eseguiti staticamente rendendo l'esecuzione del programma molto più rapida.
+
 
 \section{Il problema del C}
 Il linguaggio di programmazione C è stato sviluppato nel 1978 e ad oggi è ancora uno dei più popolari ~\cite{tiobe:index} ~\cite{pypl:index}, ciò è dovuto al fatto che circa il 98\% ~\cite{real_men_program_in_c} dei sistemi informatici sul mercato siano sistemi integrati che richiedono un basso overhead e C risponde a questa esigenza tramite una gestione manuale della memoria, l'esecuzione dei programmi consuma quindi meno risorse ma si richiede un maggiore impegno da parte del programmatore, è infatti suo compito allocare memoria adeguatamente e successivamente liberarla. 
 Rimettendo totalmente al programmatore la gestione della memoria C permette di scrivere programmi non sicuri, esistono linguaggi come Java considerati sicuri che gestiscono automaticamente la memoria tramite \textbf{garbage collection} al prezzo di un maggiore overhead, sono quindi poco adatti alla scrittura di codice per embedded systems.
-La garbage collection è una delle tecniche di gestione automatica della memoria più usate nei linguaggi di programmazione: tramite un modulo noto come \textbf{garbage collector} si tiene traccia di ogni allocazione e le zone di memoria non più necessarie vengono periodicamente liberate, rendendole nuovamente disponibili. 
-La garbage collection ha il vantaggio di esonerare il programmatore dal dover gestire la memoria per potersi concentrare sulla logica del programma e la sua leggibilità, si evitano inoltre vulnerabilità quali double free o dangling pointer (rispettivamente sezioni \ref{sec:double_free} e \ref{sec:dangling_reference}). 
+La garbage collection è una delle tecniche di gestione automatica della memoria più usate nei linguaggi di programmazione: tramite il garbage collector si tiene traccia di ogni allocazione e le zone di memoria non più necessarie vengono periodicamente liberate e rese nuovamente disponibili. 
+La garbage collection ha il vantaggio di esonerare il programmatore dal dover gestire la memoria per potersi concentrare sulla logica del programma e la sua leggibilità, si evitano inoltre vulnerabilità quali \textbf{double free} o \textbf{dangling pointer} (rispettivamente sezioni \ref{sec:double_free} e \ref{sec:dangling_reference}). 
 Con la garbage collection l'esecuzione dei programmi è più lenta data la presenza del garbage collector.
 
 Nel breve futuro ci si aspetta sempre un numero crescente di oggetti d'uso comune connessi tra loro (i.e. internet of things) e si sente la necessità di metodi sicuri per programmare sistemi integrati. 
-Nella ricerca di un linguaggio sicuro con gestione esplicita della memoria Rust sembra essere il miglior candidato grazie ai \textbf{lifetime}, questi descrivono lo scope nel quale una variabile è valida e sono fondamentali per il corretto funzionamento dei meccanismi di \textbf{ownership} e \textbf{borrowing}, dal momento che la loro verifica avviene a tempo di compilazione l'esecuzione dei programmi ne guadagna in velocità. 
-I due obiettivi di Rust sono infatti sicurezza e velocità d'esecuzione dei suoi programmi: la prima è garantita dall'ownership che impedisce il manifestarsi di \textbf{side effect}, la seconda sia tramite il maggior numero possibile di controlli statici che tramite borrowing il quale simula una call by reference - in Rust come in C c'è solo call by value.
-Un programma presenta side effect quando contiene almeno un'operazione che modifica lo stato di una o più variabili non presenti nel suo ambiente locale.
-I side effect non sono necessariamente negativi, variabili globali e processi concorrenti acquistano la loro forza proprio da questi effetti collaterali.
+Nella ricerca di un linguaggio sicuro con gestione esplicita della memoria Rust sembra essere il miglior candidato.
+
 
 \section {Stato dell'arte}
-Ad oggi differenti linguaggi utilizzano tecniche differenti per i loro meccanismi di sicurezza, è consuetudine che il linguaggio presenti un sistema di tipi.
-Il controllo sui tipo vieta automaticamente una gamma di azioni che coinvolgono oggetti di tipo differente, nonostante ciò non è comunque abbastanza dato che C è tipato e non è sicuro.
-Infatti è possibile oltrepassare alcuni limiti imposti dai tipi con i puntatori, la maggior parte dei linguaggi odierni considerati sicuri eliminano questo problema nascondendo i puntatori al programmatore e nel caso in cui fosse presente un'aritmetica dei puntatori di norma non sono raw pointer come in C ma smart pointer, questi ultimi presentano in più rispetto ai primi delle funzioni in più quali bound check e possono tenere traccia dell'uso della memoria.
-Ad un controllo sui tipi è quindi necessario un controllo sugli accessi, ad esempio in Java esistono classi con più permessi di altre ~\cite{java:privilege}, in Rust è possibile definire una propria politica di autorizzazioni d'accesso ~\cite{rust:auth} invece in Python non è proprio possibile ~\cite{python:privilege}.
+Ad oggi differenti linguaggi utilizzano tecniche differenti per i loro meccanismi di sicurezza ma è norma che il linguaggio presenti un sistema di tipi.
+Il controllo sui tipi vieta automaticamente qualsiasi azione coinvolga oggetti di tipo non corrispondente, nonostante ciò non è comunque abbastanza dato che C è tipato e non è sicuro.
+Infatti è possibile oltrepassare alcuni limiti imposti dai tipi con i puntatori, la maggior parte dei linguaggi odierni considerati sicuri eliminano questo problema nascondendo i puntatori al programmatore e nel caso in cui fosse presente un'aritmetica dei puntatori di norma non sono \textbf{raw pointer} come in C ma \textbf{smart pointer}, questi ultimi rispetto ai primi presentano delle funzioni controllando l'intervallo degli array o tenendo traccia dell'uso della memoria.
+Oltre ad un controllo sui tipi è necessario anche un controllo sugli accessi: in Java esistono classi con più permessi di altre ~\cite{java:privilege}, in Rust è possibile definire una propria politica di autorizzazioni d'accesso ~\cite{rust:auth}, in Python invece non è proprio possibile ~\cite{python:privilege}.
 
 \section{Obiettivi}
-L'obiettivo di questo documento è verificare il comportamento di Rust di fronte a tipiche violazioni della sicurezza nei linguaggi di programmazione e tal fine è stato preso come metro di paragone il linguaggio C, noto per essere non sicuro, ed è stato scritto del codice non sicuro.
-Poi è stato scritto del codice che potesse avere effetti simili in Rust osservandone il risultato.
+L'obiettivo di questo documento è verificare il comportamento di Rust di fronte a tipiche violazioni della sicurezza nei linguaggi di programmazione, a tal fine è stato preso come metro di paragone il linguaggio C, noto per essere vulnerabile, ed è stato scritto del codice non sicuro.
+Successivamente è stato scritto del codice che potesse avere effetti simili in Rust osservandone il risultato.
 
-Nel capitolo \ref{chap:security_policy} è data la definizione che Rust dà di sicurezza, per analizzare i vari tipi di violazioni di codice è stata fatta una distinzione tra memory safety \ref{chap:memory_safety} e type safety \ref{chap:type_safety}.
-La proprietà sicurezza in Rust è garantita da ownership e borrowing, nel capitolo \ref{chap:Rust} viene approfondito il sistema che ne è alla base.
+Nel capitolo \ref{chap:security_policy} è presentata la definizione che Rust dà di sicurezza, per analizzare i vari tipi di violazioni di codice è stata fatta una distinzione tra \textbf{memory safety} \ref{chap:memory_safety} e \textbf{type safety} \ref{chap:type_safety}, queste insieme definiscono la sicurezza di un linguaggio ~\cite{nino:security_programming_language}.
+La sicurezza in Rust è garantita da ownership e borrowing, nel capitolo \ref{chap:Rust} viene approfondito il sistema che ne è alla base.
 
 
 \chapter{Security policy} \label{chap:security_policy}
 
 Risulta molto difficile parlare di sicurezza in generale dato che non ne esiste una definizione assoluta ma è un concetto relativo che varia in base a cosa ci interessa proteggere e garantire. 
-La sicurezza di un'organizzazione - che essa sia una multinazionale o un singolo individuo - è definita da una \textbf{security policy}  ovvero un documento contenente regole, principi e pratiche che determinano come garantire che il sistema si trovi in uno stato sicuro ~\cite{milner:type_polymorphism}. 
+La sicurezza di un'organizzazione - che essa sia una multinazionale o un singolo individuo - è definita da una \textbf{security policy} ovvero un documento contenente regole, principi e pratiche che determinano come garantire che il sistema si trovi in uno stato sicuro ~\cite{milner:type_polymorphism} e nel quale si definiscono quali azioni i soggetti possano eseguire sugli oggetti. 
 
-\begin{myDefinition}{Security policy}{security_policy}
-    In una politica di sicurezza si definiscono quali azioni i \textbf{principal} possono eseguire sugli oggetti. Un principal è un'entità qualsiasi che interagisce con il sistema e deve rispettare la politica di sicurezza, nel caso specifico dei linguaggi di programmazione saranno entità software.
-\end{myDefinition}
-
-Nello sviluppo di linguaggi di programmazione sicuri si è guidati da due principi ~\cite{nino:security_programming_language}:
-\begin{itemize}
-    \item \textbf{Trusted computing base (TCB)}. Un sistema presenta componenti critici per il rispetto della policy, questi formano il TCB ed è fondamentale non presenti vulnerabilità dato che metterebbero a repentaglio la sicurezza del sistema stesso, il TCB deve essere semplice e limitato così da poterne verificare facilmente la correttezza ed evitare fallimenti. 
-    \item \textbf{Principle of Least Privilege (POLP)}. Durante l'esecuzione ogni entità deve avere il numero minore possibile di permessi necessari per eseguire il suo compito. 
-\end{itemize} 
-È possibile scomporre i requisiti di sicurezza fondamentali durante lo sviluppo in \textbf{access control} e \textbf{information flow}, il primo limita chi o cosa possa accedere a quali risorse e il secondo definisce quali operazioni siano corrette o meno in seguito ad un accesso conforme all'accesso control, di norma il sistema operativo stesso implementa questi controlli via software o hardware e programmi che sono legali in C potrebbero comunque essere interrotti. 
-In Rust la sicurezza è garantita da regole semplici e verificabili e si rispetta il POLP, i controlli sono eseguiti a tempo di compilazione e anche quando un programma viene interrotto a runtime non viene scomodato il sistema operativo (vedere ad esempio il codice nel listato \ref{lst:integeroverflowrs}).
-
-Questa necessità di implementare la sicurezza nel linguaggio stesso e non rimetterla più nelle mani del sistema operativo è nata dall'avvento di internet e la sempre più grande condivisione di codice potenzialmente pericoloso.
+È possibile scomporre concettualmente la TCB in \textbf{access control} e \textbf{information flow}, il primo limita chi o cosa possa accedere a quali risorse e il secondo definisce quali operazioni siano corrette o meno in seguito ad un accesso conforme all'access control, di norma il sistema operativo implementa questi controlli via software o hardware e come si vedrà nel capitolo \ref{chap:memory_safety} programmi che sono legali in C potrebbero comunque essere interrotti a runtime ~\cite{nino:security_programming_language}.
+In Rust i controlli sono eseguiti per lo più a tempo di compilazione e anche quando un programma viene interrotto a runtime non viene scomodato il sistema operativo (vedere ad esempio il codice nel listato \ref{lst:integeroverflowrs}). 
+Questa necessità di implementare la sicurezza nel linguaggio stesso e non rimetterla più nelle mani del sistema operativo è nata dall'avvento di internet e la sempre più grande condivisione di codice potenzialmente pericoloso su macchine diverse.
 
 Per dimostrare delle proprietà di un linguaggio serve una definizione formale della sua \textbf{semantica} ovvero l'insieme delle regole che definiscono il significato di un linguaggio e dei suoi programmi.
-A tal proposito Rust non ha una semantica formale definita (figura \ref{fig:warning}) e la sua definizione di sicurezza è poco chiara, un programma è sicuro se rispetta \textbf{memory safety} (capitolo \ref{chap:memory_safety}) e \textbf{semantica statica} (capitolo \ref{chap:type_safety}) ~\cite[14]{rust:reference} ma la documentazione presenta delle definizioni poco chiare se non addirittura contraddittorie: 
+Rust non ha una definizione della sua semantica formale (figura \ref{fig:warning}) e quella di sicurezza è poco chiara, un programma è sicuro se rispetta memory safety (capitolo \ref{chap:memory_safety}) e type safety (capitolo \ref{chap:type_safety}) ~\cite[14]{rust:reference} ma la documentazione presenta delle definizioni poco chiare se non addirittura contraddittorie: 
 
 \vspace{5mm}
 
@@ -263,21 +265,26 @@ Volendo comunque considerare solo l'ultima affermazione, l'esecuzione in un bloc
     \label{fig:warning}
 \end{figure}
 
-Rust offre le seguenti proprietà:
+Nonostante la poca chiarezza si prendono come riferimento le seguenti proprietà ~\cite[14]{rust:language} per le quali in del codice safe:
 \begin{enumerate}
-	\item Nessun programma genera undefined behaviour.
+	\item Non può essere presente del codice in un costrutto \textcode{unsafe}.
+	\item Nessun programma genera undefined behaviour, chiaramente dipende dalla definizione poco rigorosa descritta sopra.
 	\item Non è possibile dereferenziare un raw pointer.
-	\item Non è possibile leggere né scrivere una variabile statica che sia anche \textcode{extern} o \textcode{mut}.
-	\item Non è possibile accedere ad un campo di un'\textcode{union} se non per l'assegnamento.
-	\item Presentare codice \textcode{unsafe}
+	\item Non è possibile accedere ad un campo di un'\textcode{union} se non per l'inizializzazione. I vari campi in una union condividono la stessa area di memoria, differentemente dalle struct non è possibile capire se un campo sia attivo o meno e accedere ad un campo potrebbe ritornare valori non definiti e causare undefined behavior (listato \ref{lst:unionrs}).
 \end{enumerate}
 
-\chapter{Rust} \label{chap:Rust}
-I meccanismi di sicurezza in Rust sono tanto solidi perché ben definiti matematicamente.
-Un'interpretazione della logica lineare di Girard permette di esprimere formalmente operazioni in termini di consumo di risorse, questa interpretazione è implementata nell'ownership per la quale l'"uso" equivale alla liberazione al termine del proprio scope e per evitare double free non possono esistere due variabili che possiedono la stessa risorsa.
-Un sistema del genere è detto substrutturale e nel caso specifico di Rust si fa uso dei \textbf{lifetime}, è possibile definirne formalmente il comportamente.
 
-\section{Sistemi di tipi substrutturali}
+\lstinputlisting[language=Rust]{../code/Unsafe/union.rs}
+\lstinputlisting[numbers=none, caption={Accedere al campo di una union.}, label={lst:unionrs}]{../code/Unsafe/output/unionrs.txt}
+
+\chapter{Rust} \label{chap:Rust}
+
+I meccanismi di sicurezza in Rust sono tanto solidi perché ben definiti matematicamente.
+Un'interpretazione della logica lineare di Girard permette di esprimere formalmente operazioni in termini di consumo di risorse, questa interpretazione è implementata nell'ownership.
+Nella sezione \ref{sec:Rust_substruct} è proposta una panoramica sui sistemi substrutturali, cui appartiene Rust. 
+Inoltre è possibile definire formalmente i lifetime e se ne vedono alcune proprietà nella sezione \ref{sec:Rust_linear}.
+
+\section{Sistemi di tipi substrutturali} \label{sec:Rust_substruct}
 
 I sistemi di tipi \textbf{substrutturali} sono una famiglia di sistemi di tipi (capitolo \ref{chap:type_safety}) dove almeno una delle seguenti proprietà - dette \textbf{strutturali} - non è presente o lo è sotto determinate condizioni, allo stesso modo si parlerà anche di logiche substrutturali.
 
@@ -322,9 +329,10 @@ Se ne deduce $ \textit{\$1} \land \textit{candy} $ e si ha una caramella senza a
 \end{table}
 
 Nella tabella \ref{tab:substructural_type_systems} è presentata una corrispondenza tra alcuni sistemi substrutturali e le regole in esso valide: in un sistema di tipi rilevante dal momento che non vale la regola di weakening non è possibile avere risorse superflue e ognuna dovrà essere usata almeno una volta. 
-La definizione del verbo "usare" è ambigua e dipende dall'implementazione del linguaggio, si può definire un insieme di azioni e quando si afferma di usare una risorsa ci si riferisce all'esecuzione su questa di una delle azioni possibili, in Rust ad esempio sono specificate dalle regole di ownership.
+La definizione del verbo "usare" è ambigua e dipende dall'implementazione del linguaggio, si può definire un insieme di azioni e quando si afferma di usare una risorsa ci si riferisce all'esecuzione su questa di una delle azioni possibili, in Rust ad esempio sono specificate dalle regole di ownership, per evitare \textbf{double free} (sezione \ref{sec:double_free}) si vieta che due variabili prendano possesso dello stesso oggetto contemporaneamente.
 
-In un sistema affine non è valida la contraction, questo implica che due usi differenti della stessa risorsa non possano essere unificati in uno solo e in un programma si può tradurre con l'impossibilità di liberare due volte la stessa zona di memoria (\ref{sec:double_free}); un sistema o una logica lineare ~\cite{girard:linear_logic} è sintesi di uno rilevante e un affine quindi vale solo exchange, ogni risorsa deve essere usata esattamente una volta.
+In un sistema affine non è valida la contraction, questo implica che due usi differenti della stessa risorsa non possano essere unificati in uno solo e in un programma si può tradurre con l'impossibilità di liberare due volte la stessa zona di memoria.
+Un sistema o una logica lineare ~\cite{girard:linear_logic} è sintesi di uno rilevante e un affine quindi vale solo exchange, ogni risorsa deve essere usata esattamente una volta, in Rust se si usa la stessa variabile più volte si ha un errore invece se non la si usa mai un warning.
 Nella sintassi di una logica lineare sono presenti dei qualificatori che marcano una variabile come lineare indicando che debba essere usata una volta.
 
 In un sistema lineare per garantire la non riusabilità di una variabile vengono imposte due invarianti ~\cite{walker:linear_logic}:
@@ -336,31 +344,14 @@ In un sistema lineare per garantire la non riusabilità di una variabile vengono
 
 Il perché la prima invariante sia fondamentale è chiaro, dopotutto è proprio il nostro obiettivo; per la seconda supponiamo di avere un oggetto \texttt{X} non lineare e un suo attributo \texttt{X.y} lineare, sarebbe possibile sfruttare \texttt{X} per usare più volte \texttt{X.y}, si avrebbe in questo modo una violazione della linearità. 
 
-\section{Linearità in Rust}
+\section{Linearità in Rust} \label{sec:Rust_linear}
 
 Rust presenta un sistema dei tipi lineare e tutte le variabili sono marcate come lineari tranne quelle di tipo primitivo, le invarianti sulla linearità vengono rispettate tramite ownership e borrowing.
 
-L'ownership rappresenta il possesso di un right value da parte di un left value (definizione \ref{def:left_right_value}), in Rust gli oggetti di tipo composto sono lineari e solo a questi si applica ownership, al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e un assegnamento ad una seconda variabile fa passare il possesso dalla prima alla seconda: in qualsiasi momento quindi può esserci solo un possessore per ogni oggetto. 
-Un owner viene invalidato con la sua distruzione quando esce dal suo scope, bisogna porre particolare attenzione in questo caso dato che le chiamate di funzioni possono invalidare una variabile passata come argomento: il possesso passa alla nuova variabile nel corpo della funzione e una volta terminato il suo scope non sarà più possibile accedere all'oggetto con la variabile vecchia, in quanto si può avere massimo un owner per volta, né con la nuova poiché ormai si è fuori dal suo scope (listato \ref{lst:ownership}). 
+In Rust gli oggetti di tipo composto sono lineari e solo a questi si applica l'ownership.
+Al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e un assegnamento ad una seconda variabile fa passare il possesso dalla prima alla seconda: in qualsiasi momento quindi può esserci solo un possessore per ogni oggetto. 
 
-\lstinputlisting[language=Rust,caption={Ownership}, label={lst:ownership}]{../code/Ownership/own.rs}
-
-\begin{myDefinition}{Left e Right value}{left_right_value}
-    Dato un assegnamento un left value punta ad un'area di memoria contenente un right value, il nome è dovuto alla posizione dei due valori rispetto all'operatore di assegnamento: in \textcode{x = y} il left value è \textcode{x} e il right \textcode{y}.
-\end{myDefinition}
-
-L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza garbage collector ma non è sempre desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing.
-
-Tramite il borrowing si possono creare molteplici  riferimenti ~\cite[4.2]{rust:language} ad un dato purché in sola lettura, con il modificatore \textcode{mut} è possibile rendere il riferimento modificabile a patto che in qualsiasi momento per qualsiasi variabile ve ne sia al più uno. 
-Un modulo chiamato \textbf{borrow checker} garantisce a tempo di compilazione che finché esistono dei riferimenti ad un oggetto non sia possibile distruggere l'oggetto in questione. 
-
-\lstinputlisting[language=Rust,caption={Borrowing}, label={lst:borrowing}]{../code/Borrowing/borr.rs}
-
-Un lifetime è un costrutto usato dal borrow checker per garantire che ogni riferimento sia valido, il lifetime di una variabile inizia quando questa viene creata e termina quando viene distrutta; il compilatore quando possibile inferisce i lifetime, in caso contrario è necessario gestirli manualmente.
-
-I lifetime sono delle regioni di codice nella quale ogni riferimento deve essere valido ~\cite[3.3]{rust:rustonomicon} ma è facile confondere scope e lifetime, negli esempi più semplici coincidono ma i secondi esprimono relazioni tra scope: un lifetime può essere associato a più scope e uno scope può avere associati più lifetime. 
-
-Per quanto concerne i lifetime in Rust valgono tre regole assiomatiche ~\cite{mechpen:misundestand}:
+Per i lifetime in Rust valgono tre regole assiomatiche ~\cite{mechpen:misundestand}:
 
 \begin{lemma}[Association] \label{lemma:association}
     Dato un riferimento il suo scope è sottoinsieme del suo lifetime.
