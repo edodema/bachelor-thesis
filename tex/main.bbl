@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{redox}
+Redox.
+\newblock Available from: \url{https://www.redox-os.org/}.
+
 \bibitem{stack_smashing_ffp}
 \textsc{{Aleph One}}.
 \newblock Smashing the stack for fun and profit.
@@ -16,6 +20,11 @@
 \newblock Dispense del corso linguaggi di programmazione (2019).
 \newblock Available from:
   \url{http://wwwusers.di.uniroma1.it/~lpara/DISPENSE/note.pdf}.
+
+\bibitem{rust:auth}
+\textsc{docs.rs}.
+\newblock Crate oso.
+\newblock Available from: \url{https://docs.rs/oso/0.7.0/oso/}.
 
 \bibitem{girard:linear_logic}
 \textsc{Girard, J.-Y.}
@@ -74,9 +83,21 @@ rust-lang/rfcs.
 \newblock Implementing security via modern programming languages (2009).
 \newblock Available from: \url{http://www.cs.uno.edu/~jaime/plSecurity.pdf}.
 
+\bibitem{java:privilege}
+\textsc{Oracle}.
+\newblock Privilegedaction.
+\newblock Available from:
+  \url{https://docs.oracle.com/javase/7/docs/api/java/security/PrivilegedAction.html}.
+
 \bibitem{pypl:index}
 Pypl popularity of programming language (2020).
 \newblock Available from: \url{http://pypl.github.io/PYPL.html}.
+
+\bibitem{rust:syntax}
+\textsc{rust lang}.
+\newblock parser-lalr.y.
+\newblock Available from:
+  \url{https://github.com/rust-lang/rust/blob/5b13bff5203c1bdc6ac6dc87f69b5359a9503078/src/grammar/parser-lalr.y#L1309-L1573}.
 
 \bibitem{rust:language_2}
 The {R}ust programming language.
@@ -86,6 +107,12 @@ The {R}ust programming language.
 \bibitem{rust:rustonomicon}
 Rustonomicon (2020).
 \newblock Available from: \url{https://doc.rust-lang.org/nomicon/index.html}.
+
+\bibitem{python:privilege}
+\textsc{Security, P.}
+\newblock Python security model.
+\newblock Available from:
+  \url{https://python-security.readthedocs.io/security.html#python-security-model}.
 
 \bibitem{stallings:os}
 \textsc{Stallings, W.}

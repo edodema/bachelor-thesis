@@ -138,26 +138,144 @@
 \mainmatter
 
 \chapter{Introduzione}
+Rust è un linguaggio di programmazione che si focalizza sulla velocità e sulla sicurezza dei suoi programmi.
+La semantica stessa del linguaggio definisce delle regole che impediscono l'insorgere di programmi non sicuri, tendenzialmente un bug nasce dalla distrazione del programmatore e Rust adottando dei semplici accorgimenti riduce notevolmente la possibilità che accadano questi errori, ad esempio anche il solo fatto che le variabili siano modificabili solo quando esplicitamente richiesto è in accordo con il \textbf{principle of least privilege}.
 
+\section{Principi di sicurezza}
+Nello sviluppo di sistemi sicuri ci si attiene a dei principi, non è sempre possibile rispettarli tutti e alle volte vanno in contrasto tra loro né è sempre banale individuare come un sistema si ponga rispetto ad uno dei principi ~\cite{gollmann:computersecurity}.
+
+\begin{itemize}
+	\item \textbf{Least privilege.} Ad un soggetto è garantito l'insieme minimale di privilegi necessari per completare la sua task.
+	\item \textbf{Fail-safe default.} Ad un soggetto è consentito l'accesso ad una risorsa solo se dichiarato esplicitamente.
+	\item \textbf{Economy of mechanisms.} I meccanismi di sicurezza devono essere semplici, quando si hanno poche righe di codice è più facile fare manutenzione \footnote{Equivale al più generale K.I.S.S. \textit{Keep it simple, stupid}.}.
+	\item \textbf{Complete mediation.} Ogni accesso ad un oggetto deve essere verificato, solitamente una volta e prima dell'effettivo accesso.
+	\item \textbf{Open design.} La sicurezza di un meccanismo non dipende dalla sua segretezza, il codice non deve essere necessariamente pubblico ma la \textit{security by obscurity} non è abbastanza. 
+		Ad esempio il funzionamento di sistemi di cifratura a chiave asimmetrica è di pubblico dominio, il sistema è sviluppato per essere sicuro (\textit{security by design}). 
+		Il principio di open design non si applica ad informazioni che devono essere segrete quali chiavi crittografiche o d'accesso.
+	\item \textbf{Separation of privilege.} Un sistema non deve garantire i permessi basandosi su una singola condizione.
+	\item \textbf{Least common mechanism.} I meccanismi usati per accedere alle risorse non dovrebbero essere condivisi, più una risorsa è condivisa in un insieme di soggetti più è facile che venga sfruttata per fini non sicuri.
+	\item \textbf{Psychological acceptability.} I meccanismi di sicurezza non devono rendere l'accesso alle risorse più difficile di quanto non sarebbe senza.
+\end{itemize}
+
+Rust regola l'accesso in conformità a questi principi tramite \textbf{ownership} e \textbf{borrowing}, sono regole molto semplici ed eleganti che però richiedono maggiore impegno da parte del programmatore.
+I principali problemi di Rust sono la sua difficoltà e la curva d'apprendimento, la stragrande maggioranza di programmatori ha più familiarità con linguaggi imperativi e Rust per quanto condivida una sintassi simile al C prende a piene mani da linguaggi funzioanli come ML e Haskell. 
+Rust eredita il \textcode{let} dai linguaggi funzionali e quasi ogni parte di una funzione è un'espressione ~\cite[1309-1573]{rust:syntax}, nel listato \ref{lst:funrs_if} si può vedere come una condizionale sia anche un'espressione, non c'è necessità dell'operatore ternario \textcode{?}.
+Anche il \textcode{match} è preso direttamente dai linguaggi funzionali, nel listato \ref{lst:funrs_match} si nota anche come non sia necessario specificare un valore di ritorno, omettendo il tipico \textcode{;} si ha un return automatico come in LISP.
+
+\lstinputlisting[language=Rust]{../code/Functional/if.rs}
+\lstinputlisting[caption={In Rust anche l'\textcode{if} è un'espressione.}, label={lst:funrs_if}, numbers=none]{../code/Functional/output/ifrs.txt}
+
+\lstinputlisting[language=Rust]{../code/Functional/match.rs}
+\lstinputlisting[caption={Match in Rust.}, label={lst:funrs_match}, numbers=none]{../code/Functional/output/matchrs.txt}
+
+L'ownership rappresenta il possesso di un \textit{right value} da parte di un \textit{left value}, in Rust gli oggetti di tipo composto sono lineari e solo a questi si applica ownership, al momento dell'inizializzazione di un oggetto la sua variabile, se presente, è l'unico owner e un assegnamento ad una seconda variabile fa passare il possesso dalla prima alla seconda: in qualsiasi momento quindi può esserci solo un possessore per ogni oggetto. 
+Un owner viene invalidato con la sua distruzione quando esce dal suo scope, bisogna porre particolare attenzione in questo caso dato che le chiamate di funzioni possono invalidare una variabile passata come argomento: il possesso passa alla nuova variabile nel corpo della funzione e una volta terminato il suo scope non sarà più possibile accedere all'oggetto con la variabile vecchia, in quanto si può avere massimo un owner per volta, né con la nuova poiché ormai si è fuori dal suo scope (listato \ref{lst:ownership}). 
+
+\lstinputlisting[language=Rust,caption={Ownership}, label={lst:ownership}]{../code/Ownership/own.rs}
+
+L'ownership è fondamentale per garantire una gestione automatica e sicura della memoria senza garbage collector ma non è sempre desiderabile prendere possesso di un oggetto, in questi casi si ricorre al borrowing.
+
+Tramite il borrowing si possono creare molteplici  riferimenti ~\cite[4.2]{rust:language} ad un dato purché in sola lettura, con il modificatore \textcode{mut} è possibile rendere il riferimento modificabile a patto che in qualsiasi momento per qualsiasi variabile ve ne sia al più uno. 
+Un modulo chiamato \textbf{borrow checker} garantisce a tempo di compilazione che finché esistono dei riferimenti ad un oggetto non sia possibile distruggere l'oggetto in questione. 
+
+\lstinputlisting[language=Rust,caption={Borrowing}, label={lst:borrowing}]{../code/Borrowing/borr.rs}
+
+\section{Il problema del C}
 Il linguaggio di programmazione C è stato sviluppato nel 1978 e ad oggi è ancora uno dei più popolari ~\cite{tiobe:index} ~\cite{pypl:index}, ciò è dovuto al fatto che circa il 98\% ~\cite{real_men_program_in_c} dei sistemi informatici sul mercato siano sistemi integrati che richiedono un basso overhead e C risponde a questa esigenza tramite una gestione manuale della memoria, l'esecuzione dei programmi consuma quindi meno risorse ma si richiede un maggiore impegno da parte del programmatore, è infatti suo compito allocare memoria adeguatamente e successivamente liberarla. 
-Rimettendo totalmente al programmatore la gestione della memoria C permette di scrivere programmi non sicuri, esistono linguaggi come Java considerati sicuri che gestiscono automaticamente la memoria tramite \textbf{garbage collection} (definizione \ref{def:garbage_collection}) al prezzo di un maggiore overhead, sono quindi poco adatti alla scrittura di codice per embedded systems.
-
-\begin{myDefinition}{Garbage collection}{garbage_collection}
-    È una delle tecniche di gestione automatica della memoria più usate nei linguaggi di programmazione: tramite un modulo noto come \textbf{garbage collector} si tiene traccia di ogni allocazione e le zone di memoria non più necessarie vengono periodicamente liberate, rendendole nuovamente disponibili. 
-    La garbage collection ha il vantaggio di esonerare il programmatore dal dover gestire la memoria per potersi concentrare sulla logica del programma e la sua leggibilità, si evitano inoltre vulnerabilità quali double free o dangling pointer (rispettivamente sezioni \ref{sec:double_free} e \ref{sec:dangling_reference}). 
-    Con la garbage collection l'esecuzione dei programmi è più lenta data la presenza del garbage collector.
-\end{myDefinition}
+Rimettendo totalmente al programmatore la gestione della memoria C permette di scrivere programmi non sicuri, esistono linguaggi come Java considerati sicuri che gestiscono automaticamente la memoria tramite \textbf{garbage collection} al prezzo di un maggiore overhead, sono quindi poco adatti alla scrittura di codice per embedded systems.
+La garbage collection è una delle tecniche di gestione automatica della memoria più usate nei linguaggi di programmazione: tramite un modulo noto come \textbf{garbage collector} si tiene traccia di ogni allocazione e le zone di memoria non più necessarie vengono periodicamente liberate, rendendole nuovamente disponibili. 
+La garbage collection ha il vantaggio di esonerare il programmatore dal dover gestire la memoria per potersi concentrare sulla logica del programma e la sua leggibilità, si evitano inoltre vulnerabilità quali double free o dangling pointer (rispettivamente sezioni \ref{sec:double_free} e \ref{sec:dangling_reference}). 
+Con la garbage collection l'esecuzione dei programmi è più lenta data la presenza del garbage collector.
 
 Nel breve futuro ci si aspetta sempre un numero crescente di oggetti d'uso comune connessi tra loro (i.e. internet of things) e si sente la necessità di metodi sicuri per programmare sistemi integrati. 
 Nella ricerca di un linguaggio sicuro con gestione esplicita della memoria Rust sembra essere il miglior candidato grazie ai \textbf{lifetime}, questi descrivono lo scope nel quale una variabile è valida e sono fondamentali per il corretto funzionamento dei meccanismi di \textbf{ownership} e \textbf{borrowing}, dal momento che la loro verifica avviene a tempo di compilazione l'esecuzione dei programmi ne guadagna in velocità. 
-I due obiettivi di Rust sono infatti sicurezza e velocità d'esecuzione dei suoi programmi: la prima è garantita dall'ownership che impedisce il manifestarsi di \textbf{side effect} (definizione \ref{def:side_effect}), la seconda sia tramite il maggior numero possibile di controlli statici che tramite borrowing il quale simula una call by reference - in Rust come in C c'è solo call by value. 
+I due obiettivi di Rust sono infatti sicurezza e velocità d'esecuzione dei suoi programmi: la prima è garantita dall'ownership che impedisce il manifestarsi di \textbf{side effect}, la seconda sia tramite il maggior numero possibile di controlli statici che tramite borrowing il quale simula una call by reference - in Rust come in C c'è solo call by value.
+Un programma presenta side effect quando contiene almeno un'operazione che modifica lo stato di una o più variabili non presenti nel suo ambiente locale.
+I side effect non sono necessariamente negativi, variabili globali e processi concorrenti acquistano la loro forza proprio da questi effetti collaterali.
 
-\begin{myDefinition}{Side effect}{side_effect}
-    Un programma presenta side effect quando contiene almeno un'operazione che modifica lo stato di una o più variabili non presenti nel suo ambiente locale.
-    I side effect non sono necessariamente negativi, variabili globali e processi concorrenti acquistano la loro forza proprio da questi effetti collaterali.
+\section {Stato dell'arte}
+Ad oggi differenti linguaggi utilizzano tecniche differenti per i loro meccanismi di sicurezza, è consuetudine che il linguaggio presenti un sistema di tipi.
+Il controllo sui tipo vieta automaticamente una gamma di azioni che coinvolgono oggetti di tipo differente, nonostante ciò non è comunque abbastanza dato che C è tipato e non è sicuro.
+Infatti è possibile oltrepassare alcuni limiti imposti dai tipi con i puntatori, la maggior parte dei linguaggi odierni considerati sicuri eliminano questo problema nascondendo i puntatori al programmatore e nel caso in cui fosse presente un'aritmetica dei puntatori di norma non sono raw pointer come in C ma smart pointer, questi ultimi presentano in più rispetto ai primi delle funzioni in più quali bound check e possono tenere traccia dell'uso della memoria.
+Ad un controllo sui tipi è quindi necessario un controllo sugli accessi, ad esempio in Java esistono classi con più permessi di altre ~\cite{java:privilege}, in Rust è possibile definire una propria politica di autorizzazioni d'accesso ~\cite{rust:auth} invece in Python non è proprio possibile ~\cite{python:privilege}.
+
+\section{Obiettivi}
+L'obiettivo di questo documento è verificare il comportamento di Rust di fronte a tipiche violazioni della sicurezza nei linguaggi di programmazione e tal fine è stato preso come metro di paragone il linguaggio C, noto per essere non sicuro, ed è stato scritto del codice non sicuro.
+Poi è stato scritto del codice che potesse avere effetti simili in Rust osservandone il risultato.
+
+Nel capitolo \ref{chap:security_policy} è data la definizione che Rust dà di sicurezza, per analizzare i vari tipi di violazioni di codice è stata fatta una distinzione tra memory safety \ref{chap:memory_safety} e type safety \ref{chap:type_safety}.
+La proprietà sicurezza in Rust è garantita da ownership e borrowing, nel capitolo \ref{chap:Rust} viene approfondito il sistema che ne è alla base.
+
+
+\chapter{Security policy} \label{chap:security_policy}
+
+Risulta molto difficile parlare di sicurezza in generale dato che non ne esiste una definizione assoluta ma è un concetto relativo che varia in base a cosa ci interessa proteggere e garantire. 
+La sicurezza di un'organizzazione - che essa sia una multinazionale o un singolo individuo - è definita da una \textbf{security policy}  ovvero un documento contenente regole, principi e pratiche che determinano come garantire che il sistema si trovi in uno stato sicuro ~\cite{milner:type_polymorphism}. 
+
+\begin{myDefinition}{Security policy}{security_policy}
+    In una politica di sicurezza si definiscono quali azioni i \textbf{principal} possono eseguire sugli oggetti. Un principal è un'entità qualsiasi che interagisce con il sistema e deve rispettare la politica di sicurezza, nel caso specifico dei linguaggi di programmazione saranno entità software.
 \end{myDefinition}
 
-\chapter{Rust}
+Nello sviluppo di linguaggi di programmazione sicuri si è guidati da due principi ~\cite{nino:security_programming_language}:
+\begin{itemize}
+    \item \textbf{Trusted computing base (TCB)}. Un sistema presenta componenti critici per il rispetto della policy, questi formano il TCB ed è fondamentale non presenti vulnerabilità dato che metterebbero a repentaglio la sicurezza del sistema stesso, il TCB deve essere semplice e limitato così da poterne verificare facilmente la correttezza ed evitare fallimenti. 
+    \item \textbf{Principle of Least Privilege (POLP)}. Durante l'esecuzione ogni entità deve avere il numero minore possibile di permessi necessari per eseguire il suo compito. 
+\end{itemize} 
+È possibile scomporre i requisiti di sicurezza fondamentali durante lo sviluppo in \textbf{access control} e \textbf{information flow}, il primo limita chi o cosa possa accedere a quali risorse e il secondo definisce quali operazioni siano corrette o meno in seguito ad un accesso conforme all'accesso control, di norma il sistema operativo stesso implementa questi controlli via software o hardware e programmi che sono legali in C potrebbero comunque essere interrotti. 
+In Rust la sicurezza è garantita da regole semplici e verificabili e si rispetta il POLP, i controlli sono eseguiti a tempo di compilazione e anche quando un programma viene interrotto a runtime non viene scomodato il sistema operativo (vedere ad esempio il codice nel listato \ref{lst:integeroverflowrs}).
+
+Questa necessità di implementare la sicurezza nel linguaggio stesso e non rimetterla più nelle mani del sistema operativo è nata dall'avvento di internet e la sempre più grande condivisione di codice potenzialmente pericoloso.
+
+Per dimostrare delle proprietà di un linguaggio serve una definizione formale della sua \textbf{semantica} ovvero l'insieme delle regole che definiscono il significato di un linguaggio e dei suoi programmi.
+A tal proposito Rust non ha una semantica formale definita (figura \ref{fig:warning}) e la sua definizione di sicurezza è poco chiara, un programma è sicuro se rispetta \textbf{memory safety} (capitolo \ref{chap:memory_safety}) e \textbf{semantica statica} (capitolo \ref{chap:type_safety}) ~\cite[14]{rust:reference} ma la documentazione presenta delle definizioni poco chiare se non addirittura contraddittorie: 
+
+\vspace{5mm}
+
+\begin{Parallel}{0.48\textwidth}{0.48\textwidth}
+    \selectlanguage{english}
+    \ParallelLText{
+        "Rust code is incorrect if it exhibits any of the behaviors in the following list. This includes code within \textcode{unsafe} blocks and \textcode{unsafe} functions. \textcode{unsafe} only means that avoiding undefined behavior is on the programmer; it does not change anything about the fact that Rust programs must never cause undefined behavior." ~\cite[14.3]{rust:reference}
+    }
+    
+    \selectlanguage{italian}
+    \ParallelRText{
+        "Del codice in Rust non è corretto se presenta almeno uno dei comportamenti in lista. Questo vale anche per codice in blocchi \texttt{unsafe} e funzioni \textcode{unsafe}. \texttt{unsafe} significa solo che evitare undefined behaviour è compito del programmatore; non cambia alcuna garanzia sul fatto che i programmi in Rust non debbano mai causare undefined behaviour." 
+    }
+    \ParallelPar
+\end{Parallel}
+
+\vspace{5mm}
+
+L'uso del termine "unsafe" è causa di confusione dal momento che \colorbox{backcolour}{\texttt{unsafe}} è un costrutto sintattico che consente la scrittura di codice che può causare \textbf{undefined behavior}, per questo si dice che Rust è composto da due "sottolinguaggi": \textit{unsafe Rust} e \textit{safe Rust} in base alla presenza o meno di un blocco \colorbox{backcolour}{\texttt{unsafe}} nel codice, questo costrutto è desiderabile perché permette sia di poter comunicare con librerie in \textit{C} che di avere un accesso più esplicito alla memoria ~\cite[1.2]{rust:rustonomicon}; piuttosto che una definizione formale di undefined behavior si ha una lista in continuo aggiornamento ~\cite[14.3]{rust:reference}, è importante notare che comunque safe Rust presenta del codice in blocchi \textcode{unsafe} scritto dagli sviluppatori.
+
+Nella citazione riportata sono presenti fonti di confusione: nella stessa frase viene detto prima che in un blocco \textcode{unsafe} sia compito del programmatore evitare undefined behavior e subito dopo viene affermato come le garanzie sulla safety siano le stesse di safe Rust, quindi anche l'assenza di undefined behavior. 
+Volendo comunque considerare solo l'ultima affermazione, l'esecuzione in un blocco \textcode{unsafe} di uno degli esempi in lista non dovrebbe causare undefined behavior; nel listato \ref{lst:unsafe_raw} si ha un \textbf{raw pointer dereferencing} (presente in lista come dimostrato in figura \ref{fig:warning}): è possibile leggere il valore memorizzato in una locazione di memoria tramite il suo indirizzo come in C.
+
+È ragionevole che questo sia possibile solo in unsafe Rust ma mette in luce come la documentazione sia poco chiara. 
+
+\lstinputlisting[language=Rust]{../code/Unsafe/raw.rs}
+\lstinputlisting[caption={Raw pointer dereferencing in un blocco \texttt{unsafe}}, label={lst:unsafe_raw}, numbers=none]{../code/Unsafe/output/rawrs.txt}
+
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[scale=0.52]{images/warning_undefined_behavior.png}
+    \caption{Il raw pointer dereferencing è considerato undefined behavior}
+    \label{fig:warning}
+\end{figure}
+
+Rust offre le seguenti proprietà:
+\begin{enumerate}
+	\item Nessun programma genera undefined behaviour.
+	\item Non è possibile dereferenziare un raw pointer.
+	\item Non è possibile leggere né scrivere una variabile statica che sia anche \textcode{extern} o \textcode{mut}.
+	\item Non è possibile accedere ad un campo di un'\textcode{union} se non per l'assegnamento.
+	\item Presentare codice \textcode{unsafe}
+\end{enumerate}
+
+\chapter{Rust} \label{chap:Rust}
+I meccanismi di sicurezza in Rust sono tanto solidi perché ben definiti matematicamente.
+Un'interpretazione della logica lineare di Girard permette di esprimere formalmente operazioni in termini di consumo di risorse, questa interpretazione è implementata nell'ownership per la quale l'"uso" equivale alla liberazione al termine del proprio scope e per evitare double free non possono esistere due variabili che possiedono la stessa risorsa.
+Un sistema del genere è detto substrutturale e nel caso specifico di Rust si fa uso dei \textbf{lifetime}, è possibile definirne formalmente il comportamente.
 
 \section{Sistemi di tipi substrutturali}
 
@@ -321,63 +439,6 @@ In Rust per i dati di tipo primitivo si eseguono sempre deep copy mentre per gli
 \lstinputlisting[language=Rust, caption={Ownership con tipi primitivi.}, label={lst:ownership_primitive}]{../code/Ownership/own_prim.rs}
 
 Se con ownership e borrowing l'esecuzione di un programma è molto più rapida e sicura il linguaggio è più verboso e richiede maggior impegno cognitivo da parte del programmatore. 
-
-
-\chapter{Security policy} \label{chap:security_policy}
-
-Risulta molto difficile parlare di sicurezza in generale dato che non ne esiste una definizione assoluta ma è un concetto relativo che varia in base a cosa ci interessa proteggere e garantire. 
-La sicurezza di un'organizzazione - che essa sia una multinazionale o un singolo individuo - è definita da una \textbf{security policy}  ovvero un documento contenente regole, principi e pratiche che determinano come garantire che il sistema si trovi in uno stato sicuro ~\cite{milner:type_polymorphism}. 
-
-\begin{myDefinition}{Security policy}{security_policy}
-    In una politica di sicurezza si definiscono quali azioni i \textbf{principal} possono eseguire sugli oggetti. Un principal è un'entità qualsiasi che interagisce con il sistema e deve rispettare la politica di sicurezza, nel caso specifico dei linguaggi di programmazione saranno entità software.
-\end{myDefinition}
-
-Nello sviluppo di linguaggi di programmazione sicuri si è guidati da due principi ~\cite{nino:security_programming_language}:
-\begin{itemize}
-    \item \textbf{Trusted computing base (TCB)}. Un sistema presenta componenti critici per il rispetto della policy, questi formano il TCB ed è fondamentale non presenti vulnerabilità dato che metterebbero a repentaglio la sicurezza del sistema stesso, il TCB deve essere semplice e limitato così da poterne verificare facilmente la correttezza ed evitare fallimenti. 
-    \item \textbf{Principle of Least Privilege (POLP)}. Durante l'esecuzione ogni entità deve avere il numero minore possibile di permessi necessari per eseguire il suo compito. 
-\end{itemize} 
-È possibile scomporre i requisiti di sicurezza fondamentali durante lo sviluppo in \textbf{access control} e \textbf{information flow}, il primo limita chi o cosa possa accedere a quali risorse e il secondo definisce quali operazioni siano corrette o meno in seguito ad un accesso conforme all'accesso control, di norma il sistema operativo stesso implementa questi controlli via software o hardware e programmi che sono legali in C potrebbero comunque essere interrotti. 
-In Rust la sicurezza è garantita da regole semplici e verificabili e si rispetta il POLP, i controlli sono eseguiti a tempo di compilazione e anche quando un programma viene interrotto a runtime non viene scomodato il sistema operativo (vedere ad esempio il codice nel listato \ref{lst:integeroverflowrs}).
-
-Questa necessità di implementare la sicurezza nel linguaggio stesso e non rimetterla più nelle mani del sistema operativo è nata dall'avvento di internet e la sempre più grande condivisione di codice potenzialmente pericoloso.
-
-Per dimostrare delle proprietà di un linguaggio serve una definizione formale della sua \textbf{semantica} ovvero l'insieme delle regole che definiscono il significato di un linguaggio e dei suoi programmi.
-A tal proposito Rust non ha una semantica formale definita (figura \ref{fig:warning}) e la sua definizione di sicurezza è poco chiara, un programma è sicuro se rispetta \textbf{memory safety} (capitolo \ref{chap:memory_safety}) e \textbf{semantica statica} (capitolo \ref{chap:type_safety}) ~\cite[14]{rust:reference} ma la documentazione presenta delle definizioni poco chiare se non addirittura contraddittorie: 
-
-\vspace{5mm}
-
-\begin{Parallel}{0.48\textwidth}{0.48\textwidth}
-    \selectlanguage{english}
-    \ParallelLText{
-        "Rust code is incorrect if it exhibits any of the behaviors in the following list. This includes code within \textcode{unsafe} blocks and \textcode{unsafe} functions. \textcode{unsafe} only means that avoiding undefined behavior is on the programmer; it does not change anything about the fact that Rust programs must never cause undefined behavior." ~\cite[14.3]{rust:reference}
-    }
-    
-    \selectlanguage{italian}
-    \ParallelRText{
-        "Del codice in Rust non è corretto se presenta almeno uno dei comportamenti in lista. Questo vale anche per codice in blocchi \texttt{unsafe} e funzioni \textcode{unsafe}. \texttt{unsafe} significa solo che evitare undefined behaviour è compito del programmatore; non cambia alcuna garanzia sul fatto che i programmi in Rust non debbano mai causare undefined behaviour." 
-    }
-    \ParallelPar
-\end{Parallel}
-
-\vspace{5mm}
-
-L'uso del termine "unsafe" è causa di confusione dal momento che \colorbox{backcolour}{\texttt{unsafe}} è un costrutto sintattico che consente la scrittura di codice che può causare \textbf{undefined behavior}, per questo si dice che Rust è composto da due "sottolinguaggi": \textit{unsafe Rust} e \textit{safe Rust} in base alla presenza o meno di un blocco \colorbox{backcolour}{\texttt{unsafe}} nel codice, questo costrutto è desiderabile perché permette sia di poter comunicare con librerie in \textit{C} che di avere un accesso più esplicito alla memoria ~\cite[1.2]{rust:rustonomicon}; piuttosto che una definizione formale di undefined behavior si ha una lista in continuo aggiornamento ~\cite[14.3]{rust:reference}, è importante notare che comunque safe Rust presenta del codice in blocchi \textcode{unsafe} scritto dagli sviluppatori.
-
-Nella citazione riportata sono presenti fonti di confusione: nella stessa frase viene detto prima che in un blocco \textcode{unsafe} sia compito del programmatore evitare undefined behavior e subito dopo viene affermato come le garanzie sulla safety siano le stesse di safe Rust, quindi anche l'assenza di undefined behavior. 
-Volendo comunque considerare solo l'ultima affermazione, l'esecuzione in un blocco \textcode{unsafe} di uno degli esempi in lista non dovrebbe causare undefined behavior; nel listato \ref{lst:unsafe_raw} si ha un \textbf{raw pointer dereferencing} (presente in lista come dimostrato in figura \ref{fig:warning}): è possibile leggere il valore memorizzato in una locazione di memoria tramite il suo indirizzo come in C.
-
-È ragionevole che questo sia possibile solo in unsafe Rust ma mette in luce come la documentazione sia poco chiara. 
-
-\lstinputlisting[language=Rust]{../code/Unsafe/raw.rs}
-\lstinputlisting[caption={Raw pointer dereferencing in un blocco \texttt{unsafe}}, label={lst:unsafe_raw}, numbers=none]{../code/Unsafe/output/rawrs.txt}
-
-\begin{figure}[h!t]
-    \centering
-    \includegraphics[scale=0.52]{images/warning_undefined_behavior.png}
-    \caption{Il raw pointer dereferencing è considerato undefined behavior}
-    \label{fig:warning}
-\end{figure}
 
 
 \chapter{Memory Safety} \label{chap:memory_safety}
@@ -601,11 +662,21 @@ che in decimale equivale a $ 2^{16} = 65536 $. La causa di questa confusione sia
 \lstinputlisting[language=C]{../code/TypeSafety/Lilliput/lilliput.c}
 \lstinputlisting[caption={Type confusion in C}, label={lst:lilliputc}, numbers=none]{../code/TypeSafety/Lilliput/output/lilliput_c.txt}
 
-\chapter{Conclusioni}
-
 %In Rust non si può proprio puntare ad una variabile con un tipo differente da quello della variabile stessa.
 %\lstinputlisting[language=Rust]{../code/TypeSafety/Lilliput/lilliput.rs}
 %\lstinputlisting[caption={Type confusion in Rust}, label={lst:lilliputrs}]{../code/TypeSafety/Lilliput/output/lilliput_rs.txt}
+
+
+\chapter{Conclusioni}
+C è estremamente popolare e non sicuro, la maggior parte degli oggetti che usiamo ogni giorno presentano software scritto in C ed è fondamentale trovare un linguaggio sicuro che prenda il suo posto, Rust si propone come suo erede.
+Eliminando la necessità di gestire la memoria ad un livello tanto basso come nel C viene radicalmente diminuito l'errore umano, affinché il linguaggio però sia adatto a sistemi integrati è da evitare la presenza di un garbage collector e Rust riesce a garantire la sicurezza dei suoi programmi grazie ai meccanismi di ownership e borrowing. 
+In questo documento prima è stato definito cosa sia davvero la sicurezza per Rust dato che non ne esiste una definizione assoluta ma dipende dal contesto in cui ci troviamo, alcuni comportamenti che potrebbero sembrare non sicuri in realtà potrebbero essere desiderabili in alcuni contesti.
+I meccanismi su cui Rust basa la sua sicurezza sono ownership e borrowing, questi implementano un'interpretazione della logica lineare di Girard per la quale è possibile ragionare in termini di consumo di risorse.
+Questo formalismo dona coerenza a Rust e permette di verificarne alcune proprietà, ad esempio data una definizione matematica delle proprietà dei lifetime è possibile analizzarne il comportamento.
+La sicurezza di un linguaggio è spesso divisa in memory safety e type safety, la differenza è labile ma in questo documento è stato comunque deciso di analizzarne separatamente, è stato scritto del codice non sicuro in C e un corrispettivo in Rust, i risultati sono positivi e Rust non è vulnerabile a quelli che sono alcuni tra i più classici attacchi.
+Questo non vuol dire che Rust sia necessariamente sicuro, i linguaggi di programmazione vengono perfezionati nel tempo grazie alle segnalazioni eseguite ma rimane un fatto che Rust sia più sicuro di C e in un periodo storico in cui facciamo quasi completamente affidamento sul software che ci circonda è fondamentale scongiurare il più possibile l'insorgenza di vulnerabilità. 
+Ad oggi Rust genera interesse riguardo il suo uso per sistemi operativi ~\cite{redox}, criptovalute ~\cite{libra}, il suo punto più debole è la difficoltà d'apprendimento causata dal fatto che prenda a piene mani dai linguaggi funzionali che già con Haskell iniziarono lentamente a guadagnare popolarità e Rust potrebbe contribuire.
+
 
 \backmatter
 
