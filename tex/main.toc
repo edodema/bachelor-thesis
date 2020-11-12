@@ -13,15 +13,14 @@
 \contentsline {section}{\numberline {3.1}Sistemi di tipi substrutturali}{11}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Linearità in Rust}{12}{section.3.2}%
 \contentsline {chapter}{\numberline {4}Memory Safety}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Buffer Overflow}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Buffer Overflow}{17}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Integer Overflow}{19}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Double-Free}{21}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Dangling References}{22}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Type Safety}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Type safety}{26}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Type casting}{26}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Type initialization}{27}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Immutability}{28}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Rapporto con Memory Safety}{30}{section.5.5}%
+\contentsline {section}{\numberline {5.1}Type casting}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Type initialization}{28}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Immutability}{29}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Rapporto con Memory Safety}{31}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Conclusioni}{33}{chapter.6}%
 \contentsline {chapter}{Bibliografia}{35}{chapter*.6}%

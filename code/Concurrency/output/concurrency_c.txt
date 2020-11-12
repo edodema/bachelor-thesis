@@ -1,6 +1,1 @@
-thread.c:19:10: warning: initializing 'int *' with an expression of type 'const int *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-    int* ptr = &accum;
-         ^     ~~~~~~
-1 warning generated.
-$ ./bin/thread_c
 [1]    76864 bus error  ./bin/thread_c

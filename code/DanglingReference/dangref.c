@@ -14,6 +14,7 @@ void send_message(char * from, char * to, char * text) {
 	strcpy(mess->to, to);
 	strcpy(mess->text, text);
 	printf("%p\n", mess);
+	free(mess);
 }
 
 int main() {
