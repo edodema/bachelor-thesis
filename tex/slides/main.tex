@@ -1,0 +1,233 @@
+\documentclass{beamer}
+\usetheme{Szeged}
+\usecolortheme{beaver}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings, float, graphicx, lipsum, parallel, verbatim, mathtools, amssymb}
+%\usepackage[dvipsnames]{xcolor}
+
+% colors
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Rust syntax highlighting
+\lstdefinelanguage{Rust}{
+    keywords={},
+    otherkeywords={% Operators
+        0x, 0o, 0b,
+        i8, i16, i32, i64, i32, i128, isize, 
+        u8, i16, u32, u64, u32, u128, usize, 
+        f8, f16, f32, f64, f32, f128, fsize
+    },
+    keywords = [2]{fn, if, in, for, let, match, struct, unsafe, while, union},
+    keywords = [3]{as, const, move, mut, true, false},
+    keywordstyle=\color{codepurple},
+    keywordstyle=[2]\color{blue},
+    keywordstyle=[3]\color{Rhodamine},
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{codegreen}\ttfamily,
+    stringstyle=\color{orange}\ttfamily,
+    morestring=[b]"
+}
+
+\lstdefinestyle{mycode}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{MidnightBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{orange},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mycode}
+
+% command for inline code
+\newcommand{\textcode}[1]{\colorbox{backcolour}{\texttt{#1}}}
+
+\title{Proprietà di sicurezza nel linguaggio Rust}
+\author{Edoardo De Matteis}
+\institute[Sapienza Università di Roma Dipartimento di Informatica]{\includegraphics[scale=0.3]{images/logo_sapienza_neg.png}}
+\date{Dicembre 2020}
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Problema attuale}
+    Il 98\% dei sistemi ICT sono integrati e richiedono un controllo a basso livello delle risorse e negli anni a venire questa tendenza non diminuirà. 
+    Il linguaggio più usato è C ma Rust si propone come linguaggio sicuro per embedded system.
+\end{frame}
+
+\begin{frame}
+\frametitle{Principi di sicurezza}
+Si indica con \textbf{soggetto} qualsiasi entità che richieda di accedere ad un \textbf{oggetto}. 
+La \textbf{trusted computed base (TCB)} è la totalità delle componenti che vanno a definire la sicurezza di un sistema 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Principi di sicurezza}
+
+    \begin{itemize}
+        \item Least privilege.
+        \item Fail-safe default.
+        \item Economy of mechanisms.
+        \item Complete mediation.
+        \item Open design.
+        \item Separation of privilege.
+        \item Least common mechanism.
+        \item Psychological acceptability.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Rust}
+    Rust è un linguaggio di programmazione focalizzato sulla velocità d'esecuzione e sulla sicurezza dei suoi programmi tramite \textbf{ownership}, \textbf{borrowing} e \textbf{lifetime}.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ownership}
+    L'ownership rappresenta il possesso di un \textbf{right value} da parte di un \textbf{left value}, ad un variabile corrisponde esattamente un valore e ad un valore una sola variabile. 
+    Un assegnamento invalida l'accesso da parte della variabile precedente, se presente.  
+
+    L'ownership permette di avere una gestione automatica della memoria senza garbage collector.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Borrowing}
+    Il borrowing permette di creare molteplici in lettura ad un dato, tramite il modificatore \textcode{mut} è possibile definire un unico riferimento modificabile.
+    Il \textbf{borrow checker} garantisce a tempo di compilazione tramite i \textbf{lifetime} che un oggetto non venga distrutto se esistono dei riferimenti.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Lifetime}
+    Un lifetime è una regione di codice nella quale ogni riferimento deve essere valido, al momento della definizione di una variabile le viene associato un lifetime che verrà poi distrutto con la distruzione della variabile.
+    Ad un lifetime possono essere associati più scope e ad uno scope possono essere associati più lifetime.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Lifetime}
+    In Rust valgono le tre seguenti regole assiomatiche:
+    \begin{itemize}
+        \item \textbf{Association}. Lo scope di un riferimento è sottoinsieme del suo lifetime. 
+        \item \textbf{Reference}. Il lifetime associato ad un riferimento è sottoinsieme dello scope dell'oggetto cui fa riferimento.  
+        \item \textbf{Assignment}. Il lifetime associato ad un riferimento è sottoinsieme del lifetime dell'oggetto cui fa riferimento.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sicurezza di un linguaggio}
+    La TCB può essere scomposta in: 
+    \begin{itemize}
+        \item Access control.
+        \item Information flow.
+    \end{itemize}
+    Il sistema operativo esegue questi controlli e vengono bloccati alcuni programmi che in C sono legali. 
+    Internet ha reso semplice la condivisione dello stesso codice su macchine con sistemi operativi differenti, per questo la sicurezza è stata implementata direttamente nel linguaggio, come in Rust.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Security policy}
+    La definizione di sicurezza non è assoluta ma dipende dalla security policy, in Rust consideriamo un programma sicuro se 
+    \begin{itemize}
+        \item Non presenta codice \textcode{unsafe}.
+        \item Nessun programma genera \textbf{undefined behavior}.
+        \item Non è possibile dereferenziare un \textbf{raw pointer}.
+        \item Non è possibile accedere al campo di un'\textcode{union} se non per l'inizializzazione.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sicurezza in Rust}
+    \begin{enumerate}
+        \item I meccanismi di sicurezza in Rust sono modellati sulla \textbf{logica lineare}.
+        \item La sicurezza in Rust è divisa concettualmente in  \textbf{memory safety} e \textbf{type safety}.
+    \end{enumerate} 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sistema di tipi substrutturale}
+    Un sistema di tipi è detto \textbf{substrutturale} quando almeno una delle tre regole \textbf{strutturali} non è valida:
+    \begin{itemize}
+        \item \textbf{Exchange}. L'ordine degli elementi in un'ipotesi o conclusione è irrilevante. 
+        \item \textbf{Weakening}. Ipotesi e conclusione possono essere estete con affermazioni superflue. 
+        \item \textbf{Contraction}. In ipotesi e conclusione è possibile unificare due elementi unificabili. 
+    \end{itemize} 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sistema di tipi lineare}
+    Un sistema si dice lineare quando è valida solo exchange, valgono due invarianti:
+    \begin{itemize}
+        \item Le variabili lineari sono usate esattamente una volta.
+        \item Espressioni meno restrittive non possono contenere espressioni più restrittive.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Memory safety}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Buffer overflow}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Integer overflow}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Double free}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dangling reference}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Type safety}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Type casting}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Type inizialization}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Immutability}
+    
+\end{frame}
+
+\begin{frame}
+    \centering \Large
+    \emph{Grazie}
+\end{frame}
+
+\end{document}
+
