@@ -23,4 +23,5 @@
 \contentsline {section}{\numberline {5.3}Immutability}{29}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Rapporto con Memory Safety}{31}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Conclusioni}{33}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Sviluppi futuri}{33}{section.6.1}%
 \contentsline {chapter}{Bibliografia}{35}{chapter*.6}%

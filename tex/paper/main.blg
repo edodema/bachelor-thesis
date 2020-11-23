@@ -10,45 +10,46 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: main.bib
 Warning--to sort, need author or key in redox
 Warning--to sort, need author or key in tor
-You've used 26 entries,
+Warning--to sort, need author or key in cve:rust
+You've used 29 entries,
             3472 wiz_defined-function locations,
-            819 strings with 8669 characters,
-and the built_in function-call counts, 9174 in all, are:
-= -- 813
-> -- 157
-< -- 0
-+ -- 79
-- -- 42
-* -- 364
-:= -- 1102
-add.period$ -- 74
-call.type$ -- 26
-change.case$ -- 104
+            836 strings with 9145 characters,
+and the built_in function-call counts, 10747 in all, are:
+= -- 953
+> -- 209
+< -- 1
++ -- 107
+- -- 56
+* -- 444
+:= -- 1277
+add.period$ -- 83
+call.type$ -- 29
+change.case$ -- 122
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 597
-empty$ -- 1064
-format.name$ -- 44
-if$ -- 2362
+cite$ -- 32
+duplicate$ -- 702
+empty$ -- 1211
+format.name$ -- 60
+if$ -- 2750
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 118
-newline$ -- 129
-num.names$ -- 36
-pop$ -- 420
+int.to.str$ -- 29
+missing$ -- 141
+newline$ -- 143
+num.names$ -- 40
+pop$ -- 490
 preamble$ -- 1
-purify$ -- 79
+purify$ -- 92
 quote$ -- 0
-skip$ -- 644
+skip$ -- 741
 stack$ -- 0
-substring$ -- 156
-swap$ -- 291
-text.length$ -- 0
+substring$ -- 209
+swap$ -- 353
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
-warning$ -- 2
-while$ -- 39
-width$ -- 28
-write$ -- 249
-(There were 2 warnings)
+type$ -- 112
+warning$ -- 3
+while$ -- 47
+width$ -- 31
+write$ -- 278
+(There were 3 warnings)

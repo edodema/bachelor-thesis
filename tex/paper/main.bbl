@@ -9,6 +9,11 @@ Rust in {T}or.
 \newblock Available from:
   \url{https://trac.torproject.org/projects/tor/wiki/RustInTor}.
 
+\bibitem{cve:rust}
+{R}ust vulnerability statistics.
+\newblock Available from:
+  \url{https://www.cvedetails.com/product/48677/Rust-lang-Rust.html?vendor_id=19029}.
+
 \bibitem{stack_smashing_ffp}
 \textsc{{Aleph One}}.
 \newblock Smashing the stack for fun and profit.
@@ -113,6 +118,11 @@ The {R}ust programming language.
 Rustonomicon (2020).
 \newblock Available from: \url{https://doc.rust-lang.org/nomicon/index.html}.
 
+\bibitem{security:saltzer}
+\textsc{Saltzer, J.~H. and Schroeder, M.~D.}
+\newblock The protection of information in computer systems.
+\newblock \emph{Proceedings of the IEEE}, \textbf{63} (1975), 1278.
+
 \bibitem{python:privilege}
 \textsc{Security, P.}
 \newblock Python security model.
@@ -145,5 +155,11 @@ Tiobe programming community index (2020).
 \newblock Substructural type systems.
 \newblock \emph{Advanced topics in types and programming languages},  (2005),
   3.
+
+\bibitem{krust}
+\textsc{Wang, F., Song, F., Zhang, M., Zhu, X., and Zhang, J.}
+\newblock Krust: A formal executable semantics of rust.
+\newblock In \emph{2018 International Symposium on Theoretical Aspects of
+  Software Engineering (TASE)}, pp. 44--51. IEEE (2018).
 
 \end{thebibliography}
