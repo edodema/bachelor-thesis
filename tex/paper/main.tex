@@ -471,7 +471,7 @@ Esistono code injection più sofisticate che possono eseguire codice arbitrario 
 \end{itemize}
 
 \section{Integer Overflow} \label{sec:integer_overflow}
-In qualsiasi macchina non astratta si ha memoria finita quindi si può rappresentaare solo un insieme finito di numeri, quando un valore è troppo grande (o piccolo) per essere rappresentato si ha un overflow.
+In qualsiasi macchina non astratta si ha memoria finita quindi si può rappresentare solo un insieme finito di numeri, quando un valore è troppo grande (o piccolo) per essere rappresentato si ha un overflow.
 Per risolvere un integer overflow sono due i principali approcci adoperati e si basano su aritmetiche differenti:
 \begin{itemize}
     \item \textbf{Modular arithmetic}. Si applica un wrapping ad ogni numero in overflow, dato il valore $ n $ e una memoria a $ m $ bit si memorizza $ w = n \mod m $.
@@ -510,7 +510,7 @@ Il puntatore \textcode{Guido} però ora punta all'account di Luisa e con \textco
 Il puntatore \textcode{Guido} è anche un \textbf{dangling pointer} (sezione \ref{sec:dangling_reference}).
 
 \section{Dangling References} \label{sec:dangling_reference}
-Quando un oggetto viene eliminato senza liberare il suo puntatore si ha un \textbf{dangling pointer} tramite il quale si può accedere a memoria cui non si dovrebbe.
+Quando un oggetto viene eliminato senza liberare un eventuale puntatore si ha un \textbf{dangling pointer} tramite il quale si può accedere a memoria cui non si dovrebbe.
 
 Immaginiamo ora che per vendicarsi Luisa abbia scritto un semplice sistema di messaggistica per leggere la corrispondenza di Guido, la procedura \textcode{send\_message} crea un puntatore di tipo \textcode{Message} con scope solo ed esclusivamente dentro \textcode{send\_message}. 
 Luisa tramite un riferimento esplicito alla locazione del messaggio di Guido riesce a leggerlo anche dopo che il puntatore è stato liberato.

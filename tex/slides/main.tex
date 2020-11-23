@@ -12,6 +12,8 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{deepskyblue}{rgb}{0.0, 0.75, 1.0}
+\definecolor{persianpink}{rgb}{0.97, 0.5, 0.75}
 
 % Rust syntax highlighting
 \lstdefinelanguage{Rust}{
@@ -25,8 +27,8 @@
     keywords = [2]{fn, if, in, for, let, match, struct, unsafe, while, union},
     keywords = [3]{as, const, move, mut, true, false},
     keywordstyle=\color{codepurple},
-    keywordstyle=[2]\color{blue},
-    keywordstyle=[3]\color{Rhodamine},
+    keywordstyle=[2]\color{deepskyblue},
+    keywordstyle=[3]\color{persianpink},
     comment=[l]{//},
     morecomment=[s]{/*}{*/},
     commentstyle=\color{codegreen}\ttfamily,
@@ -37,7 +39,7 @@
 \lstdefinestyle{mycode}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
-    keywordstyle=\color{MidnightBlue},
+    keywordstyle=\color{deepskyblue},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{orange},
     basicstyle=\ttfamily\footnotesize,
@@ -108,15 +110,26 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
     L'ownership permette di avere una gestione automatica della memoria senza garbage collector.
 \end{frame}
 
+%\begin{frame}
+%    \frametitle{Ownership}
+%    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Ownership/own.rs}
+%\end{frame}
+
 \begin{frame}
     \frametitle{Borrowing}
-    Il borrowing permette di creare molteplici in lettura ad un dato, tramite il modificatore \textcode{mut} è possibile definire un unico riferimento modificabile.
-    Il \textbf{borrow checker} garantisce a tempo di compilazione tramite i \textbf{lifetime} che un oggetto non venga distrutto se esistono dei riferimenti.
+    Il borrowing permette di creare molteplici riferimenti in lettura ad un dato, tramite il modificatore \textcode{mut} è possibile definire un unico riferimento modificabile.
+    Il \textbf{borrow checker} garantisce a tempo di compilazione tramite i \textbf{lifetime} che un oggetto non venga distrutto se ne esistono dei riferimenti.
 \end{frame}
+
+%\begin{frame}
+%    \frametitle{Borrowing}
+%    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Borrowing/borr.rs}
+%\end{frame}
 
 \begin{frame}
     \frametitle{Lifetime}
     Un lifetime è una regione di codice nella quale ogni riferimento deve essere valido, al momento della definizione di una variabile le viene associato un lifetime che verrà poi distrutto con la distruzione della variabile.
+    
     Ad un lifetime possono essere associati più scope e ad uno scope possono essere associati più lifetime.
 \end{frame}
 
@@ -146,7 +159,7 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
     La definizione di sicurezza non è assoluta ma dipende dalla security policy, in Rust consideriamo un programma sicuro se 
     \begin{itemize}
         \item Non presenta codice \textcode{unsafe}.
-        \item Nessun programma genera \textbf{undefined behavior}.
+        \item Non genera \textbf{undefined behavior}.
         \item Non è possibile dereferenziare un \textbf{raw pointer}.
         \item Non è possibile accedere al campo di un'\textcode{union} se non per l'inizializzazione.
     \end{itemize}
@@ -165,7 +178,7 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
     Un sistema di tipi è detto \textbf{substrutturale} quando almeno una delle tre regole \textbf{strutturali} non è valida:
     \begin{itemize}
         \item \textbf{Exchange}. L'ordine degli elementi in un'ipotesi o conclusione è irrilevante. 
-        \item \textbf{Weakening}. Ipotesi e conclusione possono essere estete con affermazioni superflue. 
+        \item \textbf{Weakening}. Ipotesi e conclusione possono essere estese con affermazioni superflue. 
         \item \textbf{Contraction}. In ipotesi e conclusione è possibile unificare due elementi unificabili. 
     \end{itemize} 
 \end{frame}
@@ -180,54 +193,91 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
 \end{frame}
 
 \begin{frame}
-    \frametitle{Memory safety}
-    
+    \frametitle{Memory Safety}
+    Si parla di memory safety quando in un programma nessuna entità esce fuori dal proprio \textbf{address space}. 
+    È definito dall'allocazione, ne considereremo tre tipi:
+    \begin{itemize}
+        \item Allocazione statica.
+        \item Allocazione dinamica.
+        \item Allocazione automatica.
+    \end{itemize}    
 \end{frame}
 
 \begin{frame}
     \frametitle{Buffer overflow}
-    
+    \lstinputlisting[language=c, basicstyle=\fontsize{8}{9}\selectfont]{../../code/BufferOverflow/bufof.c}
+    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/BufferOverflow/bufof.rs}    
 \end{frame}
 
 \begin{frame}
     \frametitle{Integer overflow}
-    
+    Gli approcci principali adoperati di fronte ad un integer overflow sono i seguenti:
+    \begin{itemize}
+        \item Modular arithmetic. \[ w = n \mod m \]
+        \item Saturation arithmetic. 
+        \[ 
+            c = \begin{cases}
+            max & n > max \\
+            min & n < min \\
+            n  & \text{altrimenti} \\
+        \end{cases} 
+        \]
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Double free}
-    
+    Quando si libera due volte la stessa memoria si incorre in un double free error e in C è possibile avere due puntatori che puntano alla stessa locazione.
+
+    In Rust l'ownership ci impedisce a priori di avere due puntatori sullo stesso dato. 
 \end{frame}
 
 \begin{frame}
     \frametitle{Dangling reference}
+    Quando un oggetto viene eliminato senza liberare i suoi puntatori si ha un dangling pointer che può essere usato per accedere a memoria cui non si dovrebbe. 
     
+    Rust tramite il borrow checker impedisce di avere puntatori dopo la distruzione di un oggetto e in ogni caso non è possibile dereferenziare un raw pointer.
 \end{frame}
 
 \begin{frame}
     \frametitle{Type safety}
-    
+    Gli errori si dividono in \textbf{trapped} e \textbf{untrapped} e un programma \textbf{ben tipato} può essere:
+    \begin{itemize}
+        \item \textbf{Sound}. Non viene generato alcun errore.
+        \item \textbf{Safe}. Non vengono generati errori untrapped.
+    \end{itemize}
+    Si possono identificare quattro caratteristiche per definire la sicurezza di un linguaggio: \textbf{type safety}, \textbf{type casting}, \textbf{type initialization}, \textbf{immutability}. 
 \end{frame}
 
 \begin{frame}
     \frametitle{Type casting}
-    
+    Una conversione di tipo può essere esplicita o implicita (\textbf{coercion}), tipicamente i linguaggi con type checking forte hanno pochi casting impliciti e quelli con type checking debole ne hanno molti.
+    Il casting implicito può causare undefined behaviour e per questo in Rust non è presente. 
 \end{frame}
 
 \begin{frame}
-    \frametitle{Type inizialization}
+    \frametitle{Type initialization}
+    In C una variabile non inizializzata assume il valore contenuto nel suo address space, in altri linguaggi si usa un valore speciale \texttt{NULL}.
+    In \textit{GCC} un puntatore a \texttt{NULL} punta alla locazione 0 che è però riservata, per questo in Rust non si ha il tipo polimorfo \textcode{Option<T>} che può assumere \textcode{Some<T>} o \textcode{None}.
 
+    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont, lastline=6]{../../code/NullPointer/null.rs}
 \end{frame}
 
 \begin{frame}
     \frametitle{Immutability}
+    In Rust è possibile definire sia delle costanti tramite la parola chiave \textcode{const} che delle variabili, di default immutabili.
+
+    Anche in C esistono le costanti ma è possibile modificarne il valore dereferenziandone un puntatore all'interno di programmi concorrenti. 
+    Un programma del genere di norma viene interrotto dal sistema operativo.
     
 \end{frame}
 
 \begin{frame}
-    \centering \Large
+    \frametitle{}
+    \centering \huge
     \emph{Grazie}
 \end{frame}
+
 
 \end{document}
 
