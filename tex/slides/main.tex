@@ -70,17 +70,17 @@
 
 \frame{\titlepage}
 
-\begin{frame}
-    \frametitle{Problema attuale}
-    Il 98\% dei sistemi ICT sono integrati e richiedono un controllo a basso livello delle risorse e negli anni a venire questa tendenza non diminuirà. 
-    Il linguaggio più usato è C ma Rust si propone come linguaggio sicuro per embedded system.
-\end{frame}
+%\begin{frame}
+%    \frametitle{Problema attuale}
+%    Il 98\% dei sistemi ICT sono integrati e richiedono un controllo a basso livello delle risorse e negli anni a venire questa tendenza non diminuirà. 
+%    Il linguaggio più usato è C ma Rust si propone come linguaggio sicuro per embedded system.
+%\end{frame}
 
-\begin{frame}
-\frametitle{Principi di sicurezza}
-Si indica con \textbf{soggetto} qualsiasi entità che richieda di accedere ad un \textbf{oggetto}. 
-La \textbf{trusted computed base (TCB)} è la totalità delle componenti che vanno a definire la sicurezza di un sistema 
-\end{frame}
+%\begin{frame}
+%\frametitle{Principi di sicurezza}
+%Si indica con \textbf{soggetto} qualsiasi entità che richieda di accedere ad un \textbf{oggetto}. 
+%La \textbf{trusted computed base (TCB)} è la totalità delle componenti che vanno a definire la sicurezza di un sistema 
+%\end{frame}
 
 \begin{frame}
     \frametitle{Principi di sicurezza}
@@ -97,45 +97,45 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Rust}
-    Rust è un linguaggio di programmazione focalizzato sulla velocità d'esecuzione e sulla sicurezza dei suoi programmi tramite \textbf{ownership}, \textbf{borrowing} e \textbf{lifetime}.
-\end{frame}
-
-\begin{frame}
-    \frametitle{Ownership}
-    L'ownership rappresenta il possesso di un \textbf{right value} da parte di un \textbf{left value}, ad un variabile corrisponde esattamente un valore e ad un valore una sola variabile. 
-    Un assegnamento invalida l'accesso da parte della variabile precedente, se presente.  
-
-    L'ownership permette di avere una gestione automatica della memoria senza garbage collector.
-\end{frame}
+%\begin{frame}
+%    \frametitle{Rust}
+%    Rust è un linguaggio di programmazione focalizzato sulla velocità d'esecuzione e sulla sicurezza dei suoi programmi tramite \textbf{ownership}, \textbf{borrowing} e \textbf{lifetime}.
+%\end{frame}
 
 %\begin{frame}
 %    \frametitle{Ownership}
-%    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Ownership/own.rs}
+%    L'ownership rappresenta il possesso di un \textbf{right value} da parte di un \textbf{left value}, ad un variabile corrisponde esattamente un valore e ad un valore una sola variabile. 
+%    Un assegnamento invalida l'accesso da parte della variabile precedente, se presente.  
+
+%    L'ownership permette di avere una gestione automatica della memoria senza garbage collector.
 %\end{frame}
 
 \begin{frame}
-    \frametitle{Borrowing}
-    Il borrowing permette di creare molteplici riferimenti in lettura ad un dato, tramite il modificatore \textcode{mut} è possibile definire un unico riferimento modificabile.
-    Il \textbf{borrow checker} garantisce a tempo di compilazione tramite i \textbf{lifetime} che un oggetto non venga distrutto se ne esistono dei riferimenti.
+    \frametitle{Ownership}
+    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Ownership/own.rs}
 \end{frame}
 
 %\begin{frame}
 %    \frametitle{Borrowing}
-%    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Borrowing/borr.rs}
+%    Il borrowing permette di creare molteplici riferimenti in lettura ad un dato, tramite il modificatore \textcode{mut} è possibile definire un unico riferimento modificabile.
+%    Il \textbf{borrow checker} garantisce a tempo di compilazione tramite i \textbf{lifetime} che un oggetto non venga distrutto se ne esistono dei riferimenti.
+%\end{frame}
+
+\begin{frame}
+    \frametitle{Borrowing}
+    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Borrowing/borr.rs}
+\end{frame}
+
+%\begin{frame}
+%    \frametitle{Lifetime}
+%    Un lifetime è una regione di codice nella quale ogni riferimento deve essere valido, al momento della definizione di una variabile le viene associato un lifetime che verrà poi distrutto con la distruzione della variabile.
+    
+%    Ad un lifetime possono essere associati più scope e ad uno scope possono essere associati più lifetime.
 %\end{frame}
 
 \begin{frame}
     \frametitle{Lifetime}
-    Un lifetime è una regione di codice nella quale ogni riferimento deve essere valido, al momento della definizione di una variabile le viene associato un lifetime che verrà poi distrutto con la distruzione della variabile.
-    
-    Ad un lifetime possono essere associati più scope e ad uno scope possono essere associati più lifetime.
-\end{frame}
-
-\begin{frame}
-    \frametitle{Lifetime}
-    In Rust valgono le tre seguenti regole assiomatiche:
+    %In Rust valgono le tre seguenti regole assiomatiche:
     \begin{itemize}
         \item \textbf{Association}. Lo scope di un riferimento è sottoinsieme del suo lifetime. 
         \item \textbf{Reference}. Il lifetime associato ad un riferimento è sottoinsieme dello scope dell'oggetto cui fa riferimento.  
@@ -145,18 +145,18 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
 
 \begin{frame}
     \frametitle{Sicurezza di un linguaggio}
-    La TCB può essere scomposta in: 
+    La \textbf{TCB} può essere scomposta in: 
     \begin{itemize}
         \item Access control.
         \item Information flow.
     \end{itemize}
-    Il sistema operativo esegue questi controlli e vengono bloccati alcuni programmi che in C sono legali. 
-    Internet ha reso semplice la condivisione dello stesso codice su macchine con sistemi operativi differenti, per questo la sicurezza è stata implementata direttamente nel linguaggio, come in Rust.
+    %Il sistema operativo esegue questi controlli e vengono bloccati alcuni programmi che in C sono legali. 
+    %Internet ha reso semplice la condivisione dello stesso codice su macchine con sistemi operativi differenti, per questo la sicurezza è stata implementata direttamente nel linguaggio, come in Rust.
 \end{frame}
 
 \begin{frame}
     \frametitle{Security policy}
-    La definizione di sicurezza non è assoluta ma dipende dalla security policy, in Rust consideriamo un programma sicuro se 
+    In Rust consideriamo un programma sicuro se:
     \begin{itemize}
         \item Non presenta codice \textcode{unsafe}.
         \item Non genera \textbf{undefined behavior}.
@@ -175,7 +175,7 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
 
 \begin{frame}
     \frametitle{Sistema di tipi substrutturale}
-    Un sistema di tipi è detto \textbf{substrutturale} quando almeno una delle tre regole \textbf{strutturali} non è valida:
+    %Un sistema di tipi è detto \textbf{substrutturale} quando almeno una delle tre regole \textbf{strutturali} non è valida:
     \begin{itemize}
         \item \textbf{Exchange}. L'ordine degli elementi in un'ipotesi o conclusione è irrilevante. 
         \item \textbf{Weakening}. Ipotesi e conclusione possono essere estese con affermazioni superflue. 
@@ -185,7 +185,7 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
 
 \begin{frame}
     \frametitle{Sistema di tipi lineare}
-    Un sistema si dice lineare quando è valida solo exchange, valgono due invarianti:
+    %Un sistema si dice lineare quando è valida solo exchange, valgono due invarianti:
     \begin{itemize}
         \item Le variabili lineari sono usate esattamente una volta.
         \item Espressioni meno restrittive non possono contenere espressioni più restrittive.
@@ -194,8 +194,8 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
 
 \begin{frame}
     \frametitle{Memory Safety}
-    Si parla di memory safety quando in un programma nessuna entità esce fuori dal proprio \textbf{address space}. 
-    È definito dall'allocazione, ne considereremo tre tipi:
+    %Si parla di memory safety quando in un programma nessuna entità esce fuori dal proprio \textbf{address space}. 
+    %È definito dall'allocazione, ne considereremo tre tipi:
     \begin{itemize}
         \item Allocazione statica.
         \item Allocazione dinamica.
@@ -211,7 +211,7 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
 
 \begin{frame}
     \frametitle{Integer overflow}
-    Gli approcci principali adoperati di fronte ad un integer overflow sono i seguenti:
+    %Gli approcci principali adoperati di fronte ad un integer overflow sono i seguenti:
     \begin{itemize}
         \item Modular arithmetic. \[ w = n \mod m \]
         \item Saturation arithmetic. 
@@ -225,51 +225,100 @@ La \textbf{trusted computed base (TCB)} è la totalità delle componenti che van
     \end{itemize}
 \end{frame}
 
+%\begin{frame}
+%    \frametitle{Double free}
+%    Quando si libera due volte la stessa memoria si incorre in un double free error e in C è possibile avere due puntatori che puntano alla stessa locazione.
+
+%    In Rust l'ownership ci impedisce a priori di avere due puntatori sullo stesso dato. 
+%\end{frame}
+
 \begin{frame}
     \frametitle{Double free}
-    Quando si libera due volte la stessa memoria si incorre in un double free error e in C è possibile avere due puntatori che puntano alla stessa locazione.
-
-    In Rust l'ownership ci impedisce a priori di avere due puntatori sullo stesso dato. 
+    \lstinputlisting[language=c, basicstyle=\fontsize{8}{9}\selectfont]{../../code/DoubleFree/double_simple.c}
 \end{frame}
+
+%\begin{frame}
+%    \frametitle{Dangling reference}
+%    Quando un oggetto viene eliminato senza liberare i suoi puntatori si ha un dangling pointer che può essere usato per accedere a memoria cui non si dovrebbe. 
+    
+%    Rust tramite il borrow checker impedisce di avere puntatori dopo la distruzione di un oggetto e in ogni caso non è possibile dereferenziare un raw pointer.
+%\end{frame}
 
 \begin{frame}
     \frametitle{Dangling reference}
-    Quando un oggetto viene eliminato senza liberare i suoi puntatori si ha un dangling pointer che può essere usato per accedere a memoria cui non si dovrebbe. 
-    
-    Rust tramite il borrow checker impedisce di avere puntatori dopo la distruzione di un oggetto e in ogni caso non è possibile dereferenziare un raw pointer.
+    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Lifetime/life_1_1.rs}
+    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/Lifetime/life_1_2.rs}
 \end{frame}
 
 \begin{frame}
     \frametitle{Type safety}
-    Gli errori si dividono in \textbf{trapped} e \textbf{untrapped} e un programma \textbf{ben tipato} può essere:
+    Gli errori si dividono in:
+    \begin{itemize}
+        \item \textbf{trapped}
+        \item \textbf{untrapped}
+    \end{itemize}
+    Un programma \textbf{ben tipato} può essere:
     \begin{itemize}
         \item \textbf{Sound}. Non viene generato alcun errore.
         \item \textbf{Safe}. Non vengono generati errori untrapped.
     \end{itemize}
-    Si possono identificare quattro caratteristiche per definire la sicurezza di un linguaggio: \textbf{type safety}, \textbf{type casting}, \textbf{type initialization}, \textbf{immutability}. 
 \end{frame}
+
+%\begin{frame}
+%    \frametitle{Type casting}
+%    Una conversione di tipo può essere esplicita o implicita (\textbf{coercion}), tipicamente i linguaggi con type checking forte hanno pochi casting impliciti e quelli con type checking debole ne hanno molti.
+%    Il casting implicito può causare undefined behaviour e per questo in Rust non è presente. 
+%\end{frame}
 
 \begin{frame}
     \frametitle{Type casting}
-    Una conversione di tipo può essere esplicita o implicita (\textbf{coercion}), tipicamente i linguaggi con type checking forte hanno pochi casting impliciti e quelli con type checking debole ne hanno molti.
-    Il casting implicito può causare undefined behaviour e per questo in Rust non è presente. 
+    \lstinputlisting[language=c]{../../code/TypeConversion/coercion.c}
+    \lstinputlisting[language=Rust]{../../code/TypeConversion/coercion.rs}
 \end{frame}
+
+%\begin{frame}
+%    \frametitle{Type initialization}
+%    In C una variabile non inizializzata assume il valore contenuto nel suo address space, in altri linguaggi si usa un valore speciale \texttt{NULL}.
+%    In \textit{GCC} un puntatore a \texttt{NULL} punta alla locazione 0 che è però riservata, per questo in Rust non si ha il tipo polimorfo \textcode{Option<T>} che può assumere \textcode{Some<T>} o \textcode{None}.
+
+%    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont, lastline=6]{../../code/NullPointer/null.rs}
+%\end{frame}
 
 \begin{frame}
     \frametitle{Type initialization}
-    In C una variabile non inizializzata assume il valore contenuto nel suo address space, in altri linguaggi si usa un valore speciale \texttt{NULL}.
-    In \textit{GCC} un puntatore a \texttt{NULL} punta alla locazione 0 che è però riservata, per questo in Rust non si ha il tipo polimorfo \textcode{Option<T>} che può assumere \textcode{Some<T>} o \textcode{None}.
-
+    \lstinputlisting[language=c]{../../code/NullPointer/null.c}
     \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont, lastline=6]{../../code/NullPointer/null.rs}
 \end{frame}
 
+%\begin{frame}
+%    \frametitle{Immutability}
+%    In Rust è possibile definire sia delle costanti tramite la parola chiave \textcode{const} che delle variabili, di default immutabili.
+
+%    Anche in C esistono le costanti ma è possibile modificarne il valore dereferenziandone un puntatore all'interno di programmi concorrenti. 
+%    Un programma del genere di norma viene interrotto dal sistema operativo.
+%\end{frame}
+
 \begin{frame}
     \frametitle{Immutability}
-    In Rust è possibile definire sia delle costanti tramite la parola chiave \textcode{const} che delle variabili, di default immutabili.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{Variabili}
+            \begin{itemize}
+                \item Si dichiarano con \textcode{let}.
+                \item Possono essere modificate.
+                \item Lifetime generico.
+            \end{itemize}
+        \end{column}
 
-    Anche in C esistono le costanti ma è possibile modificarne il valore dereferenziandone un puntatore all'interno di programmi concorrenti. 
-    Un programma del genere di norma viene interrotto dal sistema operativo.
-    
+        \begin{column}{0.5\textwidth}
+            \textbf{Costanti}
+            \begin{itemize}
+                \item Si dichiarano con \textcode{const}.
+                \item Immutabili.
+                \item Lifetime \textcode{'static}.
+            \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
