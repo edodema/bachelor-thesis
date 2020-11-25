@@ -135,22 +135,26 @@
 
 \begin{frame}
     \frametitle{Lifetime}
-    %In Rust valgono le tre seguenti regole assiomatiche:
     \begin{itemize}
         \item \textbf{Association}. Lo scope di un riferimento è sottoinsieme del suo lifetime. 
         \item \textbf{Reference}. Il lifetime associato ad un riferimento è sottoinsieme dello scope dell'oggetto cui fa riferimento.  
         \item \textbf{Assignment}. Il lifetime associato ad un riferimento è sottoinsieme del lifetime dell'oggetto cui fa riferimento.
     \end{itemize}
+    e se ne può derivare:
+    \begin{itemize}
+        \item Data una struct il lifetime associato ad un suo riferimento è sottoinsieme del lifetime del membro della struct. 
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Sicurezza di un linguaggio}
-    La \textbf{TCB} può essere scomposta in: 
+    La \textbf{trusted computed base (TCB)} è la totalità delle componenti che vanno a definire la sicurezza di un sistema, è composta da: 
     \begin{itemize}
         \item Access control.
         \item Information flow.
     \end{itemize}
-    %Il sistema operativo esegue questi controlli e vengono bloccati alcuni programmi che in C sono legali. 
+    %Il sistema operativo esegue dei controlli e può capitare che interrompa programmi che in C sono legali.
+    Questi controlli vengono eseguiti da Rust a tempo di compilazione.
     %Internet ha reso semplice la condivisione dello stesso codice su macchine con sistemi operativi differenti, per questo la sicurezza è stata implementata direttamente nel linguaggio, come in Rust.
 \end{frame}
 
@@ -165,17 +169,18 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Sicurezza in Rust}
-    \begin{enumerate}
-        \item I meccanismi di sicurezza in Rust sono modellati sulla \textbf{logica lineare}.
-        \item La sicurezza in Rust è divisa concettualmente in  \textbf{memory safety} e \textbf{type safety}.
-    \end{enumerate} 
-\end{frame}
+%\begin{frame}
+%    \frametitle{Sicurezza in Rust}
+%    \begin{enumerate}
+%        \item I meccanismi di sicurezza in Rust sono modellati su un sistema di tipi lineare. 
+%        È basato sulla \textbf{logica lineare} di Girard la quale permette di ragionare sul consumo di risorse.
+%        \item La sicurezza in Rust è divisa concettualmente in  \textbf{memory safety} e \textbf{type safety}, sono strettamente collegate tra loro e risulta difficile definirne i confini.
+%    \end{enumerate} 
+%\end{frame}
 
 \begin{frame}
     \frametitle{Sistema di tipi substrutturale}
-    %Un sistema di tipi è detto \textbf{substrutturale} quando almeno una delle tre regole \textbf{strutturali} non è valida:
+    Un sistema di tipi è \textbf{substrutturale} quando non è valida una delle regole \textbf{strutturali}:
     \begin{itemize}
         \item \textbf{Exchange}. L'ordine degli elementi in un'ipotesi o conclusione è irrilevante. 
         \item \textbf{Weakening}. Ipotesi e conclusione possono essere estese con affermazioni superflue. 
@@ -185,7 +190,7 @@
 
 \begin{frame}
     \frametitle{Sistema di tipi lineare}
-    %Un sistema si dice lineare quando è valida solo exchange, valgono due invarianti:
+    Le logiche substrutturali permettono di ragionare in termini di consumo di risorse, in un sistema di tipi lineare valgono due invarianti:
     \begin{itemize}
         \item Le variabili lineari sono usate esattamente una volta.
         \item Espressioni meno restrittive non possono contenere espressioni più restrittive.
@@ -194,8 +199,9 @@
 
 \begin{frame}
     \frametitle{Memory Safety}
-    %Si parla di memory safety quando in un programma nessuna entità esce fuori dal proprio \textbf{address space}. 
-    %È definito dall'allocazione, ne considereremo tre tipi:
+    Un programma si dice memory safe quando nessuna entità esce dal suo \textbf{address space}.
+    
+    L'allocazione di memoria può avvenire in più modi:
     \begin{itemize}
         \item Allocazione statica.
         \item Allocazione dinamica.
@@ -235,6 +241,7 @@
 \begin{frame}
     \frametitle{Double free}
     \lstinputlisting[language=c, basicstyle=\fontsize{8}{9}\selectfont]{../../code/DoubleFree/double_simple.c}
+    \lstinputlisting[language=Rust, basicstyle=\fontsize{8}{9}\selectfont]{../../code/DoubleFree/double_simple.rs}
 \end{frame}
 
 %\begin{frame}
