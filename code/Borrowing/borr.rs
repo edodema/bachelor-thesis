@@ -9,5 +9,4 @@ fn main() {
     println!("b: {}", b); // "b: 13" 
     borrow(b); // "c: 13"
     println!("a: {}", a); // "a: 13" 
-
 }
