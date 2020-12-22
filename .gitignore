@@ -1,0 +1,11 @@
+# Special files
+.DS_Store
+
+# Code
+bin/
+output/
+
+# Latex
+main.*
+!main.pdf
+tex/*/images/
