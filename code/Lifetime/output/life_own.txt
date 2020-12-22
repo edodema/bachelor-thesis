@@ -1,3 +1,0 @@
-$ rustc life_own.rs -o ./bin/life_own_rs
-$ ./bin/life_own_rs
-12

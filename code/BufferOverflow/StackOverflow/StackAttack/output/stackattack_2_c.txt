@@ -1,3 +1,0 @@
-warning: this program uses gets(), which is unsafe.
-EVILINPUTVALUE
-str1:TVALUE, str2:EVILINPUTVALUE, valid:0

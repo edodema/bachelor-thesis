@@ -1,2 +1,0 @@
-classe A
-classe B

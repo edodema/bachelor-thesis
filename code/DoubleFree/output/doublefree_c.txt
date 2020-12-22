@@ -1,4 +1,0 @@
-Guido: [self: 0x7f9f72c05a30, name: Guido]
-Luisa: [self: 0x7f9f72c05a30, name: Luisa]
-Carla: [self: 0x7f9f72c05a30, name: Carla]
-Luisa: [self: 0x7f9f72c05a30, name: Carla]

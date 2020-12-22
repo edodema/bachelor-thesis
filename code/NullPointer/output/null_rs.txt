@@ -1,2 +1,0 @@
-Non si ha alcun valore
-Si ha il valore 42

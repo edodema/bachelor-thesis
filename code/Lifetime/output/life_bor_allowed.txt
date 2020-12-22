@@ -1,5 +1,0 @@
-$ rustc life_bor_allowed.rs -o ./bin/life_bor_allowed_rs
-$ ./bin/life_bor_allowed_rs
-inner y: 12
-inner x: 12
-outer x: 12

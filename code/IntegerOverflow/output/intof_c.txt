@@ -1,2 +1,0 @@
-$ ./bin/intof_c  
-32 bit architecture.
