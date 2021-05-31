@@ -1,19 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{redox}
-Redox.
-\newblock Available from: \url{https://www.redox-os.org/}.
-
-\bibitem{tor}
-Rust in {T}or.
-\newblock Available from:
-  \url{https://trac.torproject.org/projects/tor/wiki/RustInTor}.
-
-\bibitem{cve:rust}
-{R}ust vulnerability statistics.
-\newblock Available from:
-  \url{https://www.cvedetails.com/product/48677/Rust-lang-Rust.html?vendor_id=19029}.
-
 \bibitem{stack_smashing_ffp}
 \textsc{{Aleph One}}.
 \newblock Smashing the stack for fun and profit.
@@ -30,6 +16,11 @@ Rust in {T}or.
 \newblock Dispense del corso linguaggi di programmazione (2019).
 \newblock Available from:
   \url{http://wwwusers.di.uniroma1.it/~lpara/DISPENSE/note.pdf}.
+
+\bibitem{cve:rust}
+{R}ust vulnerability statistics.
+\newblock Available from:
+  \url{https://www.cvedetails.com/product/48677/Rust-lang-Rust.html?vendor_id=19029}.
 
 \bibitem{rust:auth}
 \textsc{docs.rs}.
@@ -103,6 +94,10 @@ rust-lang/rfcs.
 Pypl popularity of programming language (2020).
 \newblock Available from: \url{http://pypl.github.io/PYPL.html}.
 
+\bibitem{redox}
+Redox.
+\newblock Available from: \url{https://www.redox-os.org/}.
+
 \bibitem{rust:syntax}
 \textsc{rust lang}.
 \newblock parser-lalr.y.
@@ -149,6 +144,11 @@ The {R}ust reference (2020).
 \bibitem{tiobe:index}
 Tiobe programming community index (2020).
 \newblock Available from: \url{https://www.tiobe.com/tiobe-index/}.
+
+\bibitem{tor}
+Rust in {T}or.
+\newblock Available from:
+  \url{https://trac.torproject.org/projects/tor/wiki/RustInTor}.
 
 \bibitem{walker:linear_logic}
 \textsc{Walker, D.}

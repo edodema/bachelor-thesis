@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2020)
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: sapthesis.bst
@@ -8,25 +8,22 @@ Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: main.bib
-Warning--to sort, need author or key in redox
-Warning--to sort, need author or key in tor
-Warning--to sort, need author or key in cve:rust
 You've used 29 entries,
             3472 wiz_defined-function locations,
             836 strings with 9145 characters,
-and the built_in function-call counts, 10747 in all, are:
+and the built_in function-call counts, 10744 in all, are:
 = -- 953
 > -- 209
 < -- 1
 + -- 107
 - -- 56
-* -- 444
+* -- 441
 := -- 1277
 add.period$ -- 83
 call.type$ -- 29
-change.case$ -- 122
+change.case$ -- 125
 chr.to.int$ -- 0
-cite$ -- 32
+cite$ -- 29
 duplicate$ -- 702
 empty$ -- 1211
 format.name$ -- 60
@@ -36,11 +33,11 @@ int.to.str$ -- 29
 missing$ -- 141
 newline$ -- 143
 num.names$ -- 40
-pop$ -- 490
+pop$ -- 487
 preamble$ -- 1
-purify$ -- 92
+purify$ -- 95
 quote$ -- 0
-skip$ -- 741
+skip$ -- 744
 stack$ -- 0
 substring$ -- 209
 swap$ -- 353
@@ -48,8 +45,7 @@ text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 112
-warning$ -- 3
+warning$ -- 0
 while$ -- 47
 width$ -- 31
 write$ -- 278
-(There were 3 warnings)
